@@ -1,0 +1,11 @@
+<h1>Unsere Seminare</h1>
+
+<% @seminar_instances.each do |s| %>
+  <%= s.name %>
+  <br>
+  <%= s.description %>
+  <br>
+  <%= s.seminar_type.name %>
+  <br>
+  <hr>
+<% end %>
