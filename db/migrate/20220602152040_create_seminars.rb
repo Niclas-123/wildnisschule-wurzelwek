@@ -4,8 +4,8 @@ class CreateSeminars < ActiveRecord::Migration[7.0]
 
       t.references :location
       t.references :seminar_instance
-      t.datetime :begins
-      t.datetime :ends
+      t.datetime :start_date
+      t.datetime :end_date
 
       t.timestamps
     end

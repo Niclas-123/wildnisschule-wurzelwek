@@ -1,6 +1,7 @@
 class SeminarInstancesController < ApplicationController
   before_action :set_seminar_instance, only: %i[show edit update]
   before_action :set_seminar_type, only: %i[show edit update index]
+  before_action :set_seminar, only: %i[show]
 
   def new
     @seminar_instance = SeminarInstance.new
@@ -32,6 +33,10 @@ private
 
   def set_seminar_type
     @seminar_type = SeminarType.find(params[:seminar_type_id])
+  end
+
+  def set_seminar
+    @seminars = Seminar.where(seminar_instance: @seminar_instance)
   end
 
   def seminar_instance_params

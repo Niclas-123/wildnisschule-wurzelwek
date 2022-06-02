@@ -42,8 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152040) do
   create_table "seminars", force: :cascade do |t|
     t.bigint "location_id"
     t.bigint "seminar_instance_id"
-    t.datetime "begins"
-    t.datetime "ends"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_seminars_on_location_id"
