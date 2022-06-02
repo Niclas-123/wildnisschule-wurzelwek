@@ -10,7 +10,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
+
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+
+    <main class="main-container">
+      <%= yield %>
+    </main>
+
+    <footer>
+    </footer>
   </body>
 </html>

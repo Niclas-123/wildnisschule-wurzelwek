@@ -1,0 +1,13 @@
+@mixin breakpointDesktop() {
+  @media only screen and (min-width: 56.5625rem) {
+    //905px
+    @content;
+  }
+}
+
+@mixin breakpointMobile() {
+  @media only screen and (max-width: 56.5625rem) {
+    // 905px
+    @content;
+  }
+}

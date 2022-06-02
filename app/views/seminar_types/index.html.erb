@@ -1,0 +1,9 @@
+<h1>Unsere Seminare</h1>
+
+<% @seminar_types.each do |s| %>
+  <%= link_to s.name, seminar_type_seminar_instances_path(s) %>
+  <br>
+  <%= s.description %>
+  <br>
+  <hr>
+<% end %>

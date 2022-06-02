@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root "pages#home"
 
-  resources :seminar_types, :locations
-  resources :seminar_instances do
-    resources :seminars
+  get "/ueber-ines", to: "pages#ines"
+
+  resources :locations
+  resources :seminar_types do
+    resources :seminar_instances do
+      resources :seminars
+    end
   end
 end

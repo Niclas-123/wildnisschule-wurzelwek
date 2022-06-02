@@ -1,0 +1,28 @@
+.navigation {
+  text-transform: uppercase;
+  font-size: var(--step-0);
+  padding: 20px 0;
+  font-weight: 100;
+  color: white;
+  background-color: black;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .nav-item-mobile {
+      display: none;
+    }
+  }
+
+  @include breakpointMobile() {
+    ul {
+      gap: 3%;
+    }
+  }
+}

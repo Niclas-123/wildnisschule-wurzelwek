@@ -1,7 +1,7 @@
-<h1>Unsere Seminare</h1>
+<h1><%= @seminar_type.name %></h1>
 
 <% @seminar_instances.each do |s| %>
-  <%= s.name %>
+  <%= link_to s.name, seminar_type_seminar_instance_path(params[:seminar_type_id], s) %>
   <br>
   <%= s.description %>
   <br>
