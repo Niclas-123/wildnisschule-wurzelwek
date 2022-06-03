@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :locations
   resources :seminar_types do
     resources :seminar_instances do
-      resources :seminars
+      resources :seminars do
+        resources :bookings
+      end
     end
   end
 end

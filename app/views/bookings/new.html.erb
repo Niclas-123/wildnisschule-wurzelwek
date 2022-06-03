@@ -1,0 +1,42 @@
+<h1>Jetzt Buchen :) </h1>
+
+<%= form_for [@seminar_type, @seminar_instance, @seminar, @booking] do |f| %>
+  <div class="form-container">
+    <div class="form-container__group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :birthday %>
+      <%= f.date_field :first_name %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :adress %>
+      <%= f.text_field :adress %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :zip_code %>
+      <%= f.number_field :zip_code %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :tel %>
+      <%= f.text_field :tel %>
+    </div class="form-container__group">
+
+    <%= f.submit "Book now", class: "button-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+.button-primary {
+  padding: var(--space-2xs) var(--space-m);
+  background-color: var(--primary);
+  display: inline-block;
+}
+
+.form-container {
+  max-width: 800px;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--space-xs);
+  }
+
+  .button-primary {
+    margin-top: var(--space-xs);
+  }
+}
