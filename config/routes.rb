@@ -3,7 +3,15 @@ Rails.application.routes.draw do
 
   get "/ueber-ines", to: "pages#ines"
 
-  resources :locations
+  resources :locations, :users
+
+  get '/sign_up', to: 'users#new', as: :sign_up
+
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/log_in', to: 'sessions#new', as: :log_in
+  get '/log_out', to: 'sessions#destroy', as: :log_out
+
+
   resources :seminar_types do
     resources :seminar_instances do
       resources :seminars do

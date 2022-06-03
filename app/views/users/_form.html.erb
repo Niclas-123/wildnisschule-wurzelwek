@@ -1,0 +1,25 @@
+<%= form_with(model: @user) do |f| %>
+  <div class="form-container">
+    <div class="form-container__group">
+      <%= f.label :username %>
+      <%= f.text_field :username, required: true %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :email %>
+      <%= f.email_field :email, required: true %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :password %>
+      <%= f.password_field :password, required: true %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, required: true %>
+    </div>
+
+    <%= f.submit "Update", class: "button-primary" %>
+  </div>
+<% end %>

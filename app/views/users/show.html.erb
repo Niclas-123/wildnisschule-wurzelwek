@@ -1,0 +1,46 @@
+<h1>Das ist dein Profil :)</h1>
+
+<% if current_user.admin? %>
+  <h2>Seminare</h2>
+
+  <% @seminars.order('seminars.start_date asc').each do |s| %>
+    <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d %Y") %></h3>
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th><p>Teilnehmer</p></th>
+            <th><p>email</p></th>
+            <th><p>bezahlt?</p></th>
+            <th> ... </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for b in Booking.where(seminar: s) do %>
+            <tr>
+              <td>
+                <p><%= b.first_name %><%= b.last_name %></p>
+              </td>
+              <td>
+                <p><%= b.email %></p>
+              </td>
+              <td>
+                <p> Ja </p>
+              </td>
+              <td>
+                <p> Hier mehr Infos </p>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+<% end %>
+
+
+<%= link_to "Profil editieren", edit_user_path(current_user), class: "button-primary" %>
+<%= link_to "Log Out", log_out_path, method: :delete, class: "button-primary" %>
+
+

@@ -1,0 +1,22 @@
+.table {
+
+  p {
+    line-height: normal;
+  }
+
+  table, th, td {
+    border: 1px solid;
+  }
+
+
+  td, th {
+    width: 200px;
+    padding: 0 10px;
+  }
+
+  td {
+    p {
+      font-size: var(--space-xs);
+    }
+  }
+}
