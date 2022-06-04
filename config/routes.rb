@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   get "/ueber-ines", to: "pages#ines"
+  get "/ueber-wildnisschule-wurzelholz", to: "pages#wurzelholz"
 
   resources :locations, :users
 

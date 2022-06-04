@@ -1,8 +1,21 @@
-<div class="navigation">
-  <ul>
+<div class="navigation-container">
+  <ul class="navigation-container__navigation">
     <li><%= link_to "Home",  root_path%></li>
-    <li><%= link_to "Angebot", seminar_types_path %></li>
-    <li><%= link_to "Über Ines", ueber_ines_path %></li>
+    <div class="dropdown-container">
+      <li class="dropdown-toggle"><%= link_to "Angebot", seminar_types_path %></li>
+      <ul class="dropdown-content">
+        <li><%= link_to "Fortbildungen", seminar_type_seminar_instances_path(SeminarType.where(name: "Fortbildungen").first) %></li>
+        <li><%= link_to "Übergangsrituale", seminar_type_seminar_instances_path(SeminarType.where(name: "Übergangsrituale").first) %></li>
+        <li><%= link_to "Wanderungen", seminar_type_seminar_instances_path(SeminarType.where(name: "Wanderungen").first) %></li>
+      </ul>
+    </div>
+    <div class=dropdown-container>
+      <li class="dropdown-toggle">Company</li>
+      <ul class="dropdown-content">
+        <li><%= link_to "Über Ines", ueber_ines_path %></li>
+        <li><%= link_to "Über die Schule", ueber_wildnisschule_wurzelholz_path %></li>
+      </ul>
+    </div>
     <% if current_user %>
       <li><%= link_to "Profil", user_path(current_user) %></li>
     <% end %>

@@ -1,28 +1,48 @@
-.navigation {
+.navigation-container {
   text-transform: uppercase;
   font-size: var(--step-0);
   padding: 20px 0;
   font-weight: 100;
   color: white;
   background-color: black;
+  position: relative;
 
   ul {
-    display: flex;
-    justify-content: center;
-    gap: 5%;
-
     list-style: none;
     padding: 0;
     margin: 0;
-
-    .nav-item-mobile {
-      display: none;
-    }
   }
 
-  @include breakpointMobile() {
-    ul {
-      gap: 3%;
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+  }
+
+  .dropdown-container {
+    position: relative;
+
+    :hover + .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      display: none;
+      white-space: nowrap;
+      top: 100%;
+      padding: var(--space-2xs);
+      background-color: black;
+      color: white;
+
+      li {
+        position: relative;
+        z-index: 5;
+      }
+    }
+
+    .dropdown-content:hover {
+      display: block;
     }
   }
 }

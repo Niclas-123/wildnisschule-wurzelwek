@@ -6,4 +6,7 @@ class PagesController < ApplicationController
   def ines
   end
 
+  def wurzelholz
+  end
+
 end
