@@ -5,8 +5,15 @@ class SorceryCore < ActiveRecord::Migration[7.0]
       t.string :crypted_password
       t.string :salt
 
-      t.string :username
-      t.boolean :admin
+      t.string :first_name
+      t.string :last_name
+      t.string :tel
+      t.datetime :birthday
+
+      t.string :adress
+      t.integer :zip_code
+
+      t.boolean :admin, default: false
 
       t.timestamps                null: false
     end

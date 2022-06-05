@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[]
-  before_action :set_seminar, only: %i[new create]
-  before_action :set_seminar_instance, only: %i[new create]
-  before_action :set_seminar_type, only: %i[new create]
+  before_action :set_seminar, only: %i[new create account_abfrage]
+  before_action :set_seminar_instance, only: %i[new create account_abfrage]
+  before_action :set_seminar_type, only: %i[new create account_abfrage]
 
   def new
     @booking = Booking.new
@@ -17,7 +17,11 @@ class BookingsController < ApplicationController
     end
   end
 
-
+  def account_abfrage
+    if current_user
+      redirect_to new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
+    end
+  end
 
 private
 

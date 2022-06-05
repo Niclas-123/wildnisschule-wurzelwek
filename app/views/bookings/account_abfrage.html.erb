@@ -1,0 +1,4 @@
+<p>Möchtest du dich anmelden / einen Account erstellen oder als Gast fortfahren?</p>
+<%= link_to 'Anmelden', log_in_path(seminar: @seminar.id), class: "button-primary" %>
+<%= link_to 'Account erstellen', new_user_path(seminar: @seminar.id), class: "button-primary"%>
+<%= link_to 'Als Gast buchen', new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar), class: "button-primary" %>

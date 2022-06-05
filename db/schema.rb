@@ -94,7 +94,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_104648) do
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
-    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "tel"
+    t.datetime "birthday"
+    t.string "adress"
+    t.integer "zip_code"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,6 +1,6 @@
 <h1>Gästebuch</h1>
 <% @guestbook_entries.each do |g| %>
-  <%= g.user.username %>
+  <%= g.user.first_name %>
   <%= g.created_at.strftime("%m.%d %Y") %>
   <%= g.content %>
   <hr>

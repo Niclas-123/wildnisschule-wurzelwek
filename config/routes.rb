@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :seminar_instances do
       resources :seminars do
         resources :bookings
+        get '/account_abfrage', to: 'bookings#account_abfrage'
       end
     end
   end

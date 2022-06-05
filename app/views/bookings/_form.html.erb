@@ -1,0 +1,42 @@
+<%= render 'shared/errors', obj: @booking %>
+
+<%= form_for [@seminar_type, @seminar_instance, @seminar, @booking] do |f| %>
+  <div class="form-container">
+    <div class="form-container__group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, value: current_user.first_name if current_user %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, value: current_user.last_name if current_user %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday, value: current_user.birthday if current_user %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :adress %>
+      <%= f.text_field :adress, value: current_user.adress if current_user %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :zip_code %>
+      <%= f.number_field :zip_code, value: current_user.zip_code if current_user %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :email %>
+      <%= f.text_field :email, value: current_user.email if current_user %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :tel %>
+      <%= f.text_field :tel, value: current_user.tel if current_user %>
+    </div class="form-container__group">
+
+    <%= f.submit "Book now", class: "button-primary" %>
+  </div>
+<% end %>
