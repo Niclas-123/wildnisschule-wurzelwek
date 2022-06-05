@@ -1,12 +1,13 @@
-<h1><%= @seminar_instance.name %>e</h1>
+<h1><%= @seminar_instance.name %></h1>
 <%= @seminar_instance.description %>
 <br>
 <%= link_to "edit", edit_seminar_type_seminar_instance_path, class: "button-primary" %>
+<%= link_to "Ausrüstungsliste", equipment_list_path(@seminar_instance.equipment_list), class: "button-primary" %>
 
 <h2>Termine</h2>
 
 <% @seminars.each do |s| %>
-  <%= link_to s.start_date.strftime("%m.%d %Y"), seminar_type_seminar_instance_seminar_path(@seminar_type, @seminar_instance, s) %>:
-  <%= s.location.name  %>
+  <%= s.start_date.strftime("%m.%d %Y") %>:
+  <%= link_to s.location.name, location_path(s.location)  %>
   <%= link_to "Jetzt buchen", new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, s), class: "button-primary" %>
 <% end %>

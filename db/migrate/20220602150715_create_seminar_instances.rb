@@ -3,6 +3,7 @@ class CreateSeminarInstances < ActiveRecord::Migration[7.0]
     create_table :seminar_instances do |t|
 
       t.references :seminar_type
+      t.references :equipment_list
       t.string :name
       t.text :description
       t.integer :price

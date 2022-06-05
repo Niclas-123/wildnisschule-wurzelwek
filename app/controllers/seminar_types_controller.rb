@@ -9,7 +9,7 @@ class SeminarTypesController < ApplicationController
   end
 
   def update
-    if @seminar_typee.update(seminar_type_params)
+    if @seminar_type.update(seminar_type_params)
       redirect_to seminar_type_path, notice: "Du hast den Seminar-typ erfolgreich editiert"
     else
       render :edit, status: :unprocessable_entity

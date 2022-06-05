@@ -19,7 +19,7 @@ class SeminarInstancesController < ApplicationController
 
   def update
     if @seminar_instance.update(seminar_instance_params)
-      redirect_to seminar_instance_url(@seminar_instance), notice: "Du hast dein Seminar erfolgreich editiert"
+      redirect_to seminar_type_seminar_instance_url(@seminar_type, @seminar_instance), notice: "Du hast dein Seminar erfolgreich editiert"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,5 +42,4 @@ private
   def seminar_instance_params
     params.require(:seminar_instance).permit(:name, :description, :price, :seminar_type)
   end
-
 end

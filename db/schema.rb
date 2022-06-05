@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_03_094100) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_05_085546) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,21 +28,37 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_094100) do
     t.index ["seminar_id"], name: "index_bookings_on_seminar_id"
   end
 
+  create_table "equipment_lists", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.integer "latitude"
     t.integer "longitute"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "seminar_instances", force: :cascade do |t|
     t.bigint "seminar_type_id"
+    t.bigint "equipment_list_id"
     t.string "name"
     t.text "description"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["equipment_list_id"], name: "index_seminar_instances_on_equipment_list_id"
     t.index ["seminar_type_id"], name: "index_seminar_instances_on_seminar_type_id"
   end
 

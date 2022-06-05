@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/ueber-ines", to: "pages#ines"
   get "/ueber-wildnisschule-wurzelholz", to: "pages#wurzelholz"
 
-  resources :locations, :users
+  resources :locations, :users, :equipment_lists, :posts
 
   get '/sign_up', to: 'users#new', as: :sign_up
 
