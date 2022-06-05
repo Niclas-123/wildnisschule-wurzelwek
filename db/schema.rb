@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_05_085546) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_05_104648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_085546) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "guestbook_entries", force: :cascade do |t|
+    t.bigint "seminar_instance_id"
+    t.bigint "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seminar_instance_id"], name: "index_guestbook_entries_on_seminar_instance_id"
+    t.index ["user_id"], name: "index_guestbook_entries_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -84,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_05_085546) do
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
+    t.string "username"
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

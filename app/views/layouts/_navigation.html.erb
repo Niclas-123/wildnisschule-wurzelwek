@@ -7,6 +7,7 @@
         <% SeminarType.all.each do |s| %>
           <li><%= link_to s.name, seminar_type_seminar_instances_path(s) %></li>
         <% end %>
+        <li><%= link_to "Infos", seminar_infos_path  %></li>
       </ul>
     </div>
     <div class=dropdown-container>
@@ -15,8 +16,10 @@
         <li><%= link_to "Über Ines", ueber_ines_path %></li>
         <li><%= link_to "Über die Schule", ueber_wildnisschule_wurzelholz_path %></li>
         <li><%= link_to "Blog", posts_path %></li>
+        <li><%= link_to "Gästebuch", guestbook_entries_path %></li>
       </ul>
     </div>
+    <li><%= link_to "Gallerie", gallerie_path %></li>
     <% if current_user %>
       <li><%= link_to "Profil", user_path(current_user) %></li>
     <% end %>

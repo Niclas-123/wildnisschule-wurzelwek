@@ -9,4 +9,10 @@ class PagesController < ApplicationController
   def wurzelholz
   end
 
+  def seminar_infos
+  end
+
+  def gallerie
+  end
+
 end

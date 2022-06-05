@@ -1,0 +1,22 @@
+<%= render 'shared/errors', obj: @guestbook_entry %>
+
+<%= form_for [@guestbook_entry] do |f| %>
+  <div class="form-container">
+
+    <%= fields_for :guestbook_entry do |ab| %>
+      <div class="form-container__group">
+        <%= ab.label "Für welches Seminar möchtest du deinen Eintrag schreiben?" %>
+        <br>
+        <%= ab.select :seminar_instance_id, SeminarInstance.all.map { |s| [s.name, s.id] } %>
+      </div>
+    <% end %>
+
+    <div class="form-container__group">
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+
+    <%= f.submit "absenden", class: "button-primary"%>
+  </div>
+
+<% end %>

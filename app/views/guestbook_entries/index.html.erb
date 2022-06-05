@@ -1,0 +1,8 @@
+<h1>Gästebuch</h1>
+<% @guestbook_entries.each do |g| %>
+  <%= g.user.username %>
+  <%= g.created_at.strftime("%m.%d %Y") %>
+  <%= g.content %>
+  <hr>
+<% end %>
+<%= link_to "Neuen Eintrag verfassen", new_guestbook_entry_path, class: "button-primary" %>

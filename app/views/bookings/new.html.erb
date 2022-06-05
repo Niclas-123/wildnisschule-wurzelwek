@@ -1,5 +1,7 @@
 <h1>Jetzt Buchen :) </h1>
 
+<%= render 'shared/errors', obj: @booking %>
+
 <%= form_for [@seminar_type, @seminar_instance, @seminar, @booking] do |f| %>
   <div class="form-container">
     <div class="form-container__group">
