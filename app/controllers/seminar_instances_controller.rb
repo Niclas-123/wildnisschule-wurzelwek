@@ -8,13 +8,10 @@ class SeminarInstancesController < ApplicationController
   end
 
   def index
-    @seminar_instances = SeminarInstance.where(seminar_type_id: params[:seminar_type_id])
+    @seminar_instances = SeminarInstance.where(seminar_type: @seminar_type)
   end
 
   def show
-  end
-
-  def edit
   end
 
   def update
@@ -28,11 +25,11 @@ class SeminarInstancesController < ApplicationController
 private
 
   def set_seminar_instance
-    @seminar_instance = SeminarInstance.find(params[:id])
+    @seminar_instance = SeminarInstance.friendly.find(params[:id])
   end
 
   def set_seminar_type
-    @seminar_type = SeminarType.find(params[:seminar_type_id])
+    @seminar_type = SeminarType.friendly.find(params[:seminar_type_id])
   end
 
   def set_seminars

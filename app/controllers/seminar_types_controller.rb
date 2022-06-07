@@ -19,7 +19,7 @@ class SeminarTypesController < ApplicationController
 private
 
   def set_seminar_type
-    @seminar_type = SeminarType.find(params[:id])
+    @seminar_type = SeminarType.friendly.find(params[:id])
   end
 
   def seminar_type_params

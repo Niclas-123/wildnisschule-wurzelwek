@@ -30,15 +30,15 @@ private
   end
 
   def set_seminar
-    @seminar = Seminar.find(params[:seminar_id])
+    @seminar = Seminar.friendly.find(params[:seminar_id])
   end
 
   def set_seminar_instance
-    @seminar_instance = SeminarInstance.find(params[:seminar_instance_id])
+    @seminar_instance = SeminarInstance.friendly.find(params[:seminar_instance_id])
   end
 
   def set_seminar_type
-    @seminar_type = SeminarType.find(params[:seminar_type_id])
+    @seminar_type = SeminarType.friendly.find(params[:seminar_type_id])
   end
 
   def booking_params
