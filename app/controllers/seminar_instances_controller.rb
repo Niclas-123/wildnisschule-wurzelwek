@@ -5,6 +5,7 @@ class SeminarInstancesController < ApplicationController
 
   def new
     @seminar_instance = SeminarInstance.new
+    authorize! :new, @seminar_instance
   end
 
   def index
@@ -15,6 +16,7 @@ class SeminarInstancesController < ApplicationController
   end
 
   def update
+    authorize! :update, @seminar_instance
     if @seminar_instance.update(seminar_instance_params)
       redirect_to seminar_type_seminar_instance_url(@seminar_type, @seminar_instance), notice: "Du hast dein Seminar erfolgreich editiert"
     else

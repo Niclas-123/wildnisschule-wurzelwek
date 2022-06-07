@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_booking, only: %i[]
   before_action :set_seminar, only: %i[new create account_abfrage]
   before_action :set_seminar_instance, only: %i[new create account_abfrage]

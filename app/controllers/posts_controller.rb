@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_post, only: %i[show]
+
+  def edit
+  end
 
   def index
     @posts = Post.all

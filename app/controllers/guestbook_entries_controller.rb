@@ -1,4 +1,5 @@
 class GuestbookEntriesController < ApplicationController
+  load_and_authorize_resource
 
   def index
     @guestbook_entries = GuestbookEntry.all

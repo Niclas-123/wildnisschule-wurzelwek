@@ -1,4 +1,6 @@
 class SeminarTypesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_seminar_type, only: %i[show edit update]
 
   def index

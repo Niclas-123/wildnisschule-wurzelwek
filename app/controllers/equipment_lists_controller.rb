@@ -1,4 +1,6 @@
 class EquipmentListsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_equipment_list, only: %i[show]
 
   def show
