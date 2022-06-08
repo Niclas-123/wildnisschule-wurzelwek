@@ -2,6 +2,8 @@
 
   <% @seminars.order('seminars.start_date asc').each do |s| %>
     <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y") %></h3>
+    <% @emails = s.bookings.pluck(:email).uniq.to_s.tr("[]\"", '') %>
+    <%= mail_to(@emails, name = "Send Mail", class: "button-primary") %>
     <div class="table">
       <table>
         <thead>
@@ -19,7 +21,7 @@
                 <p><%= b.first_name %><%= b.last_name %></p>
               </td>
               <td>
-                <p><%= b.email %></p>
+                <p><%= mail_to(b.email) %></p>
               </td>
               <td>
                 <p> Ja </p>
