@@ -13,6 +13,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
+      BookingMailer.with(booking: @booking).booking_email_admin.deliver_now
+      BookingMailer.with(booking: @booking).booking_email_customer.deliver_now
       redirect_to root_path, notice: "Du hast dein Seminar erfolgreich gebucht! :)"
     else
       render :new, status: :unprocessable_entity
