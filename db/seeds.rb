@@ -19,9 +19,9 @@ Booking.create(seminar_id: 1, first_name: "Niclas", last_name: "Collmer", email:
 Booking.create(seminar_id: 2, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371")
 Booking.create(seminar_id: 3, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371")
 
-User.create(email: "inescollmer@web.de", password: "fayaprilic123", admin: true, first_name: "Ines", last_name: "Collmer", tel: "017624810363", adress: "Schützenstrasse 9", zip_code: 42799)
+User.create(email: "inescollmer@web.de", password: "fayaprilic123", admin: true, first_name: "Ines", last_name: "Collmer", tel: "017624810363", adress: "Schützenstrasse 9", zip_code: "42799", birth_year: "1966")
 
-User.create(email: "niclascollmer@web.de", password: "collmer123", first_name: "Niclas", last_name: "Collmer", tel: "015781642371", adress: "Schützenstrasse 9", zip_code: 42799)
+User.create(email: "niclascollmer@web.de", password: "collmer123", first_name: "Niclas", last_name: "Collmer", tel: "015781642371", adress: "Schützenstrasse 9", zip_code: "42799", birth_year: "1999")
 
 Post.create(title: "Der Weg der Wurzel", content: "Hier steht ein bisschen text")
 Post.create(title: "Warum die Natur...?", content: "Hier steht ein bisschen text")

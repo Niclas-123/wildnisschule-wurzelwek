@@ -8,10 +8,11 @@ class SorceryCore < ActiveRecord::Migration[7.0]
       t.string :first_name
       t.string :last_name
       t.string :tel
-      t.datetime :birthday
+      t.string :birth_year
 
       t.string :adress
-      t.integer :zip_code
+      t.string :zip_code
+      t.string :city
 
       t.boolean :admin, default: false
 

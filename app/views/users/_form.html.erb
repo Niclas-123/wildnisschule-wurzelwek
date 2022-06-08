@@ -9,7 +9,7 @@
 
     <div class="form-container__group">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= f.text_field :last_name, required: true %>
     </div>
 
     <div class="form-container__group">
@@ -29,22 +29,27 @@
 
     <div class="form-container__group">
       <%= f.label :tel %>
-      <%= f.text_field :tel %>
+      <%= f.text_field :tel, required: true %>
     </div>
 
     <div class="form-container__group">
-      <%= f.label :birthday %>
-      <%= f.date_field :birthday %>
+      <%= f.label :birth_year %>
+      <%= f.text_field :birth_year, required: true %>
     </div>
 
     <div class="form-container__group">
       <%= f.label :adress %>
-      <%= f.text_field :adress %>
+      <%= f.text_field :adress, required: true %>
     </div>
 
     <div class="form-container__group">
       <%= f.label :zip_code %>
-      <%= f.number_field :zip_code %>
+      <%= f.text_field :zip_code, required: true %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :city %>
+      <%= f.text_field :city, required: true %>
     </div>
 
     <% if params.has_key?(:seminar) %>

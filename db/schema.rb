@@ -16,13 +16,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "seminar_id"
+    t.string "email"
     t.string "first_name"
     t.string "last_name"
-    t.datetime "birthday"
-    t.string "adress"
-    t.integer "zip_code"
-    t.string "email"
     t.string "tel"
+    t.string "birth_year"
+    t.string "adress"
+    t.string "zip_code"
+    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["seminar_id"], name: "index_bookings_on_seminar_id"
@@ -114,9 +115,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.string "first_name"
     t.string "last_name"
     t.string "tel"
-    t.datetime "birthday"
+    t.string "birth_year"
     t.string "adress"
-    t.integer "zip_code"
+    t.string "zip_code"
+    t.string "city"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

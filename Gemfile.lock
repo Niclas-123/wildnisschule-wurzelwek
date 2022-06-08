@@ -226,6 +226,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    validates_email_format_of (1.6.3)
+      i18n
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -264,6 +266,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  validates_email_format_of
   web-console
   webdrivers
 

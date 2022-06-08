@@ -51,6 +51,8 @@ gem "friendly_id"
 
 gem "cancancan"
 
+gem "validates_email_format_of"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

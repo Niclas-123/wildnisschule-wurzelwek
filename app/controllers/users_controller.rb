@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         redirect_to root_path
       end
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :birthday, :zip_code, :adress, :tel)
+    params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :birth_year, :zip_code, :adress, :tel, :city)
   end
 
   def set_seminar_for_booking
