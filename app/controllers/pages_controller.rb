@@ -15,4 +15,10 @@ class PagesController < ApplicationController
   def gallerie
   end
 
+  def impressum
+  end
+
+  def datenschutz
+  end
+
 end

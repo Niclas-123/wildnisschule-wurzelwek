@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "/ueber-wildnisschule-wurzelholz", to: "pages#wurzelholz"
   get "/seminar-infos", to: "pages#seminar_infos"
   get "/gallerie", to: "pages#gallerie"
+  get "/impressum", to: "pages#impressum"
+  get "/datenschutz", to: "pages#datenschutz"
 
   #flat models
   resources :locations, path: 'orte'
