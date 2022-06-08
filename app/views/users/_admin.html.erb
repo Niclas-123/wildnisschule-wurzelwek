@@ -3,15 +3,17 @@
   <% @seminars.order('seminars.start_date asc').each do |s| %>
     <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y") %></h3>
     <% @emails = s.bookings.pluck(:email).uniq.to_s.tr("[]\"", '') %>
-    <%= mail_to(@emails, name = "Send Mail", class: "button-primary") %>
+    <%= mail_to(@emails, name = "Mail an alle", class: "button-primary") %>
+
+    <%= link_to "Mail an Fahrer", seminar_type_seminar_instance_seminar_send_mail_path(s.seminar_instance.seminar_type, s.seminar_instance, s), class: "button-primary" %>
     <div class="table">
       <table>
         <thead>
           <tr>
             <th><p>Teilnehmer</p></th>
-            <th><p>email</p></th>
-            <th><p>bezahlt?</p></th>
-            <th> ... </th>
+            <th><p>Email</p></th>
+            <th><p>Bezahlt?</p></th>
+            <th><p>Mitfahrer gesucht? </p></th>
           </tr>
         </thead>
         <tbody>
@@ -24,10 +26,10 @@
                 <p><%= mail_to(b.email) %></p>
               </td>
               <td>
-                <p> Ja </p>
+                <p><%= "Ja" if b.payed %> </p>
               </td>
               <td>
-                <p> Hier mehr Infos </p>
+                <p><%= "Ja" if b.rideshare %></p>
               </td>
             </tr>
           <% end %>

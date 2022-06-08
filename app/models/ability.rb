@@ -9,7 +9,7 @@ class Ability
         can [:create, :read], GuestbookEntry
         can [:update, :destroy], GuestbookEntry, user_id: current_user.id
 
-        can :read, User, id: current_user.id
+        can [:read, :edit, :update], User, id: current_user.id
         can :read, [SeminarInstance, SeminarType, Seminar, EquipmentList, Location, Post]
 
         can :create, Booking

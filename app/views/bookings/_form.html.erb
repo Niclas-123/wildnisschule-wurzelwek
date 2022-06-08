@@ -50,6 +50,16 @@
       <%= f.text_field :tel, required: true unless current_user %>
     </div class="form-container__group">
 
+    <div class="form-container__group">
+      <%= f.label :rideshare %>
+      <%= f.check_box :rideshare  %>
+    </div class="form-container__group">
+
+    <div class="form-container__group">
+      <%= f.label :agb %>
+      <%= f.check_box :agb, required: true  %>
+    </div class="form-container__group">
+
     <%= f.submit "Book now", class: "button-primary" %>
   </div>
 <% end %>

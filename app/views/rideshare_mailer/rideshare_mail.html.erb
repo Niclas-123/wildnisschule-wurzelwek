@@ -1,0 +1,13 @@
+<h2>Hi Zusammen :)</h2>
+<p>
+  Im Anhang findet ihr einmal die Liste und die Adressen derjenigen, die Ihre Daten bei der Anmeldung für die Suche von Mitfahrgelegenheiten freigegeben haben. Falls es sonst irgendwelche Fragen gibt, meldet euch einfach bei mir.
+</p>
+<p>Liebe Grüße,</p>
+<p>Ines</p>
+
+<h3>Liste der Suchenden:</h3>
+<% @riders.each do |r| %>
+  <p>Vorname: <%= r.first_name %></p>
+  <p>Adresse: <%= r.adress %></p>
+  <p>Plz und Ort: <%= r.zip_code %> <% r.city %></p>
+<% end %>

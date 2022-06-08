@@ -6,6 +6,6 @@ class BookingMailer < ApplicationMailer
 
   def booking_email_customer
     @booking = params[:booking];
-    mail(subject: "Buchungsbestätigung", to: @booking.email, from: 'wildnisschule@wurzelwerk.de')
+    mail(subject: "Buchungsbestätigung", to: @booking.email, from: 'wildnisschule@wurzelholz.de')
   end
 end

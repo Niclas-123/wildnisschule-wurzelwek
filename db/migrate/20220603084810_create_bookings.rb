@@ -14,6 +14,10 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.string :zip_code
       t.string :city
 
+      t.boolean :rideshare, default: false
+      t.boolean :agb, default: false
+      t.boolean :payed, default: false
+
       t.timestamps
     end
   end

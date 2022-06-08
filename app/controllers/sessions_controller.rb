@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
         redirect_to user_path(current_user)
       end
     else
-      flash.now[:notice] = 'Die Log-in Daten waren leider falsch.'
-      render 'new'
+      flash.now[:alert] = 'Die Log-in Daten waren leider falsch.'
+      render 'new', status: :unprocessable_entity
     end
   end
 

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :seminar_instances, path: '', except: [:index] do
 
       resources :seminars, path: '', except: :index do
+        get '/send_mail', to: 'seminars#send_mail'
         get '/account_abfrage', to: 'bookings#account_abfrage'
         resources :bookings
       end
