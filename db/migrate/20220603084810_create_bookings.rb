@@ -16,6 +16,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
 
       t.boolean :rideshare, default: false
       t.boolean :agb, default: false
+      t.boolean :privacy, default: false
       t.boolean :payed, default: false
 
       t.timestamps

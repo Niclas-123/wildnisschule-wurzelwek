@@ -4,5 +4,5 @@ class Booking < ApplicationRecord
   validates :email, :first_name, :last_name, :tel, :birth_year, :adress, :zip_code, :city, presence: true
   validates :email, email_format: {message: "Format ist nicht gültig."}
 
-  validates :agb, acceptance: true
+  validates :agb, :privacy, acceptance: true
 end

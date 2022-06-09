@@ -53,15 +53,15 @@
     <div class="form-container__box">
       <p class=form-container__group--label>
         Alle allgemeinen Informationen zu den Seminaren - bspw. Verpflegung - findest du hier:
+        <%= link_to "Infos", seminar_infos_path, target: "_blank" %>
       </p>
-      <%= link_to "Infos", seminar_infos_path, target: "_blank", class: "button-primary" %>
     </div>
 
     <div class="form-container__box">
       <p class=form-container__group--label>
         Die genauen Informationen zum Seminarort kannst du die hier nocheinmal anschauen:
+        <%= link_to @seminar.location.name, location_path(@seminar.location), target: "_blank" %>
       </p>
-      <%= link_to @seminar.location.name, location_path(@seminar.location), target: "_blank", class: "button-primary" %>
     </div>
 
     <div class="form-container__group--checkbox">
@@ -116,6 +116,13 @@
         Durch Verzögerungen im Abruf der Anmeldungen, kann es vorkommen, dass Deine Anmeldung bei uns eingeht, obwohl die maximale TeilnehmerInnenzahl schon erreicht ist. In diesem Fall benachrichtigen wir Dich umgehend. Du kannst Dich dann auf die Warteliste setzen lassen. Wenn ein Platz freigeworden ist, schicken wir Dir eine Email.
       </p>
     </div>
+
+    <div class="form-container__group--checkbox">
+      <p class=form-container__group--label>
+        Ich stimme den <%= link_to "Datenschutzbestimmungen", datenschutz_path, target: "_blank" %> zu.
+      </p>
+      <%= f.check_box :privacy, required: true  %>
+    </div class="form-container__group">
 
     <%= f.submit "Book now", class: "button-primary" %>
   </div>

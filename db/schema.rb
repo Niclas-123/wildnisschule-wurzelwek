@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.string "city"
     t.boolean "rideshare", default: false
     t.boolean "agb", default: false
+    t.boolean "privacy", default: false
     t.boolean "payed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

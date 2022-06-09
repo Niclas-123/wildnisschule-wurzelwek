@@ -7,7 +7,9 @@
 
 <h3>Liste der Suchenden:</h3>
 <% @riders.each do |r| %>
-  <p>Vorname: <%= r.first_name %></p>
+  <p>Name: <%= r.first_name %> <%= r.last_name %></p>
   <p>Adresse: <%= r.adress %></p>
-  <p>Plz und Ort: <%= r.zip_code %> <% r.city %></p>
+  <p>Plz und Ort: <%= r.zip_code %> <%= r.city %></p>
+  <p>Email: <%= mail_to(r.email) %></p>
+  <p>Tel: <%= r.tel %></p>
 <% end %>

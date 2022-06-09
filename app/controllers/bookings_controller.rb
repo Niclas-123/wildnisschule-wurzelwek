@@ -46,7 +46,7 @@ private
   end
 
   def booking_params
-    params.require(:booking).permit(:last_name, :first_name, :birth_year, :adress, :zip_code, :email, :tel, :city, :rideshare, :agb).merge(seminar: @seminar)
+    params.require(:booking).permit(:last_name, :first_name, :birth_year, :adress, :zip_code, :email, :tel, :city, :rideshare, :agb, :privacy).merge(seminar: @seminar)
   end
 
 end

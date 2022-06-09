@@ -15,9 +15,9 @@ Seminar.create(location_id: 1, seminar_instance_id: 1, start_date: "Thu, 02 Jan 
 Seminar.create(location_id: 1, seminar_instance_id: 2, start_date: "Thu, 02 Jun 2023", end_date: "Thu, 03 Jun 2023")
 Seminar.create(location_id: 1, seminar_instance_id: 3, start_date: "Thu, 02 May 2023", end_date: "Thu, 03 May 2023")
 
-Booking.create(seminar_id: 1, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln")
-Booking.create(seminar_id: 2, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln")
-Booking.create(seminar_id: 3, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", payed: true)
+Booking.create(seminar_id: 1, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", privacy: true)
+Booking.create(seminar_id: 2, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", privacy: true)
+Booking.create(seminar_id: 3, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", payed: true, privacy: true)
 
 User.create(email: "inescollmer@web.de", password: "fayaprilic123", admin: true, first_name: "Ines", last_name: "Collmer", tel: "017624810363", adress: "Schützenstrasse 9", zip_code: "42799", birth_year: "1966", city: "Leichlingen")
 User.create(email: "niclascollmer@web.de", password: "collmer123", first_name: "Niclas", last_name: "Collmer", tel: "015781642371", adress: "Schützenstrasse 9", zip_code: "42799", birth_year: "1999", city: "Leichlingen")
