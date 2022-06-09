@@ -1,8 +1,22 @@
 class Booking < ApplicationRecord
+  enum status: { pending: 0, failed: 1, paid: 2, paypal_executed: 3}
+  enum payment_gateway: { stripe: 0, paypal: 1, bank_transfer: 2 }
+
   belongs_to :seminar
+
+  scope :recently_created, ->  { where(created_at: 1.minutes.ago..DateTime.now) }
+
+  def set_paid
+    self.status = Order.statuses[:paid]
+  end
+  def set_failed
+    self.status = Order.statuses[:failed]
+  end
+  def set_paypal_executed
+    self.status = Order.statuses[:paypal_executed]
+  end
 
   validates :email, :first_name, :last_name, :tel, :birth_year, :adress, :zip_code, :city, presence: true
   validates :email, email_format: {message: "Format ist nicht gültig."}
-
   validates :agb, :privacy, acceptance: true
 end

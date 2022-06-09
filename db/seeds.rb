@@ -5,9 +5,9 @@ SeminarType.create(name: "Übergangsrituale", description: "Übergangsrituale, b
 EquipmentList.create(content: "Du brauchst einen Schlafsack!")
 EquipmentList.create(content: "Du brauchst ein Zelt!")
 
-SeminarInstance.create(name: "Gerb Seminar", price: "200", seminar_type_id: 1, description: "Hier lernt man Gerben", equipment_list_id: 1)
-SeminarInstance.create(name: "Kräuterwanderung", price: "100", seminar_type_id: 2, description: "Hier lernt man Krauter", equipment_list_id: 1)
-SeminarInstance.create(name: "Ritual mit 5 Teilnehmern", price: "150", seminar_type_id: 3, description: "Hier lernt man Ritule", equipment_list_id: 2)
+SeminarInstance.create(name: "Gerb Seminar", seminar_type_id: 1, description: "Hier lernt man Gerben", equipment_list_id: 1, price_cents: 10000)
+SeminarInstance.create(name: "Kräuterwanderung", seminar_type_id: 2, description: "Hier lernt man Krauter", equipment_list_id: 1, price_cents: 12000)
+SeminarInstance.create(name: "Ritual mit 5 Teilnehmern", seminar_type_id: 3, description: "Hier lernt man Ritule", equipment_list_id: 2, price_cents: 15000)
 
 Location.create(name: "Eifel Hütte", latitude: 50.35531861055674, longitute: 6.568579067623879, description: "Die Eifelhütte ist eine der schönsten im ganzen Land!")
 
@@ -17,7 +17,7 @@ Seminar.create(location_id: 1, seminar_instance_id: 3, start_date: "Thu, 02 May 
 
 Booking.create(seminar_id: 1, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", privacy: true)
 Booking.create(seminar_id: 2, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", privacy: true)
-Booking.create(seminar_id: 3, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", payed: true, privacy: true)
+Booking.create(seminar_id: 3, first_name: "Niclas", last_name: "Collmer", email: "niclascollmer@web.de", tel: "015781642371", agb: true, rideshare: true, birth_year: "1999", adress: "Bechlenberg", zip_code: "32132", city: "Kln", privacy: true)
 
 User.create(email: "inescollmer@web.de", password: "fayaprilic123", admin: true, first_name: "Ines", last_name: "Collmer", tel: "017624810363", adress: "Schützenstrasse 9", zip_code: "42799", birth_year: "1966", city: "Leichlingen")
 User.create(email: "niclascollmer@web.de", password: "collmer123", first_name: "Niclas", last_name: "Collmer", tel: "015781642371", adress: "Schützenstrasse 9", zip_code: "42799", birth_year: "1999", city: "Leichlingen")

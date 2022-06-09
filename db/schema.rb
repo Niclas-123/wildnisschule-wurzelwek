@@ -27,9 +27,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.boolean "rideshare", default: false
     t.boolean "agb", default: false
     t.boolean "privacy", default: false
-    t.boolean "payed", default: false
+    t.integer "user_id"
+    t.integer "status", default: 0
+    t.string "token"
+    t.string "charge_id"
+    t.string "error_message"
+    t.string "customer_id"
+    t.integer "payment_gateway"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["seminar_id"], name: "index_bookings_on_seminar_id"
   end
 
@@ -81,9 +88,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.bigint "equipment_list_id"
     t.string "name"
     t.text "description"
-    t.integer "price"
+    t.string "stripe_plan_name"
+    t.string "paypal_plan_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
     t.string "slug"
     t.index ["equipment_list_id"], name: "index_seminar_instances_on_equipment_list_id"
     t.index ["seminar_type_id"], name: "index_seminar_instances_on_seminar_type_id"

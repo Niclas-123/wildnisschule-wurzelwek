@@ -26,10 +26,7 @@
                 <p><%= mail_to(b.email) %></p>
               </td>
               <td>
-                <%= form_for [s.seminar_instance.seminar_type ,s.seminar_instance, s, b] do |form| %>
-                  <%= form.check_box :payed %>
-                  <%= form.submit "Update" %>
-                <% end %>
+                <p>bla</p>
               </td>
               <td>
                 <p><%= "Ja" if b.rideshare %></p>

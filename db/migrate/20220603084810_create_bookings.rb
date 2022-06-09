@@ -17,9 +17,18 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.boolean :rideshare, default: false
       t.boolean :agb, default: false
       t.boolean :privacy, default: false
-      t.boolean :payed, default: false
+
+      t.integer :user_id
+      t.integer :status, default: 0
+      t.string :token
+      t.string :charge_id
+      t.string :error_message
+      t.string :customer_id
+      t.integer :payment_gateway
 
       t.timestamps
+
     end
+    add_monetize :bookings, :price, currency: { present: false }
   end
 end
