@@ -50,54 +50,69 @@
       <%= f.text_field :tel, required: true unless current_user %>
     </div class="form-container__group">
 
-    <div class="form-container__group">
-      <%= f.label :rideshare %>
+    <div class="form-container__box">
+      <p class=form-container__group--label>
+        Alle allgemeinen Informationen zu den Seminaren - bspw. Verpflegung - findest du hier:
+      </p>
+      <%= link_to "Infos", seminar_infos_path, target: "_blank", class: "button-primary" %>
+    </div>
+
+    <div class="form-container__box">
+      <p class=form-container__group--label>
+        Die genauen Informationen zum Seminarort kannst du die hier nocheinmal anschauen:
+      </p>
+      <%= link_to @seminar.location.name, location_path(@seminar.location), target: "_blank", class: "button-primary" %>
+    </div>
+
+    <div class="form-container__group--checkbox">
+      <p class=form-container__group--label>
+        Ich bin damit einverstanden, dass meine Kontaktdaten zum Zweck der Vernetzung, z.B. für Fahrgemeinschaften, an die anderen Teilnehmenden weitergegeben werden.
+      </p>
       <%= f.check_box :rideshare  %>
     </div class="form-container__group">
 
-    <div class="form-container__group">
-      <%= f.label :agb %>
+    <div class="form-container__group--checkbox">
+      <p class=form-container__group--label>
+        Ich stimme den unten aufgeführten Teilnahmebedingungen zu.
+      </p>
       <%= f.check_box :agb, required: true  %>
     </div class="form-container__group">
 
-    <div>
-      <p>
+    <div class="form-container__group form-container__agb">
+      <strong>
         Die Anmeldung verpflichtet zur Zahlung der gesamten Veranstaltungskosten.
-      </P>
+      </strong>
       <p>
-        Ein Rücktritt von der Veranstaltung muss schriftlich erfolgen (an die Wildnisschule Wildeshausen info@wildnisschule.de).
+        Ein Rücktritt von der Veranstaltung muss schriftlich erfolgen (an die Wildnisschule Wurzelholz wildnisschule@Wurzelholz.de).
       </p>
-      <p>
+
+      <strong>
         Bei einem Rücktritt von der Veranstaltung entstehen folgende Stornokosten:
-      </p>
+      </strong>
       <ul>
-        <li>- Bis 2 Wochen nach Anmeldung: kostenlos *</li>
-        <li>* sofern keine der weiteren genannten Fristen berührt werden</li>
-        <li>- Bis 31.12.22: 10 % der Seminargebühr</li>
-        <li>- Bis 09.02.2023: 30 % der Seminargebühr**</li>
-        <li>- Bis 24.02.2023: 100 % der Seminargebühr**</li>
-        <li>- Ab 25.02.2023: 100% der Veranstaltungskosten **</li>
-        <li>- Rücktritt nach dem ersten Termin: 100% der Kosten.</li>
-        <li>** kann der Platz anderweitig vergeben werden, beschränken sich die Stornokosten auf 10 % der Gebühr</li>
+        <li>Bis 2 Wochen nach Anmeldung: kostenlos, sofern der Seminarbeginn mehr als 2 Wochen entfernt ist.</li>
+        <li>Andernfalls fallen 50% der Seminargebühren an.</li>
+        <li>2 Wochen vor Seminarbeginn fallen bei Stornierung die vollen Seminarkosten an.</li>
       </ul>
       <p>
-        Bei Nicht-Teilnahme an einem der Wochenenden können unter Umständen die individuellen personenbezogenen Kosten erstatten werden. Dazu ist vier Wochen vor Beginn des entsprechenden Termins eine schriftliche Abmeldung bei der Wildnisschule Wildeshausen, erforderlich.
-        <br>
-        Hinweis: Das entsprechende Seminar (außer Wochenende 1 und 7) kann unter Umständen in den beiden Folgejahren nachgeholt werden. Dazu muss die Zustimmung der Wildnisschule Wildeshausen vorliegen und ein Platz verfügbar sein. Bei dieser nachholenden Teilnahme sind die jeweils gültigen individuellen personenbezogenen Kosten zzgl. einer Bearbeitungsgebühr von € 25 zu zahlen.
+        Bei Nicht-Teilnahme an einem Seminar können unter Umständen die individuellen personenbezogenen Kosten erstatten werden. Dazu ist vier Wochen vor Beginn des entsprechenden Termins eine schriftliche Abmeldung bei der Wildnisschule Wurzelholz, erforderlich.
       </p>
-      <p>
+
+      <strong>
         Sonstige Teilnahmebedingungen
-        <br>
+      </strong>
+      <p>
         Bei Unfällen, Sachschäden oder Eigentumsverlusten haften die Veranstalterinnen nicht. Die Veranstalterinnen haben das Hausrecht, den Anweisungen der Kursleitenden ist Folge zu leisten. Bei einem Ausschluss von der Veranstaltung besteht kein Recht auf Rückzahlung der Gebühr/ Kosten für bereits besuchte Veranstaltungsteile.
       </p>
-      <p>
+
+      <strong>
         Absage der Veranstaltung
-        <br>
-        Wird die erforderliche Mindestzahl an Teilnehmenden (12) nicht erreicht oder liegen andere Gründe für eine Absage der Veranstaltung vor, erhalten Sie eine schriftliche Absage. Fällt die Veranstaltung wegen „höherer Gewalt“ aus, wie z.B. plötzliche Erkrankung einer Lehrkraft, sind wir bemüht Sie rechtzeitig zu benachrichtigen.
+      </strong>
+      <p>
+        Wird die erforderliche Mindestzahl an Teilnehmenden nicht erreicht oder liegen andere Gründe für eine Absage der Veranstaltung vor, erhalten Sie eine schriftliche Absage. Fällt die Veranstaltung wegen „höherer Gewalt“ aus, wie z.B. plötzliche Erkrankung einer Lehrkraft, sind wir bemüht Sie rechtzeitig zu benachrichtigen.
         <br>
         Weitergehende Ansprüche ergeben sich daraus nicht. Insbesondere besteht auch nicht der Anspruch, durch eine bestimmte Lehrkraft unterrichtet zu werden. Bei Absage der Veranstaltung werden von Ihnen bereits gezahlte Gebühren zurück überwiesen.
-      </p>
-      <p>
+        <br>
         Durch Verzögerungen im Abruf der Anmeldungen, kann es vorkommen, dass Deine Anmeldung bei uns eingeht, obwohl die maximale TeilnehmerInnenzahl schon erreicht ist. In diesem Fall benachrichtigen wir Dich umgehend. Du kannst Dich dann auf die Warteliste setzen lassen. Wenn ein Platz freigeworden ist, schicken wir Dir eine Email.
       </p>
     </div>

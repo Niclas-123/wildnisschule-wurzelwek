@@ -7,11 +7,30 @@
 .form-container {
   max-width: 800px;
 
+  &__box {
+    margin-top: var(--space-xs);
+  }
+
   &__group {
     display: flex;
     flex-direction: column;
     margin-top: var(--space-xs);
+
+    &--checkbox {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: var(--space-xs);
+      justify-content: flex-end;
+      padding-top: var(--space-xs);
+    }
+
+    &--label {
+      font-size: 1rem;
+      line-height: 1rem;
+      margin: 0;
+    }
   }
+
 
   .button-primary {
     margin-top: var(--space-xs);
@@ -24,5 +43,17 @@
     -moz-box-shadow: none;
     box-shadow: none;
     resize: none;
+  }
+
+  &__agb {
+    max-height: 300px;
+    overflow: scroll;
+    border: 1px solid black;
+    padding: var(--space-s);
+
+    p, ul, ol {
+      font-size: 1rem;
+      line-height: 1rem;
+    }
   }
 }
