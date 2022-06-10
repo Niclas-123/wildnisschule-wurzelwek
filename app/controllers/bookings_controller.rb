@@ -1,10 +1,10 @@
 class BookingsController < ApplicationController
   load_and_authorize_resource
 
-  before_action :set_booking, only: %i[]
-  before_action :set_seminar, only: %i[new create account_abfrage]
-  before_action :set_seminar_instance, only: %i[new create account_abfrage]
-  before_action :set_seminar_type, only: %i[new create account_abfrage]
+  before_action :set_booking, only: %i[confirmation]
+  before_action :set_seminar, only: %i[new create account_abfrage confirmation]
+  before_action :set_seminar_instance, only: %i[new create account_abfrage confirmation]
+  before_action :set_seminar_type, only: %i[new create account_abfrage confirmation]
 
   def new
     @booking = Booking.new
@@ -13,9 +13,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      BookingMailer.with(booking: @booking).booking_email_admin.deliver_now
-      BookingMailer.with(booking: @booking).booking_email_customer.deliver_now
-      redirect_to root_path, notice: "Du hast dein Seminar erfolgreich gebucht! :)"
+      redirect_to seminar_type_seminar_instance_seminar_booking_confirmation_path(@seminar_type, @seminar_instance, @seminar, @booking), notice: "Bitte bestätige deine Buchung :)"
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,10 +25,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def confirmation
+
+    # BookingMailer.with(booking: @booking).booking_email_admin.deliver_now
+    # BookingMailer.with(booking: @booking).booking_email_customer.deliver_now
+  end
+
 private
 
   def set_booking
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
   end
 
   def set_seminar
@@ -46,7 +50,8 @@ private
   end
 
   def booking_params
-    params.require(:booking).permit(:last_name, :first_name, :birth_year, :adress, :zip_code, :email, :tel, :city, :rideshare, :agb, :privacy, :payment_gateway).merge(seminar: @seminar)
+    set_seminar_instance
+    params.require(:booking).permit(:last_name, :first_name, :birth_year, :adress, :zip_code, :email, :tel, :city, :rideshare, :agb, :privacy, :payment_gateway).merge(seminar: @seminar, price_cents: @seminar_instance.price_cents)
   end
 
 end

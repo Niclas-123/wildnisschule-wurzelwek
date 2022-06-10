@@ -135,11 +135,11 @@
         <p class=form-container__group--label>Kreditkarte</p>
       </div>
       <div class="form-container__group--checkbox">
-        <%= f.radio_button :payment_gateway, 'Überweisung' %>
+        <%= f.radio_button :payment_gateway, 'bank_transfer' %>
         <p class=form-container__group--label>Überweisung</p>
       </div>
     </div class="form-container__group">
 
-    <%= f.submit "Book now", class: "button-primary" %>
+    <%= f.submit "Zum nächsten Schritt", class: "button-primary" %>
   </div>
 <% end %>
