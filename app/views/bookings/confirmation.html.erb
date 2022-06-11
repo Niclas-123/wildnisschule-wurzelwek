@@ -1,3 +1,34 @@
-<h1>Bestätigen</h1>
+<h1>Buchung bestätigen</h1>
 
-<%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create %>
+<h2>Deine Informationen:</h2>
+<p>
+  Name:
+  <%= @booking.first_name %>
+  <%= @booking.last_name %>
+  <br>
+  E-mail: <%= @booking.email %>
+  Tel: <%= @booking.tel %>
+</p>
+
+<p>
+  Adresse:
+  <br>
+  <%= @booking.adress %>
+  <br>
+  <%= @booking.zip_code %>
+  <%= @booking.city %>
+</p>
+
+<h2>Buchungsinformationen:</h2>
+<p>
+  Seminar: <%= @booking.seminar.seminar_instance.name %>
+  <br>
+  Daten: <%= @booking.seminar.start_date.strftime("%m.%d.%Y") %> bis <%= @booking.seminar.end_date.strftime("%m.%d.%Y") %>
+  <br>
+  Preis: <%= @booking.price %><%= currency_symbol %>
+</p>
+
+
+<%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button-primary" %>
+
+

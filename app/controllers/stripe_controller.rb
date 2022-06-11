@@ -14,7 +14,7 @@ class StripeController < ApplicationController
       success_url: root_url,
       cancel_url: root_url,
     })
-    redirect_to @session.url, allow_other_host: true
+    redirect_to @session.url, allow_other_host: true, status: 303,
   end
 
 private

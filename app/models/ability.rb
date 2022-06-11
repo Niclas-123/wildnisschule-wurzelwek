@@ -12,15 +12,14 @@ class Ability
         can [:read, :edit, :update], User, id: current_user.id
         can :read, [SeminarInstance, SeminarType, Seminar, EquipmentList, Location, Post]
 
-        can :create, Booking
-        can :account_abfrage, Booking
+        can :manage, Booking
       end
     else
       can :read, [SeminarInstance, SeminarType, Seminar, EquipmentList, Location, Post, GuestbookEntry]
 
       can :new, GuestbookEntry
       can [:new, :create], User
-      can :create, Booking
+      can :manage, Booking
       can :account_abfrage, Booking
     end
   end

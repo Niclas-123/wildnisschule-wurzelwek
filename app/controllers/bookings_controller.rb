@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
   end
 
   def confirmation
-
     # BookingMailer.with(booking: @booking).booking_email_admin.deliver_now
     # BookingMailer.with(booking: @booking).booking_email_customer.deliver_now
   end
