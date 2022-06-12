@@ -15,7 +15,7 @@ class GuestbookEntriesController < ApplicationController
       flash[:notice] = "Dein Gästebucheintrag wurde erfolgreich erstellt :)"
       redirect_to guestbook_entries_path
     else
-      debugger
+
       render 'new'
     end
   end

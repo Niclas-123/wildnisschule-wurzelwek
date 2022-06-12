@@ -9,13 +9,13 @@ class Booking < ApplicationRecord
   scope :recently_created, ->  { where(created_at: 1.minutes.ago..DateTime.now) }
 
   def set_paid
-    self.status = Order.statuses[:paid]
+    self.status = Booking.statuses[:paid]
   end
   def set_failed
-    self.status = Order.statuses[:failed]
+    self.status = Booking.statuses[:failed]
   end
   def set_paypal_executed
-    self.status = Order.statuses[:paypal_executed]
+    self.status = Booking.statuses[:paypal_executed]
   end
 
   validates :email, :first_name, :last_name, :tel, :birth_year, :adress, :zip_code, :city, presence: true

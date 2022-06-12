@@ -26,9 +26,18 @@
   Daten: <%= @booking.seminar.start_date.strftime("%m.%d.%Y") %> bis <%= @booking.seminar.end_date.strftime("%m.%d.%Y") %>
   <br>
   Preis: <%= @booking.price %><%= currency_symbol %>
+  <br>
+  Zahlungsmethode: <%= @booking.payment_gateway %>
 </p>
 
 
-<%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button-primary" %>
+<% if @booking.payment_gateway == 'stripe' %>
+  <%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button-primary" %>
+<% elsif @booking.payment_gateway == 'paypal' %>
+  <p>Paypal</p>
+<% else %>
+  <p>Rechnung herunterladen und überweisen</p>
+<% end %>
+
 
 

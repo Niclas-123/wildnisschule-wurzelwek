@@ -13,9 +13,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to seminar_type_seminar_instance_seminar_booking_confirmation_path(@seminar_type, @seminar_instance, @seminar, @booking), notice: "Bitte bestätige deine Buchung :)"
+      redirect_to seminar_type_seminar_instance_seminar_booking_confirmation_path(@seminar_type, @seminar_instance, @seminar, @booking), notice: "Bitte bestätige deine Buchung! :)"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessible_entity
     end
   end
 
@@ -50,7 +50,7 @@ private
 
   def booking_params
     set_seminar_instance
-    params.require(:booking).permit(:last_name, :first_name, :birth_year, :adress, :zip_code, :email, :tel, :city, :rideshare, :agb, :privacy, :payment_gateway).merge(seminar: @seminar, price_cents: @seminar_instance.price_cents)
+    params.require(:booking).permit(:last_name, :first_name, :birth_year, :adress, :zip_code, :email, :tel, :city, :rideshare, :agb, :privacy, :payment_gateway, :token, :charge_id).merge(seminar: @seminar, price_cents: @seminar_instance.price_cents)
   end
 
 end
