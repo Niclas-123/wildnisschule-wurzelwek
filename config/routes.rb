@@ -34,9 +34,13 @@ Rails.application.routes.draw do
         get '/account_abfrage', to: 'bookings#account_abfrage'
         resources :bookings, path: 'buchung' do
           get '/confirmation', to: 'bookings#confirmation'
-          post 'stripe_checkout', to: 'stripe#create'
-          get 'stripe_sucess', to: 'stripe#sucess'
-          get 'stripe_failure', to: 'stripe#failure'
+          #stripe
+          post '/stripe_checkout', to: 'stripe#create'
+          get '/stripe_sucess', to: 'stripe#sucess'
+          get '/stripe_failure', to: 'stripe#failure'
+          #paypal
+          post :create_order, to: 'paypal#create_order'
+          post :capture_order, to: 'paypal#capture_order'
         end
       end
     end

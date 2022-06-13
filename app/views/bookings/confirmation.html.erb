@@ -1,4 +1,8 @@
-<h1>Buchung bestätigen</h1>
+<% if @booking.status == "pending" %>
+  <h1>Buchung bestätigen</h1>
+<% elsif @booking.status == "paid" %>
+  <h1>Buchung Bestätigt!</h1>
+<% end %>
 
 <h2>Deine Informationen:</h2>
 <p>
@@ -7,7 +11,10 @@
   <%= @booking.last_name %>
   <br>
   E-mail: <%= @booking.email %>
+  <br>
   Tel: <%= @booking.tel %>
+  <br>
+  Mitfahrgelegenheit gesucht: <%= @booking.rideshare ? 'Ja' : 'Nein' %>
 </p>
 
 <p>
@@ -31,13 +38,17 @@
 </p>
 
 
-<% if @booking.payment_gateway == 'stripe' %>
-  <%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button-primary" %>
-<% elsif @booking.payment_gateway == 'paypal' %>
-  <p>Paypal</p>
-<% else %>
-  <p>Rechnung herunterladen und überweisen</p>
+
+<% if @booking.status == "pending" %>
+  <% if @booking.payment_gateway == 'stripe' %>
+    <%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button-primary" %>
+  <% elsif @booking.payment_gateway == 'paypal' %>
+    <div id="paypal-button-container"></div>
+  <% else %>
+    <p>Rechnung herunterladen und überweisen</p>
+  <% end %>
 <% end %>
+
 
 
 
