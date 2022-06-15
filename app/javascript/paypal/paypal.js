@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  paypal.Buttons({
+  let paypal_button = paypal.Buttons({
     env: 'sandbox', // Valid values are sandbox and live.
     createOrder: async () => {
       const response = await fetch('http://localhost:3000/wanderungen/krauterwanderung/05_02_2023/buchung/23/create_order', {method: 'POST'});
@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({order_id: data.orderID})
       });
+      debugger
+      console.log(response);
       const responseData = await response.json();
       if (responseData.status === 'COMPLETED') {
         alert("Okay!");
@@ -25,5 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Not Okay!");
       }
     }
-  }).render('#paypal-button-container');
+  });
+  paypal_button.render('#paypal-button-container');
 });
