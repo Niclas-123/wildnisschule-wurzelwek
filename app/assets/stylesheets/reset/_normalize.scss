@@ -47,27 +47,33 @@ main {
  */
 
 h1 {
-  font-size: var(--step-3);
+  font-size: var(--step-4);
   margin: 0.67em 0;
   font-family: 'Hand-boys';
+  text-align: center;
 }
 
 h2 {
   line-height: var(--step-2);
+  font-size: var(--step-2);
   margin: var(--space-l) 0;
   font-family: 'Open Sans';
+  text-transform: uppercase;
 }
 
 h3 {
   line-height: var(--step-2);
+  font-size: var(--step-1);
   margin: var(--space-m) 0;
   font-family: 'Open Sans';
+  text-transform: uppercase;
 }
 
 h4 {
   line-height: var(--step-2);
   margin: var(--space-m) 0;
   font-family: 'Open Sans';
+  text-transform: uppercase;
 }
 
 p, ul, ol {

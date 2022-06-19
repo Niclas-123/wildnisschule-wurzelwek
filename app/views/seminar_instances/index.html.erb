@@ -1,7 +1,13 @@
 <h1><%= @seminar_type.name %></h1>
 
-<% @seminar_instances.each do |s| %>
-  <%= link_to s.name, seminar_type_seminar_instance_path(params[:seminar_type_id], s) %>
-  <br>
-  <hr>
-<% end %>
+<div class="seminar-cards-container">
+  <% @seminar_instances.each do |s| %>
+    <div class="seminar-cards-container__card">
+      <div class="seminar-cards-container__text">
+        <h2><%= link_to s.name, seminar_type_seminar_instance_path(params[:seminar_type_id], s) %></h2>
+        <p>noch <b>so viele</b> verfügbar</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+

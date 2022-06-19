@@ -2,8 +2,7 @@
   text-transform: uppercase;
   font-size: var(--step-0);
   padding: 20px 0;
-  font-weight: 100;
-  position: relative;
+  margin: 0 10vw;
 
   ul {
     list-style: none;
@@ -13,32 +12,27 @@
 
   &__navigation {
     display: flex;
-    justify-content: center;
-    gap: 5%;
+    justify-content: space-evenly;
   }
 
-  .dropdown-container {
-    position: relative;
+  &__dropdown-toggle {
 
-    :hover + .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content {
-      position: absolute;
+    ul {
       display: none;
-      white-space: nowrap;
-      top: 100%;
-      padding: var(--space-2xs) 0;
 
       li {
-        position: relative;
-        z-index: 5;
+        display: none;
       }
     }
+  }
 
-    .dropdown-content:hover {
-      display: block;
-    }
+  &__navigation > li:hover .sub-menu li{
+    display: block;
+    width: 1px;
+    overflow: visible;
+  }
+
+  &__navigation > li:hover .sub-menu {
+    display: block;
   }
 }
