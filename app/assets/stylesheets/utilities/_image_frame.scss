@@ -1,0 +1,10 @@
+.image {
+
+  &__default {
+    width: 50vw;
+  }
+
+  &__frame {
+    border: 5px solid var(--primary);
+  }
+}

@@ -1,13 +1,12 @@
 .message {
   text-align: center;
   padding: var(--space-s);
-  color: white;
 
   &__alert {
-    background-color: red;
+    background-color: var(--secondary);
   }
 
   &__notice {
-    background-color: green;
+    background-color: var(--primary);
   }
 }

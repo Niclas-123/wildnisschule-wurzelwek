@@ -3,8 +3,6 @@
   font-size: var(--step-0);
   padding: 20px 0;
   font-weight: 100;
-  color: white;
-  background-color: black;
   position: relative;
 
   ul {
@@ -31,9 +29,7 @@
       display: none;
       white-space: nowrap;
       top: 100%;
-      padding: var(--space-2xs);
-      background-color: black;
-      color: white;
+      padding: var(--space-2xs) 0;
 
       li {
         position: relative;

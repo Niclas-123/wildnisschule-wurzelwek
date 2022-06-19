@@ -1,5 +1,7 @@
 @import "utilities/variables";
 @import "utilities/mixins";
+@import "utilities/fonts";
+@import "utilities/image_frame";
 
 @import "reset/layout";
 @import "reset/normalize";
@@ -10,5 +12,4 @@
 @import "frontend/table";
 @import "frontend/footer";
 @import "frontend/legal";
-
-// * {outline: 1px solid red;}
+//

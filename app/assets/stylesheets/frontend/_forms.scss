@@ -2,6 +2,29 @@
   padding: var(--space-2xs) var(--space-m);
   background-color: var(--primary);
   display: inline-block;
+
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out,
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+    background: var(--primary-accent);
+    text-decoration: none;
+}
+
+.button-primary:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+.button-primary:active {
+    transform: scale(0.99);
 }
 
 .form-container {
