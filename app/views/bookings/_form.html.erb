@@ -2,53 +2,62 @@
 
 <%= form_for [@seminar_type, @seminar_instance, @seminar, @booking] do |f| %>
   <div class="form-container">
-    <div class="form-container__group">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name, required: true, value: current_user.first_name if current_user %>
-      <%= f.text_field :first_name, required: true unless current_user %>
+    <legend>Deine Infos</legend>
+    <div class="form-container__two-fields">
+      <div class="form-container__group">
+        <%= f.label 'Vorname', for: :first_name %>
+        <%= f.text_field :first_name, required: true, value: current_user.first_name if current_user %>
+        <%= f.text_field :first_name, required: true unless current_user %>
+      </div>
+
+      <div class="form-container__group">
+        <%= f.label 'Nachname', for: :last_name %>
+        <%= f.text_field :last_name, required: true, value: current_user.last_name if current_user %>
+        <%= f.text_field :last_name, required: true unless current_user%>
+      </div>
+
+      <div class="form-container__group">
+        <%= f.label 'Geburtsjahr', for: :birth_year %>
+        <%= f.text_field :birth_year, required: true, value: current_user.birth_year if current_user %>
+        <%= f.text_field :birth_year, required: true unless current_user %>
+      </div>
     </div>
 
     <div class="form-container__group">
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name, required: true, value: current_user.last_name if current_user %>
-      <%= f.text_field :last_name, required: true unless current_user%>
-    </div>
-
-    <div class="form-container__group">
-      <%= f.label :birth_year %>
-      <%= f.text_field :birth_year, required: true, value: current_user.birth_year if current_user %>
-      <%= f.text_field :birth_year, required: true unless current_user %>
-    </div>
-
-    <div class="form-container__group">
-      <%= f.label :adress %>
+      <%= f.label 'Straße', for: :adress %>
       <%= f.text_field :adress, required: true, value: current_user.adress if current_user %>
       <%= f.text_field :adress, required: true unless current_user %>
     </div>
 
-    <div class="form-container__group">
-      <%= f.label :zip_code %>
-      <%= f.text_field :zip_code, required: true, value: current_user.zip_code if current_user %>
-      <%= f.text_field :zip_code, required: true unless current_user %>
+    <div class="form-container__two-fields">
+      <div class="form-container__group">
+        <%= f.label 'PLZ', for: :zip_code %>
+        <%= f.text_field :zip_code, required: true, value: current_user.zip_code if current_user %>
+        <%= f.text_field :zip_code, required: true unless current_user %>
+      </div>
+
+      <div class="form-container__group">
+        <%= f.label 'Stadt', for: :city %>
+        <%= f.text_field :city, required: true, value: current_user.city if current_user %>
+        <%= f.text_field :city, required: true unless current_user %>
+      </div>
     </div>
 
-    <div class="form-container__group">
-      <%= f.label :city %>
-      <%= f.text_field :city, required: true, value: current_user.city if current_user %>
-      <%= f.text_field :city, required: true unless current_user %>
+    <div class="form-container__two-fields">
+      <div class="form-container__group">
+        <%= f.label 'E-mail', for: :email %>
+        <%= f.text_field :email, required: true, value: current_user.email if current_user %>
+        <%= f.text_field :email, required: true unless current_user %>
+      </div>
+
+      <div class="form-container__group">
+        <%= f.label 'Telefon', for: :tel %>
+        <%= f.text_field :tel, required: true, value: current_user.tel if current_user %>
+        <%= f.text_field :tel, required: true unless current_user %>
+      </div class="form-container__group">
     </div>
 
-    <div class="form-container__group">
-      <%= f.label :email %>
-      <%= f.text_field :email, required: true, value: current_user.email if current_user %>
-      <%= f.text_field :email, required: true unless current_user %>
-    </div>
-
-    <div class="form-container__group">
-      <%= f.label :tel %>
-      <%= f.text_field :tel, required: true, value: current_user.tel if current_user %>
-      <%= f.text_field :tel, required: true unless current_user %>
-    </div class="form-container__group">
+    <legend>Seminar Infos</legend>
 
     <div class="form-container__box">
       <p class=form-container__group--label>
@@ -64,11 +73,13 @@
       </p>
     </div>
 
+    <legend>AGB und Datenschutz</legend>
+
     <div class="form-container__group--checkbox">
       <p class=form-container__group--label>
         Ich bin damit einverstanden, dass meine Kontaktdaten zum Zweck der Vernetzung, z.B. für Fahrgemeinschaften, an die anderen Teilnehmenden weitergegeben werden.
       </p>
-      <%= f.check_box :rideshare  %>
+      <%= f.check_box :rideshare %>
     </div class="form-container__group">
 
     <div class="form-container__group--checkbox">
@@ -124,19 +135,20 @@
       <%= f.check_box :privacy, required: true  %>
     </div class="form-container__group">
 
+    <legend>Zahlungsmethode</legend>
+
     <div class="form-container__group">
-      <%= f.label "Zahlungsmethode" %>
       <div class="form-container__group--checkbox">
-        <%= f.radio_button :payment_gateway, "paypal", label: "paypal" %>
         <p class=form-container__group--label>Paypal</p>
+        <%= f.radio_button :payment_gateway, "paypal", label: "paypal" %>
       </div>
       <div class="form-container__group--checkbox">
-        <%= f.radio_button :payment_gateway, "stripe" %>
         <p class=form-container__group--label>Kreditkarte</p>
+        <%= f.radio_button :payment_gateway, "stripe" %>
       </div>
       <div class="form-container__group--checkbox">
-        <%= f.radio_button :payment_gateway, 'bank_transfer' %>
         <p class=form-container__group--label>Überweisung</p>
+        <%= f.radio_button :payment_gateway, 'bank_transfer' %>
       </div>
     </div class="form-container__group">
 

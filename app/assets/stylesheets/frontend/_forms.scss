@@ -2,6 +2,7 @@
   padding: var(--space-2xs) var(--space-m);
   background-color: var(--primary);
   display: inline-block;
+  color: white;
 
   border: none;
   cursor: pointer;
@@ -29,15 +30,38 @@
 
 .form-container {
   max-width: 800px;
+  padding: 10px;
+
+  a {
+    color: var(--secondary);
+  }
+
+  legend {
+    font-size: var(--step-2);
+    font-family: 'Hand-Boys';
+    color: var(--primary);
+    margin-top: var(--space-xl);
+  }
 
   &__box {
     margin-top: var(--space-xs);
   }
 
+  &__two-fields {
+    display: flex;
+    gap: var(--space-xs);
+    flex-grow: 1;
+  }
+
   &__group {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     margin-top: var(--space-xs);
+
+    input {
+      padding: var(--space-3xs);
+    }
 
     &--checkbox {
       display: flex;
@@ -51,9 +75,9 @@
       font-size: 1rem;
       line-height: 1rem;
       margin: 0;
+      width: 95%;
     }
   }
-
 
   .button-primary {
     margin-top: var(--space-xs);
@@ -71,12 +95,51 @@
   &__agb {
     max-height: 300px;
     overflow: scroll;
-    border: 1px solid black;
+    background-color: white;
+    color: black;
     padding: var(--space-s);
-
-    p, ul, ol {
-      font-size: 1rem;
-      line-height: 1rem;
-    }
   }
+
+  p, ul, ol {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+// Checkbox Style
+
+input[type="checkbox"], input[type="radio"] {
+  appearance: none;
+  margin: 0;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before, input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--primary);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus, input[type="radio"]:focus {
+  outline: calc(max(2px, 0.15em)) solid currentColor;
+  outline-offset: calc(max(2px, 0.15em));
 }
