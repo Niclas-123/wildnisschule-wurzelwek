@@ -1,3 +1,4 @@
+// * {outline: 1px solid red;}
 .button-primary {
   padding: var(--space-2xs) var(--space-m);
   background-color: var(--primary);
@@ -31,6 +32,7 @@
 .form-container {
   max-width: 800px;
   padding: 10px;
+  margin: 0 auto;
 
   a {
     color: var(--secondary);
@@ -43,7 +45,7 @@
     margin-top: var(--space-xl);
   }
 
-  &__box {
+  .button-primary {
     margin-top: var(--space-xs);
   }
 
@@ -61,26 +63,24 @@
 
     input {
       padding: var(--space-3xs);
-    }
-
-    &--checkbox {
-      display: flex;
-      flex-direction: row-reverse;
-      gap: var(--space-xs);
-      justify-content: flex-end;
-      padding-top: var(--space-xs);
-    }
-
-    &--label {
-      font-size: 1rem;
-      line-height: 1rem;
-      margin: 0;
-      width: 95%;
+      border: none;
     }
   }
 
-  .button-primary {
-    margin-top: var(--space-xs);
+  &__checkbox {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--space-xs);
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: var(--space-xs);
+  }
+
+  &__label {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 0;
+    width: 95%;
   }
 
   textarea {
@@ -103,6 +103,11 @@
   p, ul, ol {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .signup-link {
+   line-height: 2rem;
+   color: var(--primary);
   }
 }
 

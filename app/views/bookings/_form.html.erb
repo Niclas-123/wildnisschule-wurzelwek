@@ -59,14 +59,14 @@
 
     <legend>Seminar Infos</legend>
 
-    <div class="form-container__box">
+    <div class="mt-xs">
       <p class=form-container__group--label>
         Alle allgemeinen Informationen zu den Seminaren - bspw. Verpflegung - findest du hier:
         <%= link_to "Infos", seminar_infos_path, target: "_blank" %>
       </p>
     </div>
 
-    <div class="form-container__box">
+    <div class="mt-xs">
       <p class=form-container__group--label>
         Die genauen Informationen zum Seminarort kannst du die hier nocheinmal anschauen:
         <%= link_to @seminar.location.name, location_path(@seminar.location), target: "_blank" %>
@@ -75,15 +75,15 @@
 
     <legend>AGB und Datenschutz</legend>
 
-    <div class="form-container__group--checkbox">
-      <p class=form-container__group--label>
+    <div class="form-container__checkbox">
+      <p class=form-container__label>
         Ich bin damit einverstanden, dass meine Kontaktdaten zum Zweck der Vernetzung, z.B. für Fahrgemeinschaften, an die anderen Teilnehmenden weitergegeben werden.
       </p>
       <%= f.check_box :rideshare %>
     </div class="form-container__group">
 
-    <div class="form-container__group--checkbox">
-      <p class=form-container__group--label>
+    <div class="form-container__checkbox">
+      <p class=form-container__label>
         Ich stimme den unten aufgeführten Teilnahmebedingungen zu.
       </p>
       <%= f.check_box :agb, required: true  %>
@@ -128,8 +128,8 @@
       </p>
     </div>
 
-    <div class="form-container__group--checkbox">
-      <p class=form-container__group--label>
+    <div class="form-container__checkbox">
+      <p class=form-container__label>
         Ich stimme den <%= link_to "Datenschutzbestimmungen", datenschutz_path, target: "_blank" %> zu.
       </p>
       <%= f.check_box :privacy, required: true  %>
@@ -138,20 +138,20 @@
     <legend>Zahlungsmethode</legend>
 
     <div class="form-container__group">
-      <div class="form-container__group--checkbox">
-        <p class=form-container__group--label>Paypal</p>
+      <div class="form-container__checkbox">
+        <p class=form-container__label>Paypal</p>
         <%= f.radio_button :payment_gateway, "paypal", label: "paypal" %>
       </div>
-      <div class="form-container__group--checkbox">
-        <p class=form-container__group--label>Kreditkarte</p>
+      <div class="form-container__checkbox">
+        <p class=form-container__label>Kreditkarte</p>
         <%= f.radio_button :payment_gateway, "stripe" %>
       </div>
-      <div class="form-container__group--checkbox">
-        <p class=form-container__group--label>Überweisung</p>
+      <div class="form-container__checkbox">
+        <p class=form-container__label>Überweisung</p>
         <%= f.radio_button :payment_gateway, 'bank_transfer' %>
       </div>
     </div class="form-container__group">
 
-    <%= f.submit "Zum nächsten Schritt", class: "button-primary" %>
+    <%= f.submit "Zum nächsten Schritt", class: "button-primary mt-xs" %>
   </div>
 <% end %>

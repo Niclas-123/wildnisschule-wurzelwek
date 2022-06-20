@@ -2,6 +2,7 @@
 @import "utilities/mixins";
 @import "utilities/fonts";
 @import "utilities/image_frame";
+@import "utilities/utilities";
 
 @import "reset/layout";
 @import "reset/normalize";
@@ -12,7 +13,8 @@
 @import "frontend/table";
 @import "frontend/footer";
 @import "frontend/legal";
+@import "frontend/home";
 
 @import "seminars/seminar-type-card";
 @import "seminars/seminar-instance-card";
-//////////////////////////////////////
+

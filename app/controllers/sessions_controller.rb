@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    flash[:notice] = 'See you!'
+    flash[:notice] = 'Bis bald!'
     redirect_to root_path
   end
 
