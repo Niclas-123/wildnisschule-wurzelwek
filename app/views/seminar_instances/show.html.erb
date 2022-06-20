@@ -1,6 +1,15 @@
 <h1><%= @seminar_instance.name %></h1>
+
+<h2>Worum es geht:</h2>
 <p><%= @seminar_instance.description %></p>
-<br>
+
+<h2>Vermittelte Inhalte:</h2>
+<ul>
+  <% SeminarContent.where(seminar_instance: @seminar_instance).each do |s| %>
+    <li><%= s.content %></li>
+  <% end %>
+</ul>
+
 <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>
 <br>
 <%= link_to "Ausrüstungsliste", equipment_list_path(@seminar_instance.equipment_list), class: "button-primary" %>

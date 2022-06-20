@@ -60,6 +60,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
   create_table "guestbook_entries", force: :cascade do |t|
     t.bigint "seminar_instance_id"
     t.bigint "user_id"
+    t.string "author"
+    t.text "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,6 +83,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "seminar_contents", force: :cascade do |t|
+    t.bigint "seminar_instance_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["seminar_instance_id"], name: "index_seminar_contents_on_seminar_instance_id"
   end
 
   create_table "seminar_instances", force: :cascade do |t|
@@ -114,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.bigint "seminar_instance_id"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer "max_participants"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"

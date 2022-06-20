@@ -1,0 +1,27 @@
+.guestbook {
+  .guestbook-entry {
+    background-color: lightgrey;
+    margin-top: var(--space-l);
+    padding: var(--space-m);
+
+    &__title {
+      margin: 0;
+      font-family: 'Hand-Boys';
+      text-transform: none;
+      color: var(--primary);
+    }
+
+    &__header {
+      color: var(--secondary);
+    }
+
+    &__content {
+      color: black;
+    }
+  }
+
+  .button-container {
+    margin: var(--space-s) auto;
+    text-align: center;
+  }
+}

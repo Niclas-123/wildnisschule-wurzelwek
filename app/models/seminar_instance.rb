@@ -9,4 +9,5 @@ class SeminarInstance < ApplicationRecord
 
   has_many :seminars
   has_many :guestbook_entries
+  has_many :contents
 end

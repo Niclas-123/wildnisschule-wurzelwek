@@ -4,7 +4,9 @@ class CreateGuestbookEntries < ActiveRecord::Migration[7.0]
 
       t.references :seminar_instance
       t.references :user
+      t.string :author
 
+      t.text :title
       t.text :content
 
       t.timestamps
