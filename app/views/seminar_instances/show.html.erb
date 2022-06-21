@@ -12,15 +12,19 @@
 
 <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>
 <br>
-<%= link_to "Ausrüstungsliste", equipment_list_path(@seminar_instance.equipment_list), class: "button-primary" %>
-<%= link_to "Infos vorab", seminar_infos_path, class: "button-primary" %>
+<%= link_to "Ausrüstungsliste", equipment_list_path(@seminar_instance.equipment_list), target: '_blank', class: "button-primary" %>
+<%= link_to "Infos vorab", seminar_infos_path, target: '_blank', class: "button-primary" %>
 
 <h2>Termine</h2>
 
 <% @seminars.each do |s| %>
   <p>
     <%= s.start_date.strftime("%m.%d.%Y") %>:
-    <%= link_to s.location.name, location_path(s.location)  %>
+    <%= link_to s.location.name, location_path(s.location)  %> -
+    <%= Booking.where(seminar: s).count %> von
+    <%= s.max_participants %> Anmeldungen
   </p>
-    <%= link_to "Jetzt buchen", seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s), class: "button-primary" %>
+    <% if Booking.where(seminar: s).count < s.max_participants %>
+      <%= link_to "Jetzt buchen", seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s), class: "button-primary" %>
+    <% end %>
 <% end %>
