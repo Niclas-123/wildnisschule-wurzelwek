@@ -8,6 +8,7 @@
   border: none;
   cursor: pointer;
   text-align: center;
+  text-transform: uppercase;
   transition: background 250ms ease-in-out,
               transform 150ms ease;
   -webkit-appearance: none;
@@ -23,10 +24,6 @@
 .button-primary:focus {
     outline: 1px solid #fff;
     outline-offset: -4px;
-}
-
-.button-primary:active {
-    transform: scale(0.99);
 }
 
 .form-container {

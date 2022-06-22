@@ -64,6 +64,10 @@
 
     .even {
       flex-direction: row-reverse;
+
+      .home__angebot--cards {
+        justify-content: flex-end;
+      }
     }
 
     &--cards {

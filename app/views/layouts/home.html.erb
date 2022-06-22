@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wurzelholz</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= javascript_include_tag 'https://js.stripe.com/v3/' %>
+    <%= javascript_include_tag "https://www.paypal.com/sdk/js?client-id=#{Rails.application.credentials[:paypal_client_id]}" %>
+  </head>
+
+
+  <body>
+    <%= render 'layouts/messages' %>
+    <header class="header">
+      <%= render 'layouts/navigation' %>
+      <h1>Wildnisschule Wurzelholz</h1>
+      <%= link_to 'Angebot', seminar_types_path, class: "button-primary" %>
+    </header>
+
+    <main class="main-container">
+      <%= yield %>
+    </main>
+
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
+</html>
