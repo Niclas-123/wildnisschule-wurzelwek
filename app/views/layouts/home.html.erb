@@ -14,12 +14,12 @@
   </head>
 
 
-  <body>
+  <body class="frontend">
     <%= render 'layouts/messages' %>
     <header class="header">
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/frontend/navigation' %>
       <h1>Wildnisschule Wurzelholz</h1>
-      <%= link_to 'Angebot', seminar_types_path, class: "button-primary" %>
+      <%= link_to 'Angebot', frontend_seminar_types_path, class: "button-primary" %>
     </header>
 
     <main class="main-container">
@@ -27,7 +27,7 @@
     </main>
 
     <footer>
-      <%= render 'layouts/footer' %>
+      <%= render 'layouts/frontend/footer' %>
     </footer>
   </body>
 </html>

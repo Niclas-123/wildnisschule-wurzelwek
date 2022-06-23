@@ -1,0 +1,16 @@
+<div class="navigation-container">
+  <ul class="navigation-container__navigation">
+    <li><%= link_to "Home", root_path%></li>
+    <li class="navigation-container__dropdown-toggle">
+      <%=  "über uns" %>
+      <ul class="sub-menu">
+        <li><%= link_to "Philosophie", frontend_ueber_wildnisschule_wurzelholz_path %></li>
+      </ul>
+    </li>
+    <% if current_user %>
+      <li><%= link_to "Profil", frontend_user_path(current_user) %></li>
+    <% else %>
+      <li><%= link_to "Log in", log_in_path %></li>
+    <% end %>
+  </ul>
+</div>

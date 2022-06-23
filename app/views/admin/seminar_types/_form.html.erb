@@ -1,0 +1,17 @@
+<%= render 'shared/errors', obj: @seminar_type %>
+
+<%= form_for [@seminar_type] do |f| %>
+  <div class="form-container">
+    <div class="form-container__group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <%= f.submit "save", class: "button-primary" %>
+  </div>
+<% end %>

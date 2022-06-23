@@ -4,13 +4,17 @@ class SessionsController < ApplicationController
 
   def create
     if login(params[:email], params[:password])
-      if params.has_key?(:seminar)
-        flash[:notice] = 'Hi ' + current_user.first_name + ' :)'
-        set_seminar_for_booking
-        redirect_to new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
+      if current_user.admin
+        redirect_to admin_user_path(current_user)
       else
-        flash[:notice] = 'Hi ' + current_user.first_name + ' :)'
-        redirect_to user_path(current_user)
+        if params.has_key?(:seminar)
+          flash[:notice] = 'Hi ' + current_user.first_name + ' :)'
+          set_seminar_for_booking
+          redirect_to new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
+        else
+          flash[:notice] = 'Hi ' + current_user.first_name + ' :)'
+          redirect_to user_path(current_user)
+        end
       end
     else
       flash.now[:alert] = 'Die Log-in Daten waren leider falsch.'

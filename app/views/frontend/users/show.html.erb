@@ -1,0 +1,11 @@
+<h1>Das ist dein Profil <%= current_user.first_name %> :)</h1>
+
+<h2>Deine Seminare:</h2>
+<% @seminars.each do |s| %>
+  <p><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y")%></p>
+<% end %>
+
+<br>
+
+<%= link_to "Profil editieren", edit_user_path(current_user), class: "button-primary" %>
+<%= link_to "Log Out", log_out_path, class: "button-primary" %>

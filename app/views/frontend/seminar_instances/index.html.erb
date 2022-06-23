@@ -1,0 +1,14 @@
+<h1><%= @seminar_type.name %></h1>
+<p class="seminar-instance-subtitle"><%= @seminar_type.description %></p>
+
+<div class="seminar-cards-container">
+  <% @seminar_instances.each do |s| %>
+    <div class="seminar-cards-container__card">
+      <div class="seminar-cards-container__text">
+        <h2><%= link_to s.name, frontend_seminar_type_seminar_instance_path(params[:seminar_type_id], s) %></h2>
+        <p><%= pluralize( Seminar.where(seminar_instance: s).count, 'Termin', 'Termine' ) %> verfügbar</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+

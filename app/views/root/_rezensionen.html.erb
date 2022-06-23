@@ -1,0 +1,32 @@
+<section>
+  <h2>Erfahrungen der Teilnehmer</h2>
+
+  <div class="guestbook">
+    <% int = rand(GuestbookEntry.all.count) + 1 %>
+    <% g = GuestbookEntry.find(int) %>
+
+    <div class="guestbook-entry">
+      <div class="guestbook-entry__header">
+        <p>
+          <% if g.user %>
+            <%= g.user.first_name %>
+          <% else %>
+            <%= g.author %>
+          <% end %>
+          -
+          <%= g.created_at.strftime("%m.%d.%Y") %>
+          <% if g.seminar_instance %>
+            - <%= g.seminar_instance.name %>
+          <% end %>
+        </p>
+      </div>
+
+      <h3 class="guestbook-entry__title" ><%= g.title %></h3>
+      <p class="guestbook-entry__content"><%= g.content %></p>
+    </div>
+
+    <div class="button-container">
+      <%= link_to "Mehr Beiträge lesen", frontend_guestbook_entries_path, class: "button-primary" %>
+    </div>
+  </div>
+</section>

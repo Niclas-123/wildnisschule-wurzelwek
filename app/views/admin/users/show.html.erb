@@ -1,0 +1,48 @@
+<h1>Das ist dein Profil <%= current_user.first_name %> :)</h1>
+
+<h2>Seminare</h2>
+
+<% @seminars.order('seminars.start_date asc').each do |s| %>
+  <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y") %></h3>
+  <% @emails = s.bookings.pluck(:email).uniq.to_s.tr("[]\"", '') %>
+  <%= mail_to(@emails, name = "Mail an alle", class: "button-primary") %>
+
+  <%= link_to "Mail an Fahrer", admin_seminar_type_seminar_instance_seminar_send_mail_path(s.seminar_instance.seminar_type, s.seminar_instance, s), class: "button-primary" %>
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th><p>Teilnehmer</p></th>
+          <th><p>Email</p></th>
+          <th><p>Bezahlt?</p></th>
+          <th><p>Mitfahrer gesucht? </p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for b in Booking.where(seminar: s) do %>
+          <tr>
+            <td>
+              <p><%= b.first_name %><%= b.last_name %></p>
+            </td>
+            <td>
+              <p><%= mail_to(b.email) %></p>
+            </td>
+            <td>
+              <p>bla</p>
+            </td>
+            <td>
+              <p><%= "Ja" if b.rideshare %></p>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+
+
+<br>
+
+<%= link_to "Profil editieren", edit_admin_user_path(current_user), class: "button-primary" %>
+<%= link_to "Log Out", log_out_path, class: "button-primary" %>
