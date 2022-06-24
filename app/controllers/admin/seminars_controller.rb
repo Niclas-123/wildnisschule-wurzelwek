@@ -1,5 +1,5 @@
 module Admin
-  class SeminarsController < ApplicationController
+  class SeminarsController < Admin::BaseController
     before_action :set_seminar_instance, only: %i[send_mail]
     before_action :set_seminar_type, only: %i[send_mail]
     before_action :set_seminar, only: %i[send_mail]
@@ -9,7 +9,7 @@ module Admin
       @emails = @riders.pluck(:email)
       RideshareMailer.with(riders: @riders, seminar: @seminar, emails: @emails).rideshare_mail.deliver_now
       flash[:notice] = "Die E-mail wurde erfolgreich verschickt!"
-      redirect_to user_path(current_user)
+      redirect_to admin_user_path(current_user)
     end
 
   private

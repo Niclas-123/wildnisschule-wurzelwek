@@ -39,7 +39,6 @@ Rails.application.routes.draw do
 
     #flat models
     resources :locations, only: [:show], path: 'orte'
-    resources :equipment_lists, only: [:show], path: 'ausrüstungsliste'
     resources :posts, only: [:show, :index], path: 'blog'
     resources :guestbook_entries, path: 'gästebuch'
 

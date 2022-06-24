@@ -5,8 +5,9 @@ class SeminarInstance < ApplicationRecord
   monetize :price_cents
 
   belongs_to :seminar_type
-  belongs_to :equipment_list
 
+  has_many :equipment_lists
+  has_many :equipment_items, through: :equipment_lists
   has_many :seminars
   has_many :guestbook_entries
   has_many :contents

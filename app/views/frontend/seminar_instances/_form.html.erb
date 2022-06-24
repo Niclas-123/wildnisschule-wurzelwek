@@ -1,8 +1,7 @@
-<%= render 'shared/errors', obj: @seminar_instance %>
-
 <%= form_for [@seminar_type, @seminar_instance] do |f| %>
-
   <div class="form-container">
+    <%= render 'shared/errors', obj: @seminar_instance %>
+
     <div class="form-container__group">
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -18,7 +17,7 @@
       <%= f.number_field :price %>
     </div>
 
-    <%= f.submit "save", class: "button-primary" %>
+    <%= f.submit "save", class: "button button-primary" %>
   </div>
 <% end  %>
 

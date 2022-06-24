@@ -14,7 +14,7 @@ module Frontend
     def create
       @booking = Booking.new(booking_params)
       if @booking.save
-        redirect_to seminar_type_seminar_instance_seminar_booking_confirmation_path(@seminar_type, @seminar_instance, @seminar, @booking), notice: "Bitte bestätige deine Buchung! :)"
+        redirect_to frontend_seminar_type_seminar_instance_seminar_booking_confirmation_path(@seminar_type, @seminar_instance, @seminar, @booking), notice: "Bitte bestätige deine Buchung! :)"
       else
         render :new, status: :unprocessible_entity
       end
@@ -22,7 +22,7 @@ module Frontend
 
     def account_abfrage
       if current_user
-        redirect_to new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
+        redirect_to new_frontend_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
       end
     end
 

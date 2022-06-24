@@ -1,7 +1,6 @@
-<%= render 'shared/errors', obj: @guestbook_entry %>
-
-<%= form_for [@guestbook_entry] do |f| %>
+<%= form_for [@guestbook_entry], url: frontend_guestbook_entries_path(@guestbook_entry.id) do |f| %>
   <div class="form-container">
+    <%= render 'shared/errors', obj: @guestbook_entry %>
 
     <%= fields_for :guestbook_entry do |ab| %>
       <div class="form-container__group">
@@ -13,7 +12,7 @@
 
     <div class="form-container__group">
       <%= f.label :title %>
-      <%= f.text_area :title %>
+      <%= f.text_field :title %>
     </div>
 
     <div class="form-container__group">
@@ -21,7 +20,7 @@
       <%= f.text_area :content %>
     </div>
 
-    <%= f.submit "absenden", class: "button-primary"%>
+    <%= f.submit "absenden", class: "button button-primary"%>
   </div>
 
 <% end %>

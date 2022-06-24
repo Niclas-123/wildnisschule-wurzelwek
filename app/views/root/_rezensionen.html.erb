@@ -2,8 +2,7 @@
   <h2>Erfahrungen der Teilnehmer</h2>
 
   <div class="guestbook">
-    <% int = rand(GuestbookEntry.all.count) + 1 %>
-    <% g = GuestbookEntry.find(int) %>
+    <% g = GuestbookEntry.order(Arel.sql('RANDOM()')).first %>
 
     <div class="guestbook-entry">
       <div class="guestbook-entry__header">
@@ -26,7 +25,7 @@
     </div>
 
     <div class="button-container">
-      <%= link_to "Mehr Beiträge lesen", frontend_guestbook_entries_path, class: "button-primary" %>
+      <%= link_to "Mehr Beiträge lesen", frontend_guestbook_entries_path, class: "button button-primary" %>
     </div>
   </div>
 </section>

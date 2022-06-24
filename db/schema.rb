@@ -40,10 +40,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.index ["seminar_id"], name: "index_bookings_on_seminar_id"
   end
 
-  create_table "equipment_lists", force: :cascade do |t|
-    t.text "content"
+  create_table "equipment_items", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "equipment_lists", force: :cascade do |t|
+    t.bigint "equipment_item_id"
+    t.bigint "seminar_instance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["equipment_item_id"], name: "index_equipment_lists_on_equipment_item_id"
+    t.index ["seminar_instance_id"], name: "index_equipment_lists_on_seminar_instance_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -95,7 +104,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
 
   create_table "seminar_instances", force: :cascade do |t|
     t.bigint "seminar_type_id"
-    t.bigint "equipment_list_id"
     t.string "name"
     t.text "description"
     t.string "stripe_plan_name"
@@ -105,7 +113,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_111912) do
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
     t.string "slug"
-    t.index ["equipment_list_id"], name: "index_seminar_instances_on_equipment_list_id"
     t.index ["seminar_type_id"], name: "index_seminar_instances_on_seminar_type_id"
     t.index ["slug"], name: "index_seminar_instances_on_slug", unique: true
   end

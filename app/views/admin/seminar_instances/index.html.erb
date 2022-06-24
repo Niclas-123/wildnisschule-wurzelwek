@@ -1,0 +1,9 @@
+<h1><%= @seminar_type.name %></h1>
+
+<% @seminar_instances.each do |s| %>
+  <h2><%= s.name %></h2>
+  <%= link_to "Editieren", edit_admin_seminar_type_seminar_instance_path(@seminar_type.id, s.id), class: "button button-secondary"  %>
+  <%= link_to "Anschauen", admin_seminar_type_seminar_instance_path(@seminar_type.id, s.id), class: "button button-primary"  %>
+<% end %>
+<br>
+<%= link_to "Neue " + @seminar_type.name + " erstellen", new_admin_seminar_type_seminar_instance_path(@seminar_type.id), class: "button button-primary mt-xs" %>

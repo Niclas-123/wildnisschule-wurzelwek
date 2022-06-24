@@ -1,3 +1,4 @@
 class EquipmentList < ApplicationRecord
-  has_many :seminar_instances
+  belongs_to :equipment_item
+  belongs_to :seminar_instance
 end

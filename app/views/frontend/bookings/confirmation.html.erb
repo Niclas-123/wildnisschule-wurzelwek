@@ -41,7 +41,7 @@
 
 <% if @booking.status == "pending" %>
   <% if @booking.payment_gateway == 'stripe' %>
-    <%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button-primary" %>
+    <%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button button-primary" %>
   <% elsif @booking.payment_gateway == 'paypal' %>
     <div id="paypal-button-container"></div>
   <% else %>

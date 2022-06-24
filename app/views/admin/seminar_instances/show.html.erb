@@ -1,9 +1,9 @@
 <h1><%= @seminar_instance.name %></h1>
 
-<h2>Worum es geht:</h2>
+<h2>Beschreibung</h2>
 <p><%= @seminar_instance.description %></p>
 
-<h2>Vermittelte Inhalte:</h2>
+<h2>Inhalte:</h2>
 <ul>
   <% SeminarContent.where(seminar_instance: @seminar_instance).each do |s| %>
     <li><%= s.content %></li>
@@ -19,9 +19,9 @@
 
 <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>
 <br>
-<%= link_to "Generelle Infos", frontend_seminar_infos_path, target: '_blank', class: "button button-primary" %>
+<%= link_to "Editieren", edit_admin_seminar_type_seminar_instance_path(@seminar_type.id, @seminar_instance.id), class: "button button-secondary" %>
 
-<h2>Termine</h2>
+<h2>Termine:</h2>
 
 <% @seminars.each do |s| %>
   <p>
@@ -30,7 +30,6 @@
     <%= Booking.where(seminar: s).count %> von
     <%= s.max_participants %> Anmeldungen
   </p>
-    <% if Booking.where(seminar: s).count < s.max_participants %>
-      <%= link_to "Jetzt buchen", frontend_seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s), class: "button button-primary" %>
-    <% end %>
 <% end %>
+
+<%= link_to "Neuen Termin anlegen", new_admin_seminar_type_seminar_instance_seminar_path(@seminar_type.id, @seminar_instance.id), class: "button button-secondary" %>

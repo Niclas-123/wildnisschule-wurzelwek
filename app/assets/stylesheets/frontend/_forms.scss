@@ -1,7 +1,6 @@
 // * {outline: 1px solid red;}
-.button-primary {
+.button {
   padding: var(--space-2xs) var(--space-m);
-  background-color: var(--primary);
   display: inline-block;
   color: white;
 
@@ -15,13 +14,27 @@
   -moz-appearance: none;
 }
 
+.button-primary {
+  background-color: var(--primary);
+}
+
+.button-secondary {
+  background-color: var(--secondary);
+}
+
 .button-primary:hover,
 .button-primary:focus {
     background: var(--primary-accent);
     text-decoration: none;
 }
 
-.button-primary:focus {
+.button-secondary:hover,
+.button-secondary:focus {
+    background: var(--secondary-accent);
+    text-decoration: none;
+}
+
+.button:focus {
     outline: 1px solid #fff;
     outline-offset: -4px;
 }

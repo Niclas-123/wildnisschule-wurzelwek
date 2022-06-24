@@ -25,7 +25,7 @@ module Frontend
         if params.has_key?(:seminar)
           flash[:notice] = 'Willkommen ' + @user.first_name + ' :)'
           set_seminar_for_booking
-          redirect_to new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
+          redirect_to new_frontend_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
         else
           flash[:notice] = 'Wilkommen ' + @user.first_name + ' :)'
           redirect_to root_path
@@ -40,9 +40,10 @@ module Frontend
 
     def update
       if @user.update(user_params)
-        flash[:notice] = "Your account information was successfully updated"
-        redirect_to @user
+        flash[:notice] = "Du hast deinen Account erfolgreich editiert"
+        redirect_to frontend_user_path(@user)
       else
+        flash[:alert] = "Da ist leider etwas schief gelaufen :/"
         render 'edit'
       end
     end

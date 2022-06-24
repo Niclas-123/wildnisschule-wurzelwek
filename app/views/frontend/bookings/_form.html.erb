@@ -1,7 +1,7 @@
-<%= render 'shared/errors', obj: @booking %>
-
-<%= form_for [@seminar_type, @seminar_instance, @seminar, @booking] do |f| %>
+<%= form_for [@seminar_type, @seminar_instance, @seminar, @booking], url: frontend_seminar_type_seminar_instance_seminar_bookings_path(@seminar_type, @seminar_instance, @seminar) do |f| %>
   <div class="form-container">
+    <%= render 'shared/errors', obj: @booking %>
+
     <legend>Deine Infos</legend>
     <div class="form-container__two-fields">
       <div class="form-container__group">
@@ -130,7 +130,7 @@
 
     <div class="form-container__checkbox">
       <p class=form-container__label>
-        Ich stimme den <%= link_to "Datenschutzbestimmungen", datenschutz_path, target: "_blank" %> zu.
+        Ich stimme den <%= link_to "Datenschutzbestimmungen", frontend_datenschutz_path, target: "_blank" %> zu.
       </p>
       <%= f.check_box :privacy, required: true  %>
     </div class="form-container__group">
@@ -152,6 +152,6 @@
       </div>
     </div class="form-container__group">
 
-    <%= f.submit "Zum nächsten Schritt", class: "button-primary mt-xs" %>
+    <%= f.submit "Zum nächsten Schritt", class: "button button-primary mt-xs" %>
   </div>
 <% end %>

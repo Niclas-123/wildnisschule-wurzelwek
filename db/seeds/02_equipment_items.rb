@@ -1,0 +1,6 @@
+EquipmentItem.create(name: "Schlafsack")
+EquipmentItem.create(name: "Messer")
+EquipmentItem.create(name: "Rucksack")
+EquipmentItem.create(name: "Isomatte")
+EquipmentItem.create(name: "Axt")
+EquipmentItem.create(name: "Topf")

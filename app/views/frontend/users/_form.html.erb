@@ -1,7 +1,7 @@
-<%= render 'shared/errors', obj: @user %>
-
-<%= form_with(model: @user) do |f| %>
+<%= form_for [@user], url: frontend_user_path(@user) do |f| %>
   <div class="form-container">
+    <%= render 'shared/errors', obj: @user %>
+
     <div class="form-container__two-fields">
       <div class="form-container__group">
         <%= f.label 'Vorname', for: :first_name %>
@@ -62,6 +62,6 @@
       <%= hidden_field_tag(:seminar, params[:seminar]) %>
     <% end %>
 
-    <%= f.submit(@user.new_record? ? "Sign up" : "Update profile" , class: "button-primary") %>
+    <%= f.submit(@user.new_record? ? "Sign up" : "Update profile" , class: "button button-primary") %>
   </div>
 <% end %>

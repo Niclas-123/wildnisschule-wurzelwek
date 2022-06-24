@@ -1,16 +1,16 @@
 <div class="navigation-container">
   <ul class="navigation-container__navigation">
-    <li><%= link_to "Home", root_path%></li>
-    <li class="navigation-container__dropdown-toggle">
-      <%=  "über uns" %>
+    <li><b>Admin</b></li>
+    <li><%= link_to "Hauptseite", log_out_path%></li>
+    <li  class="navigation-container__dropdown-toggle">
+      <%= link_to "Seminar Typen", admin_seminar_types_path %>
       <ul class="sub-menu">
-        <li><%= link_to "Philosophie", frontend_ueber_wildnisschule_wurzelholz_path %></li>
+        <li></li>
+        <% SeminarType.all.each do |s| %>
+          <li><%= link_to s.name, admin_seminar_type_seminar_instances_path(s.id) %></li>
+        <% end %>
       </ul>
     </li>
-    <% if current_user %>
-      <li><%= link_to "Profil", frontend_user_path(current_user) %></li>
-    <% else %>
-      <li><%= link_to "Log in", log_in_path %></li>
-    <% end %>
+    <li><%= link_to "Dashboard", frontend_user_path(current_user) %></li>
   </ul>
 </div>

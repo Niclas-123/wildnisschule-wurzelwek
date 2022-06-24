@@ -10,10 +10,10 @@ class SessionsController < ApplicationController
         if params.has_key?(:seminar)
           flash[:notice] = 'Hi ' + current_user.first_name + ' :)'
           set_seminar_for_booking
-          redirect_to new_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
+          redirect_to new_frontend_seminar_type_seminar_instance_seminar_booking_path(@seminar_type, @seminar_instance, @seminar)
         else
           flash[:notice] = 'Hi ' + current_user.first_name + ' :)'
-          redirect_to user_path(current_user)
+          redirect_to frontend_user_path(current_user)
         end
       end
     else

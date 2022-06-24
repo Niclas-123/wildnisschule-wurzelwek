@@ -1,0 +1,30 @@
+<% if @seminar_instance.persisted? %>
+  <!-- We are in edit action -->
+  <% @url = admin_seminar_type_seminar_instance_path(@seminar_type.id, @seminar_instance.id) %>
+<% else %>
+  <!-- We are in new -->
+  <% @url = admin_seminar_type_seminar_instances_path(@seminar_type.id)  %>
+<% end %>
+
+<%= form_for [@seminar_type, @seminar_instance], url: @url do |f| %>
+  <div class="form-container">
+    <%= render 'shared/errors', obj: @seminar_instance %>
+
+    <div class="form-container__group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label "Preis in Cent!!", for: :price_cents %>
+      <%= f.number_field :price_cents %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <%= f.submit "save", class: "button button-primary" %>
+  </div>
+<% end %>
