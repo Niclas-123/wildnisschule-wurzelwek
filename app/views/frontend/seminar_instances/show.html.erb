@@ -5,7 +5,7 @@
 
 <h2>Vermittelte Inhalte:</h2>
 <ul>
-  <% SeminarContent.where(seminar_instance: @seminar_instance).each do |s| %>
+  <% @seminar_instance.seminar_contents.each do |s| %>
     <li><%= s.content %></li>
   <% end %>
 </ul>

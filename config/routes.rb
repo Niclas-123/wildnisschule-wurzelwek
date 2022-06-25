@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     #nested Routes for Seminars
     resources :seminar_types do
       resources :seminar_instances do
+        resources :seminar_contents
         resources :seminars do
           get '/send_mail', to: 'seminars#send_mail'
           resources :bookings

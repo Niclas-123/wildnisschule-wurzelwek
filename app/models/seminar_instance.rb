@@ -10,5 +10,7 @@ class SeminarInstance < ApplicationRecord
   has_many :equipment_items, through: :equipment_lists
   has_many :seminars
   has_many :guestbook_entries
-  has_many :contents
+  has_many :seminar_contents
+
+  accepts_nested_attributes_for :seminar_contents, allow_destroy: true
 end

@@ -7,7 +7,7 @@
 <% end %>
 
 <%= form_for [@seminar_type, @seminar_instance], url: @url do |f| %>
-  <div class="form-container">
+  <div class="form-container" data-controller="confirmation field">
     <%= render 'shared/errors', obj: @seminar_instance %>
 
     <div class="form-container__group">
@@ -23,6 +23,30 @@
     <div class="form-container__group">
       <%= f.label :description %>
       <%= f.text_area :description %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :content, "Inhalte", class: "mt-xs" %>
+      <%= f.fields_for :seminar_contents do |content| %>
+        <%= content.text_field :content, class: "mt-xs" %>
+        <% if @seminar_instance.persisted? %>
+          <%= link_to 'Entfernen', admin_seminar_type_seminar_instance_seminar_content_path(@seminar_type.id, @seminar_instance.id, content.object.id, action: :destroy), method: :delete, data: { action:  "click->confirmation#delete" } %>
+        <% end %>
+      <% end %>
+      <div data-field-target="field_container"></div>
+      <p class="button button-primary" data-action="click->field#add_field">Neuer Inhalt</p>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label "Ausrüstungsliste" %>
+      <%= f.collection_check_boxes(:equipment_item_ids, EquipmentItem.all, :id, :name, {}, { multiple: true }) do |b| %>
+        <div class="form-container__group--multi-select" >
+          <%= b.check_box  %>
+          <label for="<%= b.text %>">
+            <%= b.text %>
+          </label>
+        </div>
+      <% end %>
     </div>
 
     <%= f.submit "save", class: "button button-primary" %>
