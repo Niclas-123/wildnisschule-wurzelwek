@@ -28,7 +28,8 @@
     <%= s.start_date.strftime("%m.%d.%Y") %>:
     <%= link_to s.location.name, frontend_location_path(s.location)  %> -
     <%= Booking.where(seminar: s).count %> von
-    <%= s.max_participants %> Anmeldungen
+    <%= s.max_participants %> Anmeldungen -
+    <%= link_to 'Editieren', edit_admin_seminar_type_seminar_instance_seminar_path(@seminar_type.id, @seminar_instance.id, s.id), class: "red"  %>
   </p>
 <% end %>
 

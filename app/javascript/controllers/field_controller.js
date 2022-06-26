@@ -16,6 +16,7 @@ export default class extends Controller {
     var inputField = document.createElement("input")
     inputField.name = "seminar_instance[seminar_contents_attributes][" + field_index + "][content]"
     inputField.id = "seminar_instance_seminar_contents_attributes_" + field_index + "_content"
+
     inputField.type = "text"
 
     fieldContainer.append(inputField)

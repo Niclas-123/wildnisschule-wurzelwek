@@ -1,0 +1,40 @@
+<% if @seminar.persisted? %>
+  <!-- We are in edit action -->
+  <% @url = admin_seminar_type_seminar_instance_seminar_path(@seminar_type.id, @seminar_instance.id, @seminar.id) %>
+<% else %>
+  <!-- We are in new -->
+  <% @url = admin_seminar_type_seminar_instance_seminars_path(@seminar_type.id, @seminar_instance.id, @seminar)  %>
+<% end %>
+
+<%= form_for [@seminar], url: @url do |f| %>
+
+  <div class="form-container">
+    <%= render 'shared/errors', obj: @seminar %>
+
+    <div class="form-container__group">
+      <%= f.label :start_date, "Start-Datum" %>
+      <%= f.date_field :start_date %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :end_date, "End-Datum" %>
+      <%= f.date_field :end_date %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :max_participants, "Teilnehmeranzahl" %>
+      <%= f.number_field :max_participants %>
+    </div>
+
+    <div class="form-container__group">
+      <%= fields_for :seminar do |location| %>
+        <%= location.label :location_id, "Seminar Ort" %>
+        <%= location.select :location_id, Location.all.map { |l| [l.name, l.id] } %>
+      <% end %>
+    </div>
+
+    <%= f.submit "save", class: "button button-primary" %>
+
+  </div>
+<% end %>
+
