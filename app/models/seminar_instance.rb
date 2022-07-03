@@ -11,6 +11,8 @@ class SeminarInstance < ApplicationRecord
   has_many :seminars
   has_many :guestbook_entries
   has_many :seminar_contents
+  has_many :seminar_images
 
   accepts_nested_attributes_for :seminar_contents, allow_destroy: true
+  accepts_nested_attributes_for :seminar_images, allow_destroy: true
 end

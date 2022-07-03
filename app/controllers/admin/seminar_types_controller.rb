@@ -26,7 +26,7 @@ module Admin
 
     def update
       if @seminar_type.update(seminar_type_params)
-        redirect_to admin_seminar_type_path, notice: "Du hast den Seminar-typ erfolgreich editiert"
+        redirect_to admin_seminar_types_path, notice: "Du hast den Seminar-typ erfolgreich editiert"
       else
         render :edit, status: :unprocessable_entity
       end

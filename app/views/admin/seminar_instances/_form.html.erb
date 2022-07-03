@@ -49,6 +49,12 @@
       <% end %>
     </div>
 
+    <div class="form-container__group">
+      <%= f.fields_for :seminar_images do |image| %>
+        <%= image.file_field :image %>
+      <% end %>
+    </div>
+
     <%= f.submit "save", class: "button button-primary" %>
   </div>
 <% end %>

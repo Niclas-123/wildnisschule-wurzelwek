@@ -1,0 +1,7 @@
+<h1>Schreibe einen Gästebucheintrag :)</h1>
+<% if current_user %>
+  <%= render "form" %>
+<% else %>
+  <p>Bitte log dich ein um einen Eintrag zu schreiben. Falls du keinen Account erstellen möchtest, schick deinen Eintrag einfach an <a href="mailto:inescollmer@web.de">inescollmer@web.de</a> und ich trage ihn für dich ein.</p>
+  <%= link_to "Log in", log_in_path, class: "button button-primary" %>
+<% end %>

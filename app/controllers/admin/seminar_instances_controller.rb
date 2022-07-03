@@ -16,6 +16,7 @@ module Admin
     def new
       @seminar_instance = SeminarInstance.new
       @seminar_instance.seminar_contents.build
+      @seminar_instance.seminar_images.build
     end
 
     def create
@@ -41,7 +42,7 @@ module Admin
   private
 
     def seminar_instance_params
-      params.require(:seminar_instance).permit(:name, :description, :price_cents, equipment_item_ids: [],  seminar_contents_attributes: [:id, :content]).merge(seminar_type: @seminar_type).permit!
+      params.require(:seminar_instance).permit(:name, :description, :price_cents, equipment_item_ids: [],  seminar_contents_attributes: [:id, :content], seminar_images_attributes: [:image]).merge(seminar_type: @seminar_type).permit!
     end
 
     def set_seminar_instance

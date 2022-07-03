@@ -1,4 +1,10 @@
-<%= form_for [@seminar_type], url: admin_seminar_types_path do |f| %>
+<% if @seminar_type.persisted? %>
+  <% @url = admin_seminar_type_path(@seminar_type.id) %>
+<% else %>
+  <% @url = admin_seminar_types_path %>
+<% end %>
+
+<%= form_for [@seminar_type], url: @url do |f| %>
   <div class="form-container">
     <%= render 'shared/errors', obj: @seminar_type %>
 
