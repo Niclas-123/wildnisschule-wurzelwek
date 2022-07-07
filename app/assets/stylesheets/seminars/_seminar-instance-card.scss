@@ -13,18 +13,22 @@
   padding: 0;
 
   &__card {
-    //TODO - muss durch richtige Bilder ausgetauscht werden
-    background: url("https://images.unsplash.com/photo-1574007557239-acf6863bc375?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
     margin: 0 auto;
     width: 350px;
     height: 500px;
     position: relative;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.315);
+  }
 
+  &__image {
+    width: 350px;
+    height: 350px;
+
+    img {
+      object-fit: cover;
+      width: 350px;
+      height: 350px;
+    }
   }
 
   &__text {
