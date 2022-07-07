@@ -4,25 +4,38 @@
   <h2>Worum es geht:</h2>
   <p><%= @seminar_instance.description %></p>
 
-  <% if @seminar_instance.seminar_images.exists? %>
-    <div class="seminar_instance__image">
-      <%= image_tag(@seminar_instance.seminar_images.first.image) %>
-    </div>
-  <% end %>
-
   <h2>Vermittelte Inhalte:</h2>
-  <ul>
-    <% @seminar_instance.seminar_contents.each do |s| %>
-      <li><%= s.content %></li>
+  <div class="seminar_instance__image_section">
+    <div>
+      <ul>
+        <% @seminar_instance.seminar_contents.each do |s| %>
+          <li><%= s.content %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% if @seminar_instance.seminar_images.exists? %>
+      <div class="seminar_instance__image">
+        <%= image_tag(@seminar_instance.seminar_images.first.image) %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 
   <h2>Ausrüstungsliste</h2>
-  <ul>
-    <% @seminar_instance.equipment_items.each do |i| %>
-      <li><%= i.name %></li>
+  <div class="seminar_instance__image_section">
+    <div>
+      <ul>
+        <% @seminar_instance.equipment_items.each do |i| %>
+          <li><%= i.name %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <% if @seminar_instance.seminar_images.exists? %>
+      <div class="seminar_instance__image">
+        <%= image_tag(@seminar_instance.seminar_images.last.image) %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 
   <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>
   <br>

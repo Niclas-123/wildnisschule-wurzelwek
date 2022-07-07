@@ -29,6 +29,14 @@ module Admin
     end
 
     def edit
+      @seminar_image = @seminar_instance.seminar_images.build
+
+      #delete empty seminar images
+      @seminar_instance.seminar_images.each do |image|
+        unless image.image.attached?
+          image.destroy
+        end
+      end
     end
 
     def update

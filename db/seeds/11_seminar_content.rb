@@ -20,5 +20,4 @@ SeminarContent.create(content: "Thema oder Frage finden", seminar_instance_id: 3
 SeminarContent.create(content: "innere Einkehr", seminar_instance_id: 3)
 SeminarContent.create(content: "Integration des Erlebten", seminar_instance_id: 3)
 
-
-
+puts 'Seminar Contents created'

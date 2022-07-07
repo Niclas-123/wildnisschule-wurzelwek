@@ -11,12 +11,6 @@
     <% end %>
   </ul>
 
-  <% if @seminar_instance.seminar_images.exists? %>
-    <div class="seminar_instance__image">
-      <%= image_tag(@seminar_instance.seminar_images.first.image) %>
-    </div>
-  <% end %>
-
   <h2>Ausrüstungsliste</h2>
   <ul>
     <% @seminar_instance.equipment_items.each do |i| %>
@@ -25,8 +19,20 @@
   </ul>
 
   <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>
-  <br>
-  <%= link_to "Editieren", edit_admin_seminar_type_seminar_instance_path(@seminar_type.id, @seminar_instance.id), class: "button button-secondary" %>
+
+  <h2>Bilder (bitte immer genau 2)</h2>
+  <% if @seminar_instance.seminar_images.count > 2 %>
+    <p class="red">Achtung: Es werden nur die ersten 2 Bilder angezeigt werden.</p>
+  <% end %>
+  <% if @seminar_instance.seminar_images.exists? %>
+    <% @seminar_instance.seminar_images.each do |image| %>
+      <div class="seminar_instance__image">
+        <%= image_tag(image.image) %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= link_to "Seminar Editieren", edit_admin_seminar_type_seminar_instance_path(@seminar_type.id, @seminar_instance.id), class: "button button-secondary" %>
 
   <h2>Termine:</h2>
 
