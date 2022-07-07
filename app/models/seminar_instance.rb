@@ -13,6 +13,8 @@ class SeminarInstance < ApplicationRecord
   has_many :seminar_contents
   has_many :seminar_images
 
+  validates :name, :description, :price_cents, presence: true
+
   accepts_nested_attributes_for :seminar_contents, allow_destroy: true
   accepts_nested_attributes_for :seminar_images, allow_destroy: true
 end

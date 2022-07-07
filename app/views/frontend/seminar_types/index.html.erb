@@ -4,7 +4,7 @@
   <% @seminar_types.each do |s| %>
     <li>
       <div class="seminar-type-cards__card">
-        <%= image_tag 'owl.jpg', class: "seminar-type-cards__image", alt: "" %>
+        <%= image_tag s.image, class: "seminar-type-cards__image", alt: "" %>
         <div class="seminar-type-cards__overlay">
           <div class="seminar-type-cards__header">
             <svg class="seminar-type-cards__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>

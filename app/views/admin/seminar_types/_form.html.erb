@@ -9,13 +9,18 @@
     <%= render 'shared/errors', obj: @seminar_type %>
 
     <div class="form-container__group">
-      <%= f.label :name %>
+      <%= f.label :name, "Name" %>
       <%= f.text_field :name %>
     </div>
 
     <div class="form-container__group">
-      <%= f.label :description %>
+      <%= f.label :description, "Beschreibung" %>
       <%= f.text_area :description %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :image, "Bild" %>
+      <%= f.file_field :image %>
     </div>
 
     <%= f.submit "save", class: "button button-primary" %>

@@ -39,7 +39,7 @@ module Admin
     end
 
     def seminar_type_params
-      params.require(:seminar_type).permit(:name, :description)
+      params.require(:seminar_type).permit(:name, :description, :image)
     end
   end
 end
