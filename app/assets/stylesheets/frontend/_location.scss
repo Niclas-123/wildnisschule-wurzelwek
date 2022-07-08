@@ -1,0 +1,17 @@
+.location-container {
+
+  &__address {
+    display: flex;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    object-fit: cover;
+    border: 5px solid var(--primary);
+  }
+
+  &__address > * {
+    flex: 1 1 0px;
+  }
+}

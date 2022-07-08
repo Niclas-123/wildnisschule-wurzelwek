@@ -1,2 +1,20 @@
-<h1><%= @location.name %></h1>
-<p><%= @location.description %></p>
+<div class="location-container">
+  <h1><%= @location.name %></h1>
+
+  <div class="location-container__address">
+    <div>
+      <p>
+        <%= @location.zip %>
+        <%= @location.city %>
+        <br>
+        <%= @location.street %>
+        <%= @location.house_number %>
+      </p>
+    </div>
+    <div>
+      <%= image_tag @location.location_image %>
+    </div>
+  </div>
+
+  <p><%= @location.description %></p>
+</div>

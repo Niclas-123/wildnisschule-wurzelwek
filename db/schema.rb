@@ -109,9 +109,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_03_143503) do
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.decimal "latitude", precision: 11, scale: 8
-    t.decimal "longitude", precision: 11, scale: 8
-    t.text "adress"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "street"
+    t.string "house_number"
+    t.string "zip"
+    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

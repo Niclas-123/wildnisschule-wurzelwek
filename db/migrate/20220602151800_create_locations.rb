@@ -4,9 +4,14 @@ class CreateLocations < ActiveRecord::Migration[7.0]
 
       t.string :name
       t.text :description
-      t.decimal :latitude, precision: 11, scale: 8
-      t.decimal :longitude, precision: 11, scale: 8
-      t.text :adress
+
+      t.float :latitude
+      t.float :longitude
+
+      t.string :street
+      t.string :house_number
+      t.string :zip
+      t.string :city
 
       t.timestamps
     end
