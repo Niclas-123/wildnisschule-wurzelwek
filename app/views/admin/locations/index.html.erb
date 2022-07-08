@@ -1,0 +1,9 @@
+<h1>Seminar Orte</h1>
+<% @locations.each do |s| %>
+  <h2><%= s.name %></h2>
+  <%= link_to "Editieren", edit_admin_location_path(s.id), class: "button button-secondary " %>
+  <%= link_to s.name + " anschauen", admin_location_path(s.id), class: "button button-primary " %>
+<% end %>
+<hr class="mt-xs">
+<br>
+<%= link_to "Neuen Seminar-Ort erstellen", new_admin_location_path, class: "button button-primary mt-xs" %>

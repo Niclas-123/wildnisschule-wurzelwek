@@ -1,0 +1,38 @@
+<% if @location.persisted? %>
+  <% @url = admin_location_path(@location.id) %>
+<% else %>
+  <% @url = admin_locations_path %>
+<% end %>
+
+<%= form_for [@location], url: @url do |f| %>
+  <div class="form-container">
+    <%= render 'shared/errors', obj: @location %>
+
+    <div class="form-container__group">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :description, "Beschreibung" %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :latitude %>
+      <%= f.number_field :latitude, step: :any %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :longitude %>
+      <%= f.number_field :longitude, step: :any %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :location_image, "Bild" %>
+      <%= f.file_field :location_image %>
+    </div>
+
+    <%= f.submit "save", class: "button button-primary" %>
+  </div>
+<% end %>

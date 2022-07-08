@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #admin dashboard
   namespace :admin, path: 'admin' do
     root to: 'users#show'
-    resources :users, :posts, :guestbook_entries
+    resources :users, :posts, :guestbook_entries, :locations
 
     #nested Routes for Seminars
     resources :seminar_types do

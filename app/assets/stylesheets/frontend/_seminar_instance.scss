@@ -1,5 +1,14 @@
 .seminar_instance {
 
+  h2 {
+    font-family: 'Hand-Boys';
+    color: var(--primary);
+  }
+
+  a {
+    color: var(--secondary);
+  }
+
   &__image_section {
     display: flex;
   }

@@ -2,7 +2,7 @@
 .button {
   padding: var(--space-2xs) var(--space-m);
   display: inline-block;
-  color: white;
+  color: white !important;
 
   border: none;
   cursor: pointer;
