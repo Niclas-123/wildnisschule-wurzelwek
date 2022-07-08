@@ -1,0 +1,12 @@
+<h1>Neuen Gegenstand anlegen</h1>
+
+<%= form_for [@equipment_item], url: admin_equipment_items_path do |f| %>
+  <div class="form-container">
+    <div class="form-container__group">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name %>
+    </div>
+
+    <%= f.submit "save", class: "button button-primary" %>
+  </div>
+<% end %>

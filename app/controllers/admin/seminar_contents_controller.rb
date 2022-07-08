@@ -1,6 +1,5 @@
 module Admin
   class SeminarContentsController < Admin::BaseController
-    load_and_authorize_resource
 
     def destroy
       @seminar_content.destroy

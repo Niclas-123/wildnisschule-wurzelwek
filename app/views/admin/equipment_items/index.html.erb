@@ -1,0 +1,9 @@
+<h1>Ausrüstungsgegenstände</h1>
+<% @equipment_items.each do |e| %>
+  <p>
+    <%= e.name %>
+    <%= link_to 'Entfernen', admin_equipment_item_path(e.id, action: :destroy), method: :delete, data: { action:  "click->confirmation#delete" }, class: "red" %>
+  </p>
+<% end %>
+
+<%= link_to "Neuen Gegenstand", new_admin_equipment_item_path, class: "button button-primary" %>
