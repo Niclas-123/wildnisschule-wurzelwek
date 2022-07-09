@@ -21,21 +21,29 @@
     &--part {
       display: flex;
       gap: 5%;
+      flex-direction: column-reverse;
 
-      p, div {
-        width: 50%;
+      @include breakpointDesktop() {
+        flex-direction: row;
+
+        p, div {
+          width: 50%;
+        }
       }
+
 
       div {
         position: relative;
       }
 
       img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        @include breakpointDesktop () {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
         margin: auto auto;
         padding: var(--space-l);
         max-height: 100%;
@@ -51,14 +59,49 @@
       display: flex;
       gap: 5%;
       margin-top: var(--space-xl);
+
+      @include breakpointMobile() {
+        flex-direction: column;
+      }
     }
 
     &--container > * {
       flex: 1 1 0px;
     }
 
-    .even {
-      flex-direction: row-reverse;
+    &--image {
+      img {
+        object-fit: cover;
+        border: 3px solid var(--primary);
+        width: 100%;
+      }
+    }
+
+    @include breakpointDesktop() {
+      .even {
+        flex-direction: row-reverse;
+      }
+
+      &--image {
+        position: relative;
+        width: 100%;
+
+        img {
+          position: absolute;
+          height: 100%;
+        }
+      }
+    }
+
+    @include breakpointMobile() {
+
+      &--image {
+        margin-top: var(--space-m);
+
+        img {
+          aspect-ratio: 4 / 2;
+        }
+      }
     }
 
     &--text {
@@ -70,19 +113,6 @@
 
       p {
         margin-bottom: 0;
-      }
-    }
-
-    &--image {
-      position: relative;
-      width: 100%;
-
-      img {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        border: 3px solid var(--primary);
       }
     }
   }
