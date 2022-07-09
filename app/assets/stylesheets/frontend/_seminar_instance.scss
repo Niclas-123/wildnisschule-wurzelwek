@@ -9,15 +9,38 @@
     color: var(--secondary);
   }
 
-  &__image_section {
-    display: flex;
+  @include breakpointDesktop() {
+    &__image_section {
+     display: flex;
+    }
   }
 
   &__image_section > * {
     flex: 1 1 0px;
   }
 
+
+
+    &__image-mobile {
+      width: 100%;
+
+      img {
+        outline: 5px solid var(--primary);
+        width: 100%;
+        object-fit: cover;
+      }
+
+      @include breakpointDesktop() {
+        display: none;
+     }
+    }
+
   &__image {
+
+    @include breakpointMobile() {
+      display: none;
+    }
+
     margin: auto;
     display: flex;
     justify-content: center;

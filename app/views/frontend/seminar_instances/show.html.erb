@@ -4,6 +4,12 @@
   <h2>Worum es geht:</h2>
   <p><%= @seminar_instance.description %></p>
 
+  <% if @seminar_instance.seminar_images.exists? %>
+    <div class="seminar_instance__image-mobile">
+      <%= image_tag(@seminar_instance.seminar_images.first.image) %>
+    </div>
+  <% end %>
+
   <h2>Vermittelte Inhalte:</h2>
   <div class="seminar_instance__image_section">
     <div>
@@ -19,6 +25,12 @@
       </div>
     <% end %>
   </div>
+
+  <% if @seminar_instance.seminar_images.exists? %>
+    <div class="seminar_instance__image-mobile">
+      <%= image_tag(@seminar_instance.seminar_images.last.image) %>
+    </div>
+  <% end %>
 
   <h2>Ausrüstungsliste</h2>
   <div class="seminar_instance__image_section">

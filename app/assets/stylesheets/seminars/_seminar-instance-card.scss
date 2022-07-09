@@ -12,6 +12,10 @@
   margin: 4rem 5vw;
   padding: 0;
 
+  @include breakpointMobile {
+    margin: 40px 0;
+  }
+
   &__card {
     margin: 0 auto;
     width: 350px;

@@ -8,5 +8,15 @@
 
   div {
     align-self: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+      max-width: fit-content;
+      align-self: center;
+      color: var(--secondary);
+    }
   }
 }

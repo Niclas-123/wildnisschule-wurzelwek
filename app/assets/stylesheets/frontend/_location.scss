@@ -2,6 +2,10 @@
 
   &__address {
     display: flex;
+
+    @include breakpointMobile() {
+      flex-direction: column;
+    }
   }
 
   img {
