@@ -1,9 +1,39 @@
 .navigation-container {
   text-transform: uppercase;
   font-size: var(--step-0);
-  padding: 20px 10vw;
   margin: 0 auto;
   max-width: 1400px;
+  padding: 20px 10vw;
+
+  @include breakpointMobile() {
+    padding: 20px 40px;
+  }
+
+  &__burger-button {
+    background-color: transparent;
+    padding: 0 0.5rem;
+    border: none;
+    position: relative;
+    z-index: 3;
+    width: 3rem;
+    height: 3rem;
+
+    @include breakpointDesktop() {
+      display: none;
+    }
+
+    div {
+      height: 0.1875rem;
+      background-color: white;
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__burger-button--black {
+    div {
+      background-color: black;
+    }
+  }
 
   ul {
     list-style: none;
@@ -18,6 +48,41 @@
   &__navigation {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+
+    margin: 0;
+    opacity: 0;
+    width: 100vw;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: white;
+    transition: opacity 0.2s ease-in-out;
+
+    @include breakpointMobile() {
+      padding: 75px calc(40px + 0.5rem) !important;
+      color: black;
+    }
+
+
+    @include breakpointDesktop() {
+      position: static;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color: transparent;
+      opacity: 1;
+      pointer-events: auto;
+      padding: 0;
+      flex: 1;
+    }
+
+    .main-navigation--opened & {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   &__dropdown-toggle {
@@ -40,5 +105,9 @@
 
   &__navigation > li:hover .sub-menu {
     display: block;
+  }
+
+  &__preload * {
+    transition: none !important;
   }
 }
