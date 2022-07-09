@@ -63,7 +63,7 @@
     transition: opacity 0.2s ease-in-out;
 
     @include breakpointMobile() {
-      padding: 75px calc(40px + 0.5rem) !important;
+      padding: 75px 0 20px calc(40px + 0.5rem) !important;
       color: black;
     }
 
@@ -101,6 +101,14 @@
     display: block;
     width: 1px;
     overflow: visible;
+  }
+
+  @include breakpointMobile() {
+    &__dropdown-toggle {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-m);
+    }
   }
 
   &__navigation > li:hover .sub-menu {

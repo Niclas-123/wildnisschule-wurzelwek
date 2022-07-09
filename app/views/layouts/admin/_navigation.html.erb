@@ -1,11 +1,18 @@
-<nav class="navigation-container">
+<nav class="navigation-container navigation_container__preload" data-controller="navigation" aria-label="website">
+
+  <button class="navigation-container__burger-button" aria-label="Toggle navigation" data-navigation-target="burgerButton" data-action="navigation#toggleMenu"  aria-controls="nav-items" aria-expanded="false">
+    <div aria-hidden="true"></div>
+    <div aria-hidden="true"></div>
+    <div aria-hidden="true"></div>
+  </button>
+
   <ul class="navigation-container__navigation">
 
     <li  class="navigation-container__dropdown-toggle">
-      <%= link_to "Seminare", admin_seminar_types_path %>
+      <%= link_to "Seminare", admin_seminar_types_path, "data-navigation-target": "navItem"  %>
       <ul class="sub-menu">
         <% SeminarType.all.each do |s| %>
-          <li><%= link_to s.name, admin_seminar_type_seminar_instances_path(s.id) %></li>
+          <li><%= link_to s.name, admin_seminar_type_seminar_instances_path(s.id), "data-navigation-target": "navItem"  %></li>
         <% end %>
       </ul>
     </li>
@@ -13,24 +20,24 @@
     <li  class="navigation-container__dropdown-toggle">
       Addons
       <ul class="sub-menu">
-        <li><%= link_to "Orte", admin_locations_path %></li>
-        <li><%= link_to "Ausrüstung", admin_equipment_items_path %></li>
+        <li><%= link_to "Orte", admin_locations_path, "data-navigation-target": "navItem"  %></li>
+        <li><%= link_to "Ausrüstung", admin_equipment_items_path, "data-navigation-target": "navItem"  %></li>
       </ul>
     </li>
 
     <li  class="navigation-container__dropdown-toggle">
       Allgemein
       <ul class="sub-menu">
-        <li><%= link_to "Blog", admin_posts_path %></li>
-        <li><%= link_to "Gästebuch", admin_guestbook_entries_path %></li>
+        <li><%= link_to "Blog", admin_posts_path, "data-navigation-target": "navItem"  %></li>
+        <li><%= link_to "Gästebuch", admin_guestbook_entries_path, "data-navigation-target": "navItem"  %></li>
       </ul>
     </li>
 
     <li class="navigation-container__dropdown-toggle">
       <b>Admin</b>
       <ul class="sub-menu">
-        <li><%= link_to "Dashboard", frontend_user_path(current_user) %></li>
-        <li><%= link_to "Log out", log_out_path%></li>
+        <li><%= link_to "Dashboard", frontend_user_path(current_user), "data-navigation-target": "navItem"  %></li>
+        <li><%= link_to "Log out", log_out_path, "data-navigation-target": "navItem" %></li>
       </ul>
     </li>
 
