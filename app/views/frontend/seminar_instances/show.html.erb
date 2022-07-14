@@ -4,11 +4,10 @@
   <h2>Worum es geht:</h2>
   <p><%= @seminar_instance.description %></p>
 
-  <% if @seminar_instance.seminar_images.exists? %>
-    <div class="seminar_instance__image-mobile">
-      <%= image_tag(@seminar_instance.seminar_images.first.image) %>
-    </div>
-  <% end %>
+  <div class="seminar_instance__image-mobile">
+    <%= image_tag(@seminar_instance.image_1) %>
+  </div>
+
 
   <h2>Vermittelte Inhalte:</h2>
   <div class="seminar_instance__image_section">
@@ -19,18 +18,16 @@
         <% end %>
       </ul>
     </div>
-    <% if @seminar_instance.seminar_images.exists? %>
-      <div class="seminar_instance__image">
-        <%= image_tag(@seminar_instance.seminar_images.first.image) %>
-      </div>
-    <% end %>
+
+    <div class="seminar_instance__image">
+      <%= image_tag(@seminar_instance.image_1) %>
+    </div>
+
   </div>
 
-  <% if @seminar_instance.seminar_images.exists? %>
-    <div class="seminar_instance__image-mobile">
-      <%= image_tag(@seminar_instance.seminar_images.last.image) %>
-    </div>
-  <% end %>
+  <div class="seminar_instance__image-mobile">
+    <%= image_tag(@seminar_instance.image_2) %>
+  </div>
 
   <h2>Ausrüstungsliste</h2>
   <div class="seminar_instance__image_section">
@@ -42,11 +39,10 @@
       </ul>
     </div>
 
-    <% if @seminar_instance.seminar_images.exists? %>
-      <div class="seminar_instance__image">
-        <%= image_tag(@seminar_instance.seminar_images.last.image) %>
-      </div>
-    <% end %>
+
+    <div class="seminar_instance__image">
+      <%= image_tag(@seminar_instance.image_2) %>
+    </div>
   </div>
 
   <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>

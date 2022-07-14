@@ -51,22 +51,14 @@
       <% end %>
     </div>
 
-    <!-- Bilder -->
-    <h2>Bilder</h2>
+    <div class="form-container__group">
+      <%= f.label :image_1 %>
+      <%= f.file_field :image_1 %>
+    </div>
 
     <div class="form-container__group">
-      <%= f.label :seminar_images, 'Neues Bild hinzufügen' %>
-      <%= f.fields_for :seminar_images, @seminar_image do |image| %>
-        <%= image.file_field :image %>
-      <% end %>
-
-      <p>Aktuell:</p>
-      <% f.object.seminar_images.each do |image| %>
-        <% if image.image.attached? %>
-          <%= image_tag image.image, style: "width:200px" %>
-          <%= link_to 'Löschen', admin_seminar_type_seminar_instance_seminar_image_path(@seminar_type.id, @seminar_instance.id, image.id, action: :destroy), method: :delete %>
-        <% end %>
-      <% end %>
+      <%= f.label :image_2 %>
+      <%= f.file_field :image_2 %>
     </div>
 
     <%= f.submit "save", class: "button button-primary" %>

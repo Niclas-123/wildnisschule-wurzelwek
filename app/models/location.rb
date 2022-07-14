@@ -3,6 +3,8 @@ class Location < ApplicationRecord
 
   has_one_attached :location_image
 
+  validates :location_image, :name, :description, :latitude, :longitude, presence: true
+
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
       obj.city = geo.city

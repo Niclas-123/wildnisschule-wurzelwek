@@ -11,10 +11,11 @@ class SeminarInstance < ApplicationRecord
   has_many :seminars
   has_many :guestbook_entries
   has_many :seminar_contents
-  has_many :seminar_images
 
-  validates :name, :description, :price_cents, presence: true
+  has_one_attached :image_1
+  has_one_attached :image_2
+
+  validates :name, :description, :price_cents, :image_1, :image_2, presence: true
 
   accepts_nested_attributes_for :seminar_contents, allow_destroy: true
-  accepts_nested_attributes_for :seminar_images, allow_destroy: true
 end

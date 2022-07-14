@@ -149,13 +149,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_093610) do
     t.index ["seminar_instance_id"], name: "index_seminar_contents_on_seminar_instance_id"
   end
 
-  create_table "seminar_images", force: :cascade do |t|
-    t.bigint "seminar_instance_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["seminar_instance_id"], name: "index_seminar_images_on_seminar_instance_id"
-  end
-
   create_table "seminar_instances", force: :cascade do |t|
     t.bigint "seminar_type_id"
     t.string "name"

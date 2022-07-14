@@ -10,4 +10,6 @@ class Seminar < ApplicationRecord
   belongs_to :seminar_instance
 
   has_many :bookings
+
+  validates :start_date, :end_date, :max_participants, presence: true
 end

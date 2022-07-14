@@ -1,11 +1,15 @@
-SeminarInstance.create(
+s = SeminarInstance.new(
   name: "Pflanzenwissen",
   seminar_type_id: 1,
   description: "Seit jeher bilden Wildpflanzen  zu 80% die Nahrungsgrundlage für den Menschen,höchstens 20% stammen von tierischen Quellen.Das Wissen um die Eßbarkeit  schlummert tief im Verborgenen von jedem von uns,und das Vertrauen in das sichere Erkennen kann wieder wachsen.Wir legen die Grundlagen für das Bestimmen der wichtigsten eßbaren Kräuter ,stellen einfaches Kochgeschirr her,knüpfen ein Band und genießen unsere grünen Wilden mit dem Gaumen .Auch der Heilaspekt,die grüne Apotheke der Natur,wird nicht zu kurz kommen,können wir doch wie jedes Wildtier uns die Heilkraft der Pflanzen zunutze machen.Spielerisch und nachhaltig verwurzeln wir die Grundlagen,sodaß ein jeder auch nach dem Seminar sich an das Erlernte erinnern kann.",
   price_cents: 10000
 )
 
-SeminarInstance.create(
+s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.save!
+
+s = SeminarInstance.new(
   name: "Die wunderbare Welt der Vögel",
   seminar_type_id: 1,
   description: "Wer sehnt sich nicht nach dem ersten Amselgesang im Frühling? Wer verbindet mit dem Ruf der Kraniche nicht Abenteuer, Reise, Aufbruch, Heimkehr? Vögel sind allgegenwärtig, immer und überall – meist entschlüpfen sie unserer Wahrnehmung und sind „nur“ Teil des allgemeinen Hintergrundrauschens.
@@ -13,7 +17,11 @@ SeminarInstance.create(
   price_cents: 10000
 )
 
-SeminarInstance.create(
+s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.save!
+
+s = SeminarInstance.new(
   name: "Ritual mit 5 Teilnehmern",
   seminar_type_id: 3,
   description: "Oft stehen wir im Leben an einer Schwelle, einem Übergang in eine neue Lebensphase, die sich mit dem Wunsch oder Drang nach Veränderung ankündigt, wie ein Fluß, der sich ein neues Bett sucht, da das alte nicht mehr seinem Strömen entspricht. Diese Veränderungen brauchen Zeit und einen Rahmen, um sich wie auf einer neu gezeichneten Landkarte zu manifestieren.
@@ -24,6 +32,14 @@ SeminarInstance.create(
   price_cents: 15000
 )
 
-SeminarInstance.create(name: "Kräuterwanderung", seminar_type_id: 2, description: "Hier lernt man Krauter", price_cents: 12000)
+s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.save!
+
+s = SeminarInstance.new(name: "Kräuterwanderung", seminar_type_id: 2, description: "Hier lernt man Krauter", price_cents: 12000)
+
+s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
+s.save!
 
 puts "Seminar Instances created"
