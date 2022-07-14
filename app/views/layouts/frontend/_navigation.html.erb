@@ -21,9 +21,8 @@
     </li>
 
     <li class="navigation-container__dropdown-toggle">
-      <%=  "über uns" %>
+      <%= link_to "Über uns", frontend_ueber_wildnisschule_wurzelholz_path, "data-navigation-target": "navItem"  %>
       <ul class="sub-menu">
-        <li><%= link_to "Philosophie", frontend_ueber_wildnisschule_wurzelholz_path, "data-navigation-target": "navItem" %></li>
         <li><%= link_to "Über Ines", frontend_ueber_ines_path, "data-navigation-target": "navItem" %></li>
         <li><%= link_to "Blog", frontend_posts_path, "data-navigation-target": "navItem" %></li>
         <li><%= link_to "Gästebuch", frontend_guestbook_entries_path, "data-navigation-target": "navItem" %></li>

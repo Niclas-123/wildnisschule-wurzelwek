@@ -133,7 +133,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_093610) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.text "content"
+    t.text "content_1"
+    t.text "content_2"
+    t.text "content_3"
+    t.text "content_4"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

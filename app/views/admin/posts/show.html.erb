@@ -1,6 +1,18 @@
 <h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<p><%= @post.content_1 %></p>
+<p><%= @post.content_2 %></p>
+<p><%= @post.content_3 %></p>
+<p><%= @post.content_4 %></p>
 
-<% if can? :edit, @post %>
-  <%= link_to "Bearbeiten", edit_post_path %>
-<% end %>
+<p>Titel Bild</p>
+<%= image_tag @post.title_image, style: "width:300px; height:200px" %>
+
+<p>Content Bilder</p>
+<%= image_tag @post.post_image_1, style: "width:300px; height:200px"  %>
+<%= image_tag @post.post_image_2, style: "width:300px; height:200px"  %>
+<%= image_tag @post.post_image_3, style: "width:300px; height:200px"  %>
+
+<hr>
+
+<%= link_to "Editieren", edit_admin_post_path(@post), class: "button button-primary mt-xs" %>
+

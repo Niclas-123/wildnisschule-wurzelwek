@@ -1,0 +1,60 @@
+<% if @post.persisted? %>
+  <!-- We are in edit action -->
+  <% @url = admin_post_path(@post.id) %>
+<% else %>
+  <!-- We are in new -->
+  <% @url = admin_posts_path(@post.id)  %>
+<% end %>
+
+<%= form_for [@post], url: @url do |f| %>
+  <div class="form-container" data-controller="confirmation field">
+    <%= render 'shared/errors', obj: @post %>
+
+    <div class="form-container__group">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :content_1 %>
+      <%= f.text_area :content_1 %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :content_2 %>
+      <%= f.text_area :content_2 %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :content_3 %>
+      <%= f.text_area :content_3 %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :content_4 %>
+      <%= f.text_area :content_4 %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :title_image %>
+      <%= f.file_field :title_image %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :post_image_1 %>
+      <%= f.file_field :post_image_1 %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :post_image_2 %>
+      <%= f.file_field :post_image_2 %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :post_image_3 %>
+      <%= f.file_field :post_image_3 %>
+    </div>
+
+    <%= f.submit "save", class: "button button-primary" %>
+  </div>
+<% end %>

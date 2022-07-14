@@ -1,5 +1,10 @@
 <h1>Blog</h1>
 <% @posts.each do |p| %>
-  <%= link_to p.title, frontend_post_path(p) %>
-  <hr>
+  <h3><%= p.title %></h3>
+  <%= link_to "Anschauen", admin_post_path(p), class: "button button-primary" %>
+  <%= link_to "Editieren", edit_admin_post_path(p), class: "button button-secondary" %>
 <% end %>
+
+<hr class="mt-xs">
+
+<%= link_to "Neuen Post", new_admin_post_path, class: "button button-primary mt-xs" %>

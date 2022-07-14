@@ -1,6 +1,23 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
+<div class="post-container">
+  <h1><%= @post.title %></h1>
 
-<% if can? :edit, @post %>
-  <%= link_to "Bearbeiten", edit_post_path %>
-<% end %>
+  <p><%= @post.content_1 %></p>
+
+  <div class="post-container__image">
+    <%= image_tag @post.post_image_1 %>
+  </div>
+
+  <p><%= @post.content_2 %></p>
+
+  <div class="post-container__image">
+    <%= image_tag @post.post_image_2 %>
+  </div>
+
+  <p><%= @post.content_3 %></p>
+
+  <div class="post-container__image">
+    <%= image_tag @post.post_image_3 %>
+  </div>
+
+  <p><%= @post.content_4 %></p>
+</div>

@@ -20,7 +20,11 @@
 @import "frontend/seminar_instance";
 @import "frontend/location";
 @import "frontend/gallery";
+@import "frontend/post";
 
-@import "seminars/seminar-type-card";
-@import "seminars/seminar-instance-card";
+
+@import "cards/seminar-type-card";
+@import "cards/seminar-instance-card";
+@import "cards/post-card";
+
 
