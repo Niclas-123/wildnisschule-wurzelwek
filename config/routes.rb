@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #admin dashboard
   namespace :admin, path: 'admin' do
     root to: 'users#show'
-    resources :users, :posts, :guestbook_entries, :locations, :equipment_items
+    resources :users, :posts, :guestbook_entries, :locations, :equipment_items, :gallery_images
 
     #nested Routes for Seminars
     resources :seminar_types do
@@ -36,11 +36,11 @@ Rails.application.routes.draw do
     get "/ueber-ines", to: "pages#ines"
     get "/ueber-wildnisschule-wurzelholz", to: "pages#wurzelholz"
     get "/seminar-infos", to: "pages#seminar_infos"
-    get "/gallerie", to: "pages#gallerie"
     get "/impressum", to: "pages#impressum"
     get "/datenschutz", to: "pages#datenschutz"
 
     #flat models
+    resources :galleries, only: [:index], path: 'gallerie'
     resources :locations, only: [:show], path: 'orte'
     resources :posts, only: [:show, :index], path: 'blog'
     resources :guestbook_entries, path: 'gästebuch'

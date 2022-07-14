@@ -1,0 +1,10 @@
+<div  class="gallery-container">
+  <h1>Gallerie</h1>
+
+  <% @gallery.gallery_images.each do |g| %>
+    <figure>
+      <%= image_tag g.image %>
+    </figure>
+  <% end %>
+
+</div>

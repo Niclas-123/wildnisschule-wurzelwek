@@ -1,6 +1,7 @@
 body {
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  min-height: 100vh;
 }
 
 body.admin {
@@ -32,12 +33,10 @@ html {
   background-color: black;
   color: white;
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 .main-container {
   position: relative;
-  overflow: hidden;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 10%;

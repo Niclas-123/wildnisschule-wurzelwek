@@ -1,0 +1,14 @@
+<h1>Neues Gallerie Bild anlegen</h1>
+
+<%= form_for [@gallery_image], url: admin_gallery_images_path do |f| %>
+  <div class="form-container">
+    <%= render 'shared/errors', obj: @gallery_image %>
+
+    <div class="form-container__group">
+      <%= f.label 'Bild', for: :image %>
+      <%= f.file_field :image, required: true %>
+    </div>
+
+    <%= f.submit 'Bild erstellen', class: "button button-primary" %>
+  </div>
+<% end %>
