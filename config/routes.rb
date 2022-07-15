@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     get "/seminar-infos", to: "pages#seminar_infos"
     get "/impressum", to: "pages#impressum"
     get "/datenschutz", to: "pages#datenschutz"
+    get "/agb", to: "pages#agb"
 
     #flat models
     resources :galleries, only: [:index], path: 'gallerie'

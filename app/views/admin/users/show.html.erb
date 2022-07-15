@@ -1,50 +1,12 @@
 <h1>Dashboard - <%= current_user.first_name %></h1>
 
-<h2>Anstehende Seminare</h2>
-
 <% @seminars.order('seminars.start_date asc').each do |s| %>
   <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y") %></h3>
-  <div class="table">
-    <table>
-      <thead>
-        <tr>
-          <th><p>Teilnehmer</p></th>
-          <th><p>Email</p></th>
-          <th><p>Bezahlt?</p></th>
-          <th><p>Mitfahrer gesucht? </p></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% for b in Booking.where(seminar: s) do %>
-          <tr>
-            <td>
-              <p><%= b.first_name %><%= b.last_name %></p>
-            </td>
-            <td>
-              <p><%= mail_to(b.email) %></p>
-            </td>
-            <td>
-              <p>bla</p>
-            </td>
-            <td>
-              <p><%= "Ja" if b.rideshare %></p>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="mt-xs">
-    <% @emails = s.bookings.pluck(:email).uniq.to_s.tr("[]\"", '') %>
-    <%= mail_to(@emails, name = "Mail an alle", class: "button button-primary") %>
-
-    <%= link_to "Mail an Fahrer", admin_seminar_type_seminar_instance_seminar_send_mail_path(s.seminar_instance.seminar_type, s.seminar_instance, s), class: "button button-primary" %>
-  </div>
+  <p><%= Booking.where(seminar: s).count %> von <%= s.max_participants %> Anmeldungen</p>
+  <%= link_to "Anschauen", admin_seminar_type_seminar_instance_seminar_path(s.seminar_instance.seminar_type.id, s.seminar_instance.id, s.id), class: "button button-primary"  %>
 <% end %>
 
+<hr class="mt-xs">
 
-
-<br>
-
-<%= link_to "Profil editieren", edit_admin_user_path(current_user), class: "button button-primary" %>
-<%= link_to "Log Out", log_out_path, class: "button button-primary" %>
+<%= link_to "Profil editieren", edit_admin_user_path(current_user), class: "button button-secondary mt-xs" %>
+<%= link_to "Log Out", log_out_path, class: "button button-secondary" %>

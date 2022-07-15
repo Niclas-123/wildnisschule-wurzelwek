@@ -6,6 +6,12 @@ class Seminar < ApplicationRecord
     self.slug = start_date.strftime("%m_%d_%Y")
   end
 
+  def set_archived
+    if self.end_date < Time.now
+      self.archived = true
+    end
+  end
+
   belongs_to :location
   belongs_to :seminar_instance
 

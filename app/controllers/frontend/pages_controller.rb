@@ -19,5 +19,8 @@ module Frontend
     def datenschutz
     end
 
+    def agb
+    end
+
   end
 end

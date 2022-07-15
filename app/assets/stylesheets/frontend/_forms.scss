@@ -113,14 +113,6 @@
     resize: none;
   }
 
-  &__agb {
-    max-height: 300px;
-    overflow: scroll;
-    background-color: white;
-    color: black;
-    padding: var(--space-s);
-  }
-
   p, ul, ol {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -168,4 +160,14 @@ input[type="checkbox"]:checked::before, input[type="radio"]:checked::before {
 input[type="checkbox"]:focus, input[type="radio"]:focus {
   outline: calc(max(2px, 0.15em)) solid currentColor;
   outline-offset: calc(max(2px, 0.15em));
+}
+
+.no_button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.no_button:hover {
+  text-decoration: underline;
 }

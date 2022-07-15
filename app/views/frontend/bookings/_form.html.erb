@@ -84,49 +84,10 @@
 
     <div class="form-container__checkbox">
       <p class=form-container__label>
-        Ich stimme den unten aufgeführten Teilnahmebedingungen zu.
+        Ich stimme den <%= link_to "Teilnahmebedingungen", frontend_agb_path %> zu.
       </p>
       <%= f.check_box :agb, required: true  %>
     </div class="form-container__group">
-
-    <div class="form-container__group form-container__agb">
-      <strong>
-        Die Anmeldung verpflichtet zur Zahlung der gesamten Veranstaltungskosten.
-      </strong>
-      <p>
-        Ein Rücktritt von der Veranstaltung muss schriftlich erfolgen (an die Wildnisschule Wurzelholz wildnisschule@Wurzelholz.de).
-      </p>
-
-      <strong>
-        Bei einem Rücktritt von der Veranstaltung entstehen folgende Stornokosten:
-      </strong>
-      <ul>
-        <li>Bis 2 Wochen nach Anmeldung: kostenlos, sofern der Seminarbeginn mehr als 2 Wochen entfernt ist.</li>
-        <li>Andernfalls fallen 50% der Seminargebühren an.</li>
-        <li>2 Wochen vor Seminarbeginn fallen bei Stornierung die vollen Seminarkosten an.</li>
-      </ul>
-      <p>
-        Bei Nicht-Teilnahme an einem Seminar können unter Umständen die individuellen personenbezogenen Kosten erstatten werden. Dazu ist vier Wochen vor Beginn des entsprechenden Termins eine schriftliche Abmeldung bei der Wildnisschule Wurzelholz, erforderlich.
-      </p>
-
-      <strong>
-        Sonstige Teilnahmebedingungen
-      </strong>
-      <p>
-        Bei Unfällen, Sachschäden oder Eigentumsverlusten haften die Veranstalterinnen nicht. Die Veranstalterinnen haben das Hausrecht, den Anweisungen der Kursleitenden ist Folge zu leisten. Bei einem Ausschluss von der Veranstaltung besteht kein Recht auf Rückzahlung der Gebühr/ Kosten für bereits besuchte Veranstaltungsteile.
-      </p>
-
-      <strong>
-        Absage der Veranstaltung
-      </strong>
-      <p>
-        Wird die erforderliche Mindestzahl an Teilnehmenden nicht erreicht oder liegen andere Gründe für eine Absage der Veranstaltung vor, erhalten Sie eine schriftliche Absage. Fällt die Veranstaltung wegen „höherer Gewalt“ aus, wie z.B. plötzliche Erkrankung einer Lehrkraft, sind wir bemüht Sie rechtzeitig zu benachrichtigen.
-        <br>
-        Weitergehende Ansprüche ergeben sich daraus nicht. Insbesondere besteht auch nicht der Anspruch, durch eine bestimmte Lehrkraft unterrichtet zu werden. Bei Absage der Veranstaltung werden von Ihnen bereits gezahlte Gebühren zurück überwiesen.
-        <br>
-        Durch Verzögerungen im Abruf der Anmeldungen, kann es vorkommen, dass Deine Anmeldung bei uns eingeht, obwohl die maximale TeilnehmerInnenzahl schon erreicht ist. In diesem Fall benachrichtigen wir Dich umgehend. Du kannst Dich dann auf die Warteliste setzen lassen. Wenn ein Platz freigeworden ist, schicken wir Dir eine Email.
-      </p>
-    </div>
 
     <div class="form-container__checkbox">
       <p class=form-container__label>

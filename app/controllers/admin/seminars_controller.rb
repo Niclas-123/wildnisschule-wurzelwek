@@ -2,7 +2,11 @@ module Admin
   class SeminarsController < Admin::BaseController
     before_action :set_seminar_instance, only: %i[send_mail new create edit update]
     before_action :set_seminar_type, only: %i[send_mail new create edit update]
-    before_action :set_seminar, only: %i[send_mail edit update]
+    before_action :set_seminar, only: %i[send_mail edit update show]
+
+    def show
+      @bookings = Booking.where(seminar: @seminar)
+    end
 
     def new
       @seminar = Seminar.new

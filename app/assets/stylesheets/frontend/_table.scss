@@ -1,22 +1,25 @@
 .table {
 
-  p {
-    line-height: normal;
+  a {
+    color: var(--secondary);
   }
 
-  table, th, td {
-    border: 1px solid;
+  th {
+    background-color: var(--grey);
+    font-size: var(--step-1);
+    font-style: bold;
+  }
+
+  td {
+    background-color: white;
+    font-size: 1rem;
   }
 
 
   td, th {
     width: 200px;
-    padding: 0 10px;
-  }
-
-  td {
-    p {
-      font-size: var(--space-xs);
-    }
+    padding: 10px;
+    text-align: center;
+    outline: 3px solid var(--primary);
   }
 }

@@ -1,0 +1,45 @@
+<h1><%= @seminar.seminar_instance.name %> am <%= @seminar.start_date.strftime('%d.%m.%y') %></h1>
+
+<p><%= @bookings.count %> von <%= @seminar.max_participants %> Anmeldungen, <%= @bookings.where(status: 'pending').count %> davon nicht bezahlt</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Teilnehmer</th>
+      <th>Email</th>
+      <th>Bezahlt?</th>
+      <th>Mitfahrer gesucht? </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |b| %>
+      <tr>
+        <td>
+          <%= b.first_name %> <%= b.last_name %>
+        </td>
+        <td>
+          <%= mail_to(b.email) %>
+        </td>
+        <td>
+          <%= form_for [b], url: admin_seminar_type_seminar_instance_seminar_booking_path(b.seminar.seminar_instance.seminar_type, b.seminar.seminar_instance, b.seminar, b) do |f| %>
+
+            <%= f.select(:status, options_for_select([['Nicht bezahlt', 'pending'], ['Bezahlt', 'paid']], { selected: f.object.status })) %>
+
+            <%= f.submit "Editieren", class: "red no_button" %>
+
+          <% end %>
+        </td>
+        <td>
+          <%= "Ja" if b.rideshare %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="mt-xs">
+  <% @emails = @seminar.bookings.pluck(:email).uniq.to_s.tr("[]\"", '') %>
+  <%= mail_to(@emails, name = "Mail an alle", class: "button button-primary") %>
+
+  <%= link_to "Mail an Fahrer", admin_seminar_type_seminar_instance_seminar_send_mail_path(@seminar.seminar_instance.seminar_type, @seminar.seminar_instance, @seminar), class: "button button-primary" %>
+</div>

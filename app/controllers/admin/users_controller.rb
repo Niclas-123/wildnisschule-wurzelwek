@@ -7,7 +7,7 @@ module Admin
 
 
     def show
-      @seminars = Seminar.all
+      @seminars = Seminar.where(archived: false)
     end
 
   private

@@ -179,6 +179,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_14_093610) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "max_participants"
+    t.boolean "archived", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
