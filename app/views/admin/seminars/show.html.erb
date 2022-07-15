@@ -8,6 +8,7 @@
       <th>Teilnehmer</th>
       <th>Email</th>
       <th>Bezahlt?</th>
+      <th>Zahlungsmethode</th>
       <th>Mitfahrer gesucht? </th>
     </tr>
   </thead>
@@ -21,13 +22,19 @@
           <%= mail_to(b.email) %>
         </td>
         <td>
-          <%= form_for [b], url: admin_seminar_type_seminar_instance_seminar_booking_path(b.seminar.seminar_instance.seminar_type, b.seminar.seminar_instance, b.seminar, b) do |f| %>
 
-            <%= f.select(:status, options_for_select([['Nicht bezahlt', 'transfer'], ['Bezahlt', 'paid']], { selected: f.object.status })) %>
-
-            <%= f.submit "Editieren", class: "red no_button" %>
-
+          <% if b.payment_gateway == 'bank_transfer' %>
+            <%= form_for [b], url: admin_seminar_type_seminar_instance_seminar_booking_path(b.seminar.seminar_instance.seminar_type, b.seminar.seminar_instance, b.seminar, b) do |f| %>
+              <%= f.select(:status, options_for_select([['Nicht bezahlt', 'transfer'], ['Bezahlt', 'paid']], { selected: f.object.status })) %>
+              <%= f.submit "Editieren", class: "red no_button" %>
+            <% end %>
+          <% else %>
+            <%= b.status %>
           <% end %>
+
+        </td>
+        <td>
+          <%= b.payment_gateway %>
         </td>
         <td>
           <%= "Ja" if b.rideshare %>
