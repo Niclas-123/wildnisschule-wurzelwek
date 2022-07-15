@@ -3,7 +3,7 @@
 
   <% @gallery.gallery_images.each do |g| %>
     <figure>
-      <%= image_tag g.image %>
+      <%= image_tag(g.image, alt: "Seminare der Wildnisschule Wurzelholz") %>
     </figure>
   <% end %>
 

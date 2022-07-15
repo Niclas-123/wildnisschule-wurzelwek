@@ -1,1 +1,22 @@
-<h1>Nice!</h1>
+<div class="booking-success">
+  <h1>Deine Buchung war erfolgreich! :)</h1>
+
+  <div class="booking-success__container">
+    <div class="booking-success__image">
+      <%= image_tag('wolf-4561204_1280.png', alt: "Wolf der den Mond anheult") %>
+    </div>
+    <div>
+      <p>Du hast eine Mail bestätigungsmail mit allen weiteren Details, sowie deiner Rechnung erhalten.</p>
+      <p>
+        Danke dir für dein <span class="green">Vertrauen</span> ,
+        <br>
+        wir <span class="red">freuen</span> uns auf <span class="grey">dich</span>,
+        <br>
+        Ines <span class="green">:)</span>
+      </p>
+    </div>
+  </div>
+  <div class="booking-success__button">
+    <%= link_to 'Homepage', root_path, class: "button button-primary"  %>
+  </div>
+</div>

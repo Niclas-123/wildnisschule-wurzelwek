@@ -1,12 +1,12 @@
 class Booking < ApplicationRecord
-  enum status: { pending: 0, failed: 1, paid: 2, paypal_executed: 3}
+  enum status: { pending: 0, failed: 1, paid: 2, paypal_executed: 3, transfer: 4, archived: 5}
   enum payment_gateway: { stripe: 0, paypal: 1, bank_transfer: 2 }
 
   monetize :price_cents
 
   belongs_to :seminar
 
-  scope :recently_created, ->  { where(created_at: 1.minutes.ago..DateTime.now) }
+  scope :recently_created, ->  { where(created_at: 10.minutes.ago..DateTime.now) }
 
   def set_paid
     self.status = Booking.statuses[:paid]

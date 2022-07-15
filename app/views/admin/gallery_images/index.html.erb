@@ -3,7 +3,7 @@
 <div class="admin-gallery">
   <% @gallery.gallery_images.each do |g| %>
     <figure>
-      <%= image_tag g.image, style: "width:200px; height:200px;" %>
+      <%= image_tag(g.image, style: "width:200px; height:200px;", alt: "SeminarBild der Wildnisschule Wurzelholz") %>
       <%= link_to 'Löschen', admin_gallery_image_path(g.id, action: :destroy), method: :delete, class: "red" %>
     </figure>
   <% end %>

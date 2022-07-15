@@ -1,6 +1,6 @@
 <h1><%= @location.name %></h1>
 <p><%= @location.description %></p>
-<%= image_tag @location.location_image, style: "width:400px;" %>
+<%= image_tag(@location.location_image, style: "width:400px;", alt: "Bild des Seminarorts der Wildnisschule Wurzelholz") %>
 <br>
 
 <%= link_to 'Editieren', edit_admin_location_path(@location), class: "button button-secondary" %>

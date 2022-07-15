@@ -6,6 +6,7 @@ module Frontend
 
     def create_order
       require "uri_helper"
+      price = '100.00'
       request = PayPalCheckoutSdk::Orders::OrdersCreateRequest::new
       request.request_body({
         :intent => 'CAPTURE',
@@ -13,7 +14,7 @@ module Frontend
           {
             :amount => {
               :currency_code => 'USD',
-              :value => '1.00'
+              :value => price
             }
           }
         ]
@@ -34,7 +35,9 @@ module Frontend
       request = PayPalCheckoutSdk::Orders::OrdersCaptureRequest::new params[:booking_id]
 
       begin
+        #This is the last line executed and calls the JavaScript Code
         response = @client.execute request
+
         @booking = Booking.find(params[:booking_id])
         @booking.status = 'paid' if response.result.status == "COMPLETED"
         if @booking.save

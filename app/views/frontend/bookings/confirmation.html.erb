@@ -34,21 +34,27 @@
   <br>
   Preis: <%= @booking.price %><%= currency_symbol %>
   <br>
-  Zahlungsmethode: <%= @booking.payment_gateway %>
+  Zahlungsmethode:
+  <% if @booking.payment_gateway == 'bank_transfer'%>
+    Überweisung
+  <% elsif @booking.payment_gateway == 'paypal' %>
+    PayPal
+  <% elsif @booking.payment_gateway == 'stripe' %>
+    Kreditkarte
+  <% end %>
 </p>
 
 
 
 <% if @booking.status == "pending" %>
   <% if @booking.payment_gateway == 'stripe' %>
-    <%= button_to "Jetzt bezahlen", seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button button-primary" %>
+    <%= button_to "Jetzt bezahlen", frontend_seminar_type_seminar_instance_seminar_booking_stripe_checkout_path(@seminar_type, @seminar_instance, @seminar, @booking), action: :create, remote: true, class: "button button-primary" %>
   <% elsif @booking.payment_gateway == 'paypal' %>
     <div id="paypal-button-container"></div>
   <% else %>
-    <p>Rechnung herunterladen und überweisen</p>
+    <%= link_to "Bestätigen", frontend_seminar_type_seminar_instance_seminar_booking_erfolgreich_path(@booking.seminar.seminar_instance.seminar_type, @booking.seminar.seminar_instance, @booking.seminar, @booking), class: "button button-primary" %>
   <% end %>
 <% end %>
-
 
 
 

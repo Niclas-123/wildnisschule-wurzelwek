@@ -1,0 +1,37 @@
+.booking-success {
+
+  &__container {
+    display: flex;
+
+    @include breakpointMobile() {
+      flex-direction: column;
+    }
+  }
+
+  &__container > * {
+    flex: 1 1 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__image {
+    text-align: center;
+  }
+
+  p {
+    font-family: 'Hand-Boys';
+    font-size: var(--step-1);
+  }
+
+  img {
+    width: 90%;
+    margin: 20px auto;
+    border: 3px solid var(--primary);
+  }
+
+  &__button {
+    text-align: center;
+  }
+}

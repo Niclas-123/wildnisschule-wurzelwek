@@ -8,23 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let paypal_button = paypal.Buttons({
     env: 'sandbox', // Valid values are sandbox and live.
     createOrder: async () => {
-      const response = await fetch('http://localhost:3000/wanderungen/krauterwanderung/05_02_2023/buchung/23/create_order', {method: 'POST'});
+      const response = await fetch('/fortbildungen/pflanzenwissen/01_02_2023/buchung/5/create_order', {method: 'POST'});
       const responseData = await response.json();
       return responseData.token;
     },
     onApprove: async (data) => {
-      const response = await fetch('http://localhost:3000/wanderungen/krauterwanderung/05_02_2023/buchung/23/capture_order', {
+      const response = await fetch('/fortbildungen/pflanzenwissen/01_02_2023/buchung/5/capture_order', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({order_id: data.orderID})
       });
-      debugger
+
       console.log(response);
+      // This returns a status code 204 and a json parsing error - no idea why.
       const responseData = await response.json();
+
       if (responseData.status === 'COMPLETED') {
         alert("Okay!");
-      } else {
-        alert("Not Okay!");
       }
     }
   });

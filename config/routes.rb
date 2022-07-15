@@ -56,6 +56,7 @@ Rails.application.routes.draw do
         resources :seminars, path: '', except: :index do
           get '/account_abfrage', to: 'bookings#account_abfrage'
           resources :bookings, path: 'buchung' do
+            get '/erfolgreich', to: 'bookings#success'
             get '/confirmation', to: 'bookings#confirmation'
             #stripe
             post '/stripe_checkout', to: 'stripe#create'

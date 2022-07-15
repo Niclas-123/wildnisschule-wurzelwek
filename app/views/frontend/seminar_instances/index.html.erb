@@ -5,7 +5,7 @@
   <% @seminar_instances.each do |s| %>
     <div class="seminar-cards-container__card">
       <div class="seminar-cards-container__image">
-        <%= image_tag s.image_1 %>
+        <%= image_tag(s.image_1, alt: "Darstellung des Seminars") %>
       </div>
       <div class="seminar-cards-container__text">
         <h2><%= link_to s.name, frontend_seminar_type_seminar_instance_path(params[:seminar_type_id], s) %></h2>
