@@ -30,7 +30,7 @@
 <p>
   Seminar: <%= @booking.seminar.seminar_instance.name %>
   <br>
-  Daten: <%= @booking.seminar.start_date.strftime("%m.%d.%Y") %> bis <%= @booking.seminar.end_date.strftime("%m.%d.%Y") %>
+  Daten: <%= @booking.seminar.start_date.strftime("%d.%m.%Y") %> bis <%= @booking.seminar.end_date.strftime("%d.%m.%Y") %>
   <br>
   Preis: <%= @booking.price %><%= currency_symbol %>
   <br>

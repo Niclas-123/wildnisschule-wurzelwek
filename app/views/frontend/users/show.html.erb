@@ -2,7 +2,7 @@
 
 <h2>Deine Seminare:</h2>
 <% @seminars.each do |s| %>
-  <p><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y")%></p>
+  <p><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%d.%m.%Y")%></p>
 <% end %>
 
 <br>

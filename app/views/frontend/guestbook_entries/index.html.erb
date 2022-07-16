@@ -16,7 +16,7 @@
             <%= g.user.first_name %>
           <% end %>
           -
-          <%= g.created_at.strftime("%m.%d.%Y") %>
+          <%= g.created_at.strftime("%d.%m.%Y") %>
           <% if g.seminar_instance %>
             - <%= g.seminar_instance.name %>
           <% end %>

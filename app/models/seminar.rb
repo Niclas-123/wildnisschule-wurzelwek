@@ -3,7 +3,7 @@ class Seminar < ApplicationRecord
   friendly_id :slug, use: :slugged
 
   def set_slug
-    self.slug = start_date.strftime("%m_%d_%Y")
+    self.slug = start_date.strftime("%d_%m_%Y")
   end
 
   def set_archived

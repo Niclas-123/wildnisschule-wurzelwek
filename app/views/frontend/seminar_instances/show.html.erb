@@ -51,7 +51,7 @@
 
   <% @seminars.each do |s| %>
     <p>
-      <%= s.start_date.strftime("%m.%d.%Y") %>:
+      <%= s.start_date.strftime("%d.%m.%Y") %>:
       <%= link_to s.location.name, frontend_location_path(s.location)  %> -
       <%= Booking.where(seminar: s).count %> von <%= s.max_participants %> Anmeldungen -
       <% if Booking.where(seminar: s).count < s.max_participants %>

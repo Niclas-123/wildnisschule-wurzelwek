@@ -7,13 +7,13 @@ s = SeminarInstance.new(
 s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.save!
-s.seminar_content.create(content: "eßbare Wildpflanzen sicher bestimmen und erkennen")
-s.seminar_content.create(content: "Pflanzenfamilien zuordnen")
-s.seminar_content.create(content: "dadurch auf Inhaltsstoffe schließen")
-s.seminar_content.create(content: "Kochgeschirr herstellen")
-s.seminar_content.create(content: "Schnüre drillen")
-s.seminar_content.create(content: "Spiele zum Vertiefen des Wissens")
-s.seminar_content.create(content: "Heilpflanzen kennenlernen")
+s.seminar_contents.create(content: "eßbare Wildpflanzen sicher bestimmen und erkennen")
+s.seminar_contents.create(content: "Pflanzenfamilien zuordnen")
+s.seminar_contents.create(content: "dadurch auf Inhaltsstoffe schließen")
+s.seminar_contents.create(content: "Kochgeschirr herstellen")
+s.seminar_contents.create(content: "Schnüre drillen")
+s.seminar_contents.create(content: "Spiele zum Vertiefen des Wissens")
+s.seminar_contents.create(content: "Heilpflanzen kennenlernen")
 
 
 
@@ -27,12 +27,12 @@ s = SeminarInstance.new(
 s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.save!
-s.seminar_content.create(content: "Gesänge und Rufarten unterscheiden")
-s.seminar_content.create(content: "Federkunde")
-s.seminar_content.create(content: "Flugbilder erkennen")
-s.seminar_content.create(content: "ökologische Zusammenhänge")
-s.seminar_content.create(content: "Wahrnehmungs- und Bewußtseinswerweiterung")
-s.seminar_content.create(content: "Sprache des Waldes")
+s.seminar_contents.create(content: "Gesänge und Rufarten unterscheiden")
+s.seminar_contents.create(content: "Federkunde")
+s.seminar_contents.create(content: "Flugbilder erkennen")
+s.seminar_contents.create(content: "ökologische Zusammenhänge")
+s.seminar_contents.create(content: "Wahrnehmungs- und Bewußtseinswerweiterung")
+s.seminar_contents.create(content: "Sprache des Waldes")
 
 
 s = SeminarInstance.new(
@@ -48,11 +48,11 @@ s = SeminarInstance.new(
 s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.save!
-s.seminar_content.create(content: "Auseinandersetzung mit dem Thema Erwachsen werden")
-s.seminar_content.create(content: "Reflektion der eigenen Position im Leben")
-s.seminar_content.create(content: "Thema oder Frage finden")
-s.seminar_content.create(content: "innere Einkehr")
-s.seminar_content.create(content: "Integration des Erlebten")
+s.seminar_contents.create(content: "Auseinandersetzung mit dem Thema Erwachsen werden")
+s.seminar_contents.create(content: "Reflektion der eigenen Position im Leben")
+s.seminar_contents.create(content: "Thema oder Frage finden")
+s.seminar_contents.create(content: "innere Einkehr")
+s.seminar_contents.create(content: "Integration des Erlebten")
 
 
 
@@ -65,15 +65,15 @@ s = SeminarInstance.new(
 s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.save!
-s.seminar_content.create(content: "Bäume erkennen und benennen")
-s.seminar_content.create(content: "Bäume als Nahrung")
-s.seminar_content.create(content: "Heilkraft erfahren")
-s.seminar_content.create(content: "unterschiedliches Holz verarbeiten")
-s.seminar_content.create(content: "Baum als Spiegel und Mentor")
+s.seminar_contents.create(content: "Bäume erkennen und benennen")
+s.seminar_contents.create(content: "Bäume als Nahrung")
+s.seminar_contents.create(content: "Heilkraft erfahren")
+s.seminar_contents.create(content: "unterschiedliches Holz verarbeiten")
+s.seminar_contents.create(content: "Baum als Spiegel und Mentor")
 
 
 s = SeminarInstance.new(
-  name: "Wandel",
+  name: "Wandel im  Alter",
   seminar_type_id: 3,
   description: "“Wo seid ihr,ihr Alten und Weisen? Ihr, die ihr schon einen so weiten Lebensweg gegangen seid? Ich brauche Euch! Ich brauche Eure Führung!”
   So ähnlich äußerte sich eine 20-jährige auf einem Kongress der 13 Großmütter in Karlsruhe. Diese Forderung einer jungen Frau offenbart einen gesellschaftlichen Mißstand.
@@ -86,9 +86,9 @@ s = SeminarInstance.new(
 s.image_1.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.image_2.attach(io: File.open("app/assets/images/owl.jpg"), filename: "Owl.jpg")
 s.save!
-s.seminar_content.create(content: "Ernährung in den Wechseljahren und Kochen eines solchen Gerichtes")
-s.seminar_content.create(content: "phytohormonelle Pflanzen kennenlernen")
-s.seminar_content.create(content: "eintägiger Schwellengang mit anschließender Integration")
-s.seminar_content.create(content: "Austausch, Geschichten der Großmütter und das Erleben von Gemeinschaft in einer Zeit des Wandels ")
+s.seminar_contents.create(content: "Ernährung in den Wechseljahren und Kochen eines solchen Gerichtes")
+s.seminar_contents.create(content: "phytohormonelle Pflanzen kennenlernen")
+s.seminar_contents.create(content: "eintägiger Schwellengang mit anschließender Integration")
+s.seminar_contents.create(content: "Austausch, Geschichten der Großmütter und das Erleben von Gemeinschaft in einer Zeit des Wandels ")
 
 puts "Seminar Instances created"

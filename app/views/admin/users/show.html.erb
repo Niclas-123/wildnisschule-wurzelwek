@@ -1,7 +1,7 @@
 <h1>Dashboard - <%= current_user.first_name %></h1>
 
 <% @seminars.order('seminars.start_date asc').each do |s| %>
-  <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%m.%d.%Y") %></h3>
+  <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%d.%m.%Y") %></h3>
   <p><%= Booking.where(seminar: s).count %> von <%= s.max_participants %> Anmeldungen</p>
   <%= link_to "Anschauen", admin_seminar_type_seminar_instance_seminar_path(s.seminar_instance.seminar_type.id, s.seminar_instance.id, s.id), class: "button button-primary"  %>
 <% end %>
