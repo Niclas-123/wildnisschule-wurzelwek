@@ -7,7 +7,11 @@ module Admin
 
 
     def show
-      @seminars = Seminar.where(archived: false)
+      if params[:old].exists?
+        @seminars = Seminar.where(archived: true)
+      else
+        @seminars = Seminar.where(archived: false)
+      end
     end
 
   private

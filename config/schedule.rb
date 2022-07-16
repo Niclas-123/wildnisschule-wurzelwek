@@ -21,4 +21,5 @@
 
 every 1.day, at: "4:00 AM" do
   rake "set_unused_bookings"
+  rake "set_archived_seminars"
 end
