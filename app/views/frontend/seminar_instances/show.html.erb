@@ -45,21 +45,42 @@
     </div>
   </div>
 
-  <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %></p>
-  <br>
-  <%= link_to "Generelle Infos", frontend_seminar_infos_path, target: '_blank', class: "button button-primary" %>
 
   <h2>Termine</h2>
+  <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %> - Unterkunft und Verpflegung inklusive</p>
 
   <% @seminars.each do |s| %>
     <p>
       <%= s.start_date.strftime("%m.%d.%Y") %>:
       <%= link_to s.location.name, frontend_location_path(s.location)  %> -
-      <%= Booking.where(seminar: s).count %> von
-      <%= s.max_participants %> Anmeldungen
-    </p>
+      <%= Booking.where(seminar: s).count %> von <%= s.max_participants %> Anmeldungen -
       <% if Booking.where(seminar: s).count < s.max_participants %>
-        <%= link_to "Jetzt buchen", frontend_seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s), class: "button button-primary" %>
+      <span>
+        <%= link_to "Jetzt buchen", frontend_seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s) %>
+      </span>
       <% end %>
+    </p>
   <% end %>
+
+  <h2 id="seminarinformationen">Generelle Informationen</h2>
+  <ul>
+    <li>
+      Um das Gemeinschaftsgefühl zu stärken, wird an jedem Wochenende mindestens ein Abendessen zusammen  am Feuer zubereitet, die Essen sind vegan und glutenfrei.
+    </li>
+    <li>
+      Allen Kursen liegen die Gedanken zugrunde, wie wir Müll reduzieren und auf Ressourcen achten können (z.b. Feuerholz, Strom, Kühlung oder Licht). Wie können wir unseren Wasserverbrauch reduzieren und wieviel davon brauchen wir wirklich? Wir öffnen uns für  Alternativen und dabei ist auch unsere Kreativität gefordert.
+    </li>
+    <li>
+      Die Anreise zu den Seminaren erfolgt auf eigene Verantwortung und ist nicht im Seminarpreis enthalten.
+    </li>
+    <li>
+      Einige Stunden werden auch bei Dunkelheit oder unterschiedlichen Wetterlagen draußen verbracht, wobei wir als Leiter natürlich zuerst die Sicherheit der Teilnehmer im Auge haben - safety first!
+    </li>
+    <li>
+       Genaueres zu Haftung und Rücktrittsbedingungen könnt ihr unseren <%= link_to 'AGBs', frontend_agb_path, target: "_blank" %> entnehmen.
+    </li>
+  </ul>
+  <p>
+  </p>
+
 </div>

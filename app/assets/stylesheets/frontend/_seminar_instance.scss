@@ -28,6 +28,7 @@
         outline: 5px solid var(--primary);
         width: 100%;
         object-fit: cover;
+        aspect-ratio: 5 / 3;
       }
 
       @include breakpointDesktop() {
@@ -51,6 +52,15 @@
       height: 300px;
       object-fit: cover;
       object-position: left;
+    }
+  }
+
+  span {
+
+    a {
+      color: var(--primary);
+      font-family: 'Hand-Boys';
+      font-size: var(--step-1);
     }
   }
 }
