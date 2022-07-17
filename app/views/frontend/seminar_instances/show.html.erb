@@ -1,86 +1,121 @@
 <div class="seminar_instance">
-  <h1><%= @seminar_instance.name %></h1>
+  <section>
+    <h1><%= @seminar_instance.name %></h1>
 
-  <h2>Worum es geht:</h2>
-  <p><%= @seminar_instance.description %></p>
+    <h2>Worum es geht:</h2>
+    <p><%= @seminar_instance.description %></p>
+  </section>
 
-  <div class="seminar_instance__image-mobile">
-    <%= image_tag(@seminar_instance.image_1, alt: "Seminar der Wildnisschule Wurzelholz") %>
-  </div>
-
-
-  <h2>Vermittelte Inhalte:</h2>
-  <div class="seminar_instance__image_section">
-    <div>
-      <ul>
-        <% @seminar_instance.seminar_contents.each do |s| %>
-          <li><%= s.content %></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="seminar_instance__image">
+  <section>
+    <div class="seminar_instance__image-mobile">
       <%= image_tag(@seminar_instance.image_1, alt: "Seminar der Wildnisschule Wurzelholz") %>
     </div>
 
-  </div>
+    <h2>Vermittelte Inhalte:</h2>
+    <div class="seminar_instance__image_section">
+      <div>
+        <ul>
+          <% @seminar_instance.seminar_contents.each do |s| %>
+            <li><%= s.content %></li>
+          <% end %>
+        </ul>
+      </div>
 
-  <div class="seminar_instance__image-mobile">
-    <%= image_tag(@seminar_instance.image_2, alt: "Seminar der Wildnisschule Wurzelholz") %>
-  </div>
-
-  <h2>Ausrüstungsliste</h2>
-  <div class="seminar_instance__image_section">
-    <div>
-      <ul>
-        <% @seminar_instance.equipment_items.each do |i| %>
-          <li><%= i.name %></li>
-        <% end %>
-      </ul>
+      <div class="seminar_instance__image">
+        <%= image_tag(@seminar_instance.image_1, alt: "Seminar der Wildnisschule Wurzelholz") %>
+      </div>
     </div>
+  </section>
 
-
-    <div class="seminar_instance__image">
+  <section>
+    <div class="seminar_instance__image-mobile">
       <%= image_tag(@seminar_instance.image_2, alt: "Seminar der Wildnisschule Wurzelholz") %>
     </div>
-  </div>
+
+    <h2>Ausrüstungsliste</h2>
+    <div class="seminar_instance__image_section">
+      <div>
+        <ul>
+          <% @seminar_instance.equipment_items.each do |i| %>
+            <li><%= i.name %></li>
+          <% end %>
+        </ul>
+      </div>
 
 
-  <h2>Termine</h2>
-  <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %> - Unterkunft und Verpflegung inklusive</p>
+      <div class="seminar_instance__image">
+        <%= image_tag(@seminar_instance.image_2, alt: "Seminar der Wildnisschule Wurzelholz") %>
+      </div>
+    </div>
+  </section>
 
-  <% @seminars.each do |s| %>
+  <section>
+    <h2>Termine:</h2>
+    <p>*UVM steht für Unterkunft, Verpflegung und Materialien - den hier ausgeschilderten Preis bitte <span>immer in Bar mitbringen</span>. </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Ort</th>
+          <th>Anmeldungen</th>
+          <th>Preis</th>
+          <th>Buchen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @seminars.each do |s| %>
+          <tr>
+            <td>
+              <%= s.start_date.strftime("%d.%m.%Y") %> bis <%= s.end_date.strftime("%d.%m.%Y") %>
+            </td>
+            <td>
+              <%= link_to s.location.name, frontend_location_path(s.location)  %>
+            </td>
+            <td>
+              <%= Booking.where(seminar: s).count %> von <%= s.max_participants %>
+            </td>
+            <td>
+              <%= @seminar_instance.price %><%= currency_symbol %> + <%= s.additional_costs %><%= currency_symbol %> (UVM*)
+            </td>
+            <td>
+              <% if Booking.where(seminar: s).count < s.max_participants %>
+                <span>
+                  <%= link_to "Jetzt buchen", frontend_seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s) %>
+                </span>
+              <% else %>
+                Ausgebucht
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Generelle Informationen:</h2>
+    <h3>Unterkunft & Verpflegung</h3>
     <p>
-      <%= s.start_date.strftime("%d.%m.%Y") %>:
-      <%= link_to s.location.name, frontend_location_path(s.location)  %> -
-      <%= Booking.where(seminar: s).count %> von <%= s.max_participants %> Anmeldungen -
-      <% if Booking.where(seminar: s).count < s.max_participants %>
-      <span>
-        <%= link_to "Jetzt buchen", frontend_seminar_type_seminar_instance_seminar_account_abfrage_path(@seminar_type, @seminar_instance, s) %>
-      </span>
-      <% end %>
+      Um das Gemeinschaftsgefühl zu stärken werden an jedem Wochenende, je nach Dauer des Seminars, ein bis zwei warme Abendessen von uns gestellt. Frühstück und Brotzeit - je nach Region Mittagessen genannt - bringen die Teilnehmer selbst mit (der Ausrüstungsliste zu entnehmen).
     </p>
-  <% end %>
+    <p>
+      Die Unterkünfte sind einfach, meist - wenn überhaupt drinnen - Matratzenlager. Sollte ein Zelt oder Tarp gebraucht werden steht dies in der Ausrüstungsliste des jeweiligen Seminars
+    </p>
 
-  <h2 id="seminarinformationen">Generelle Informationen</h2>
-  <ul>
-    <li>
-      Um das Gemeinschaftsgefühl zu stärken, wird an jedem Wochenende mindestens ein Abendessen zusammen  am Feuer zubereitet, die Essen sind vegan und glutenfrei.
-    </li>
-    <li>
-      Allen Kursen liegen die Gedanken zugrunde, wie wir Müll reduzieren und auf Ressourcen achten können (z.b. Feuerholz, Strom, Kühlung oder Licht). Wie können wir unseren Wasserverbrauch reduzieren und wieviel davon brauchen wir wirklich? Wir öffnen uns für  Alternativen und dabei ist auch unsere Kreativität gefordert.
-    </li>
-    <li>
-      Die Anreise zu den Seminaren erfolgt auf eigene Verantwortung und ist nicht im Seminarpreis enthalten.
-    </li>
-    <li>
-      Einige Stunden werden auch bei Dunkelheit oder unterschiedlichen Wetterlagen draußen verbracht, wobei wir als Leiter natürlich zuerst die Sicherheit der Teilnehmer im Auge haben - safety first!
-    </li>
-    <li>
-       Genaueres zu Haftung und Rücktrittsbedingungen könnt ihr unseren <%= link_to 'AGBs', frontend_agb_path, target: "_blank" %> entnehmen.
-    </li>
-  </ul>
-  <p>
-  </p>
+    <h3>Nebenkosten</h3>
+    <p>
+      Es fallen an jedem Seminar neben den ausgeschriebenen Seminarkosten noch jeweils Nebenkosten für Unterkunft, Verpflegung und Kursmaterialien an (neben dem Preis als UVM ausgeschildert). Diese sind bitte immer in bar mitzubringen. Die Höhe der Kosten ist bei jedem Seminar unterschiedlich.
+    </p>
 
+    <h3>Philosophie</h3>
+    <p>
+      Allen Kursen liegen die Gedanken zugrunde, wie wir Müll reduzieren, wie wir auf Ressourcen achten können in Form von Feuerholz, Strom, auch Kühlung oder Licht. Wie können wir unseren Wasserverbrauch reduzieren und wieviel davon brauchen wir wirklich? Wir öffnen uns für Alternativen  und dabei ist auch unsere Kreativität gefordert.
+    </p>
+
+    <h3>Anreise & Verantwortung</h3>
+    <p>
+      Die Anreise zu den Seminaren erfolgt auf eigene Verantwortung und auch während des Kurses ist gesunder Menschenverstand gefragt. Genaueres könnt ihr unseren <%= link_to 'AGBs', frontend_agb_path, class: 'red' %> entnehmen. Einige Stunden werden auch bei Dunkelheit oder unterschiedlichen Wetterlagen draußen verbracht, wobei wir als Leiter zuerst die Sicherheit der Teilnehmer im Auge haben - safety first! So daß sich das Programm aufgrund von äußeren Umständen verändern  oder auch Teile wegfallen können.
+    </p>
+  </section>
 </div>

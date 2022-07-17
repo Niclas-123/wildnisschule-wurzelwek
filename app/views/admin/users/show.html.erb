@@ -1,5 +1,7 @@
 <h1>Dashboard - <%= current_user.first_name %></h1>
 
+<%= link_to "Archiviert", admin_user_path(current_user, old: "Ja") %>
+
 <% @seminars.order('seminars.start_date asc').each do |s| %>
   <h3><%= s.seminar_instance.name %> am <%= s.start_date.strftime("%d.%m.%Y") %></h3>
   <p><%= Booking.where(seminar: s).count %> von <%= s.max_participants %> Anmeldungen</p>

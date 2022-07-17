@@ -17,5 +17,5 @@ class Seminar < ApplicationRecord
 
   has_many :bookings
 
-  validates :start_date, :end_date, :max_participants, presence: true
+  validates :start_date, :end_date, :max_participants, :additional_costs, presence: true
 end

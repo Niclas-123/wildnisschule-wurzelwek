@@ -8,6 +8,7 @@ class CreateSeminars < ActiveRecord::Migration[7.0]
       t.datetime :end_date
       t.integer :max_participants
       t.boolean :archived, default: false
+      t.string :additional_costs
 
       t.timestamps
     end

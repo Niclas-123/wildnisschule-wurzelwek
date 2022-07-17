@@ -15,7 +15,7 @@ class SeminarInstance < ApplicationRecord
   has_one_attached :image_1
   has_one_attached :image_2
 
-  validates :name, :description, :price_cents, :image_1, :image_2, presence: true
+  validates :name, :description, :price_cents, :image_1, :image_2, :breakfast, :lunch, :dinner, presence: true
 
   accepts_nested_attributes_for :seminar_contents, allow_destroy: true
 end

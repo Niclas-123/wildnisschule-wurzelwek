@@ -7,7 +7,7 @@ module Admin
 
 
     def show
-      if params[:old].exists?
+      if params[:old] == 'Ja'
         @seminars = Seminar.where(archived: true)
       else
         @seminars = Seminar.where(archived: false)

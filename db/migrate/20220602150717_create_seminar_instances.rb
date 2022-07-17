@@ -6,6 +6,9 @@ class CreateSeminarInstances < ActiveRecord::Migration[7.0]
 
       t.string :name
       t.text :description
+      t.integer :breakfast
+      t.integer :lunch
+      t.integer :dinner
 
       t.string :stripe_plan_name
       t.string :paypal_plan_name
