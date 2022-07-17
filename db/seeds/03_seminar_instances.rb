@@ -85,7 +85,7 @@ s.seminar_contents.create(content: "Baum als Spiegel und Mentor")
 
 
 s = SeminarInstance.new(
-  name: "Wandel im  Alter",
+  name: "Wandel",
   seminar_type_id: 3,
   description: "“Wo seid ihr,ihr Alten und Weisen? Ihr, die ihr schon einen so weiten Lebensweg gegangen seid? Ich brauche Euch! Ich brauche Eure Führung!”
   So ähnlich äußerte sich eine 20-jährige auf einem Kongress der 13 Großmütter in Karlsruhe. Diese Forderung einer jungen Frau offenbart einen gesellschaftlichen Mißstand.

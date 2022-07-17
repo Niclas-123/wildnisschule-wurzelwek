@@ -63,7 +63,7 @@ module Admin
     end
 
     def seminar_params
-      params.require(:seminar).permit(:start_date, :end_date, :max_participants, :location_id).merge(seminar_instance: @seminar_instance)
+      params.require(:seminar).permit(:start_date, :end_date, :max_participants, :location_id, :additional_costs).merge(seminar_instance: @seminar_instance)
     end
 
   end

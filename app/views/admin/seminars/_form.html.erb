@@ -33,6 +33,11 @@
       <% end %>
     </div>
 
+    <div class="form-container__group">
+      <%= f.label :additional_costs, "Nebenkosten" %>
+      <%= f.text_field :additional_costs %>
+    </div>
+
     <%= f.submit "save", class: "button button-primary" %>
 
   </div>

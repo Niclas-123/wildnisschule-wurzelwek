@@ -52,6 +52,21 @@
     </div>
 
     <div class="form-container__group">
+      <%= f.label :breakfast, "Anzahl Frühstück" %>
+      <%= f.number_field :breakfast %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :lunch, "Anzahl Mittagessen" %>
+      <%= f.number_field :lunch %>
+    </div>
+
+    <div class="form-container__group">
+      <%= f.label :dinner, "Anzahl Abendessen" %>
+      <%= f.number_field :dinner %>
+    </div>
+
+    <div class="form-container__group">
       <%= f.label :image_1 %>
       <%= f.file_field :image_1 %>
     </div>

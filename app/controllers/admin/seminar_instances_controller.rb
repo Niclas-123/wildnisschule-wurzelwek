@@ -41,7 +41,7 @@ module Admin
   private
 
     def seminar_instance_params
-      params.require(:seminar_instance).permit(:name, :description, :price_cents, :image_1, :image_2, equipment_item_ids: [],  seminar_contents_attributes: [:id, :content]).merge(seminar_type: @seminar_type).permit!
+      params.require(:seminar_instance).permit(:name, :description, :price_cents, :image_1, :image_2, :breakfast, :lunch, :dinner, equipment_item_ids: [],  seminar_contents_attributes: [:id, :content]).merge(seminar_type: @seminar_type).permit!
     end
 
     def set_seminar_instance
