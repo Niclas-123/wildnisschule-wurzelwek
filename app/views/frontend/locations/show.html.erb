@@ -31,7 +31,7 @@
       allowfullscreen
       referrerpolicy="no-referrer-when-downgrade"
       src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.google_maps_key %>
-        &q=Villa+Can+Nemo">
+        &q=<%= @location.latitude %>,<%= @location.longitude %>">
     </iframe>
   </div>
 </div>
