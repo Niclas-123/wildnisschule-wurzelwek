@@ -9,7 +9,8 @@
       <th>Email</th>
       <th>Bezahlt?</th>
       <th>Zahlungsmethode</th>
-      <th>Mitfahrer gesucht? </th>
+      <th>Fahrgemeinschaft? </th>
+      <th>Buchungs Nr.</th>
     </tr>
   </thead>
   <tbody>
@@ -38,6 +39,9 @@
         </td>
         <td>
           <%= "Ja" if b.rideshare %>
+        </td>
+        <td>
+          <%= b.reference_number %>
         </td>
       </tr>
     <% end %>

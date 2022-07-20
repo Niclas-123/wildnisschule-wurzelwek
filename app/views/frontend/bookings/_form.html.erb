@@ -60,6 +60,7 @@
     <legend>Seminar Infos</legend>
 
     <div class="mt-xs">
+      <p>Preis: <%= @seminar_instance.price %><%= currency_symbol %> + <%= @seminar.additional_costs %><%= currency_symbol %> (UVM*)</p>
       <p class=form-container__group--label>
         Alle allgemeinen Informationen zu den Seminaren - bspw. Verpflegung - findest du hier:
         <%= link_to "Infos", frontend_seminar_infos_path, target: "_blank" %>
@@ -84,7 +85,7 @@
 
     <div class="form-container__checkbox">
       <p class=form-container__label>
-        Ich stimme den <%= link_to "Teilnahmebedingungen", frontend_agb_path %> zu.
+        Ich stimme den <%= link_to "Teilnahmebedingungen", frontend_agb_path, target: "_blank" %> zu.
       </p>
       <%= f.check_box :agb, required: true  %>
     </div class="form-container__group">

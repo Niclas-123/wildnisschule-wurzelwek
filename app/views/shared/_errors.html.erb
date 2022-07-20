@@ -1,5 +1,5 @@
 <% if obj.errors.any? %>
-  <div id="error_explanation" class="alert alert-danger">
+  <div>
     <h5> The following errors prohibited this <%= obj.class.name.downcase %> from being saved:</h5>
     <ul>
       <% obj.errors.each do |error| %>

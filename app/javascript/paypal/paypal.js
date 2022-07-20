@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let paypal_button = paypal.Buttons({
     env: 'sandbox', // Valid values are sandbox and live.
     createOrder: async () => {
-      const response = await fetch('/fortbildungen/pflanzenwissen/01_02_2023/buchung/5/create_order', {method: 'POST'});
+      const response = await fetch('/fortbildungen/die-wunderbare-welt-der-vogel/02_06_2023/buchung/4/create_order', {method: 'POST'});
       const responseData = await response.json();
       return responseData.token;
     },
     onApprove: async (data) => {
-      const response = await fetch('/fortbildungen/pflanzenwissen/01_02_2023/buchung/5/capture_order', {
+      const response = await fetch('/fortbildungen/die-wunderbare-welt-der-vogel/02_06_2023/buchung/4/capture_order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

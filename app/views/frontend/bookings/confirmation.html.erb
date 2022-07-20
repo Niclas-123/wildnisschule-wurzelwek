@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  Buchung bestätigen
+<% end %>
+
 <% if @booking.status == "pending" %>
   <h1>Buchung bestätigen</h1>
 <% elsif @booking.status == "paid" %>

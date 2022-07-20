@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  <%= @seminar_instance.name %>
+<% end %>
+
 <article class="seminar_instance">
   <section>
     <h1><%= @seminar_instance.name %></h1>
@@ -56,7 +60,7 @@
     <h2>Termine:</h2>
 
     <% if @seminars.count > 0 %>
-      <p>*UVM steht für Unterkunft, Verpflegung und Materialien - den hier ausgeschilderten Preis bitte <span>immer in Bar mitbringen</span>. </p>
+      <p>*UVM steht für Unterkunft, Verpflegung und Materialien - den hier ausgeschilderten Preis bitte <span style="font-style:italic;">immer in Bar mitbringen</span>. </p>
       <table>
         <thead>
           <tr>
@@ -74,7 +78,7 @@
                 <%= s.start_date.strftime("%d.%m") %> - <%= s.end_date.strftime("%d.%m.%Y") %>
               </td>
               <td>
-                <%= link_to s.location.name, frontend_location_path(s.location)  %>
+                <%= link_to s.location.name, frontend_location_path(s.location), target: "_blank"  %>
               </td>
               <td>
                 <%= Booking.where(seminar: s).count %> von <%= s.max_participants %>
@@ -123,7 +127,7 @@
 
     <h3>Anreise & Verantwortung</h3>
     <p>
-      Die Anreise zu den Seminaren erfolgt auf eigene Verantwortung und auch während des Kurses ist gesunder Menschenverstand gefragt. Genaueres könnt ihr unseren <%= link_to 'AGBs', frontend_agb_path, class: 'red' %> entnehmen. Einige Stunden werden auch bei Dunkelheit oder unterschiedlichen Wetterlagen draußen verbracht, wobei wir als Leiter zuerst die Sicherheit der Teilnehmer im Auge haben - safety first! So daß sich das Programm aufgrund von äußeren Umständen verändern  oder auch Teile wegfallen können.
+      Die Anreise zu den Seminaren erfolgt auf eigene Verantwortung und auch während des Kurses ist gesunder Menschenverstand gefragt. Genaueres könnt ihr unseren <%= link_to 'AGBs', frontend_agb_path, target: "_blank", class: 'red' %> entnehmen. Einige Stunden werden auch bei Dunkelheit oder unterschiedlichen Wetterlagen draußen verbracht, wobei wir als Leiter zuerst die Sicherheit der Teilnehmer im Auge haben - safety first! So daß sich das Programm aufgrund von äußeren Umständen verändern  oder auch Teile wegfallen können.
     </p>
   </section>
 </article>

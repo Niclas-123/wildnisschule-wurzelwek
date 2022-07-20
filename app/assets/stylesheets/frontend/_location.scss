@@ -18,4 +18,9 @@
   &__address > * {
     flex: 1 1 0px;
   }
+
+  &__map {
+    padding: 5px;
+    background-color: var(--primary);
+  }
 }

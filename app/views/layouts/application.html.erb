@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wurzelholz</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= render 'shared/head_tags' %>
 
     <%= javascript_include_tag 'https://js.stripe.com/v3/' %>
-    <%= javascript_include_tag "https://www.paypal.com/sdk/js?client-id=#{Rails.application.credentials[:paypal_client_id]}" %>
+    <%= javascript_include_tag "https://www.paypal.com/sdk/js?client-id=#{Rails.application.credentials.paypal_client_id}" %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_key}" %>
   </head>
 
 

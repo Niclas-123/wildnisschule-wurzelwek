@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  <%= @location.name %>
+<% end %>
+
 <div class="location-container">
   <h1><%= @location.name %></h1>
 
@@ -17,4 +21,17 @@
   </div>
 
   <p><%= @location.description %></p>
+
+  <div class="location-container__map">
+    <iframe
+      width="100%"
+      height="500rem"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.google_maps_key %>
+        &q=Villa+Can+Nemo">
+    </iframe>
+  </div>
 </div>

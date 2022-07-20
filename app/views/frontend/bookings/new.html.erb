@@ -1,4 +1,8 @@
-<h1>Buchung :) <br> <%= @seminar_instance.name %>, <br> am <%= @seminar.start_date.strftime("%d.%m.%Y") %></h1>
+<% content_for :title do %>
+  Neue Buchung
+<% end %>
+
+<h1>Buchung :) <br> <%= @seminar_instance.name %>, <br> am <%= @seminar.start_date.strftime("%d.%m.%Y") %> </h1>
 
 <%= render 'form' %>
 
